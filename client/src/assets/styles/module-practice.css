@@ -1,0 +1,155 @@
+
+
+@import 'vars.css';
+
+/* ************************************************** Itens na parte superior ************************************************** */
+
+#upper-area {
+    /* border-bottom: #374151 solid 1px; */
+    margin: 0 auto;
+    height: 24vh;
+}
+
+/* Bloco espelhado */
+#upper-area #blocks-area-mirror {
+    background: linear-gradient(30deg, #D1FAE5, aquamarine);
+    border: gray solid 1px;
+    border-radius: .2rem;
+    overflow: auto;
+    padding: .3rem;
+    height: 23vh;
+    width: 40vw;
+    /* resize: vertical; */
+}
+
+/* Enunciado da consulta */
+#upper-area #frame-query-text {
+    background: var(--deep-blue);
+    border-radius: .2rem;
+    color: var(--soft-green);
+    letter-spacing: .5px;
+    padding: .7rem;
+    text-align: justify;
+    height: 15vh;
+    overflow-y: auto;
+    margin-left: 5rem;
+}
+
+.banner-viewport::-webkit-scrollbar {
+    width: .7rem;
+    height: 1rem;
+}
+
+.banner-viewport::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.banner-viewport::-webkit-scrollbar-thumb {
+    background-color: #adf;
+    border: #222 solid 1px;
+    /* border-radius: 999px; */
+}
+
+
+/* Assuntos SQL área */
+#upper-area #frame-subject {
+    width: 20vw;
+}
+
+/* Assuntos SQL item */
+#upper-area #frame-subject-select, .round-title {
+    background: var(--soft-green);
+    /* border: #222 solid 1px; */
+    border-bottom: #222 solid .3rem;
+    border-left: #222 solid .3rem;
+    border-right: #111 solid 1px;
+    border-top: #111 solid 1px;
+    border-radius: .7rem;
+    padding: 1rem;
+}
+
+#upper-area #frame-subject-select {
+    box-shadow: 0 0 .44rem var(--deep-blue);
+    cursor: pointer;
+}
+
+/* Expandir visão (botão) */
+#upper-area #expand-tables-view {
+    background: var(--matte-yellow);
+    border-radius: .3rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: .2rem;
+}
+
+/* ************************************************** Itens na parte do meio ************************************************** */
+/* Região em si */
+#middle-area #frame-base-de-dados {
+    border-radius: .4rem;
+    /* box-shadow: 0 0 .2rem var(--latex-blue-weak); */
+    width: 77vw;
+    height: 40vh;
+    overflow: auto;
+    padding: .5rem;
+    margin: 0 0 .7rem 0;
+}
+
+/* ************************************************** Itens na parte de baixo ************************************************** */
+/* Região em si */
+#bottom-area {
+    margin: .5rem auto;
+}
+
+/* Região do console */
+#bottom-area #console {
+    width: 40vw;
+}
+
+/* Área de texto */
+#bottom-area textarea {
+    /* background: linear-gradient(var(--burnt-yellow-stronger), var(--matte-yellow)); */
+    background: var(--modal-layout);
+    border: var(--deep-blue) solid 1px;
+    border-radius: .2rem;
+    font-weight: 400;
+    margin: .5rem 0 0 0;
+    outline: none;
+    padding: .5rem;
+    text-shadow: 0 0 .4rem #222;
+    height: 23vh;
+    width: 40vw;
+}
+
+/* Área de texto (características) */
+#bottom-area #query-console {
+    color: var(--deep-blue);
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+#resource-status {
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Área de ordenação de blocos */
+#bottom-area #blocks {
+    width: 40vw;
+}
+
+/* Área de ordenação de blocos (características) */
+#bottom-area #blocks-area {
+    /* background: linear-gradient(90deg, #374151, var(--deep-blue), var(--deep-blue)); */
+    /* background: linear-gradient(90deg, rgb(16, 137, 129, .7), rgb(16, 137, 129, .6), rgb(16, 137, 129, .5)); */
+    background: var(--modal-layout-v2);
+    border: #222 solid 1px;
+    border-radius: .2rem;
+    margin: .5rem 0 0 0;
+    overflow: auto;
+    padding: .3rem;
+    height: 23vh;
+    width: 40vw;
+
+    resize: vertical;
+}

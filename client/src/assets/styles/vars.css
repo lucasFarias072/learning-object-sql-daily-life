@@ -1,0 +1,34 @@
+
+
+:root {
+    --logo-green: rgb(233, 245, 223);
+    --logo-central-blue: rgb(32, 53, 114);
+    --logo-top-green: rgb(190, 225, 70);
+    --logo-northest-green: rgb(0, 174, 123);
+    --logo-central-yellow-string: rgb(190, 210, 42);
+
+    --deep-blue: #1F2937;
+    --latex-blue: #3B82F6;
+    --latex-blue-avg: rgb(60, 120, 210);
+    --latex-blue-weak: rgb(70, 140, 230); 
+    --soft-green: #D1FAE5;
+
+    --matte-yellow: #fff999;
+    --matte-yellow-soft: #fffbbb;
+
+    --army-green: rgb(0, 99, 99);
+
+    --burnt-yellow: #E5AE1B; /* #F59E0B */
+    --burnt-yellow-stronger: #F59E0B;
+
+    --modal-layout: linear-gradient(15deg, var(--soft-green), rgb(233, 245, 223), rgb(70, 140, 230));
+    --modal-layout-opaque: linear-gradient(15deg, rgba(209, 250, 229, .4), rgba(233, 245, 223, .4), rgba(70, 140, 230, .4));
+    --modal-layout-v2: linear-gradient(15deg, var(--soft-green), rgb(233, 245, 223));
+    --modal-layout-v3: linear-gradient(15deg, var(--soft-green), var(--logo-green), white);
+    --modal-layout-v4: linear-gradient(15deg, white, var(--logo-green), var(--soft-green));
+
+    --theory-layout: linear-gradient(rgb(209, 250, 229), #adf);
+}
+
+/* Corrigir a margem de 'frame-base-de-dados' */
+/* Corrigir a cor do botão no bloco de ordenação */

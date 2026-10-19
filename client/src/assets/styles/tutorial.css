@@ -1,0 +1,253 @@
+
+
+@import 'vars.css';
+
+#accept-tutorial {
+    /* background: var(--deep-blue); */
+    background: #adf;
+    border: #222 solid 1px;
+    cursor: pointer;
+    color: #222;
+    border-radius: .1rem;
+    margin: .3rem 0 0 0;
+    padding: .3rem .5rem;
+    text-shadow: 0 0 .3rem white;
+}
+
+.theory {
+  font-family: consolas; /* 'Times New Roman', Times, serif */
+}
+
+#tutorial {
+    background: var(--modal-layout);
+    /* background: var(--deep-blue); */
+    /* background: var(--matte-yellow); */
+    border: var(--deep-blue) solid 1px;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    box-shadow: 0 0 2rem transparent;
+    position: fixed;
+    top: 5%;
+    margin: 0 0 0 -6rem;
+    height: 10vh;
+    width: 10vw;
+    transition: all linear .5s;
+    animation: tutorial-shake-v2 2s ease-in-out infinite;
+}
+
+#tutorial-indicator {
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+#tutorial-steps {
+    background: rgb(31, 41, 55);
+    border-radius: .33rem; 
+    /* border-top-right-radius: .33rem; */
+    /* border-bottom-right-radius: .33rem; */
+    /* color: var(--matte-yellow); */
+    color: white;
+    font-size: .8rem;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    letter-spacing: 1.5px;
+    padding: .5rem;
+    text-align: left;
+    /* text-shadow: 0 0 .5rem #F59E0B; */
+    /* text-shadow: 0 0 .5rem white; */
+    
+    position: fixed;
+    top: 35%;
+    height: 22vh;
+    width: 22vw;
+    z-index: 2;
+}
+
+#tutorial:hover {
+    margin: 0;
+}
+
+.tutorial-highlight {
+  /* border: var(--deep-blue) solid .05rem;
+  border-radius: .3rem;
+  box-shadow: 0 0 .4rem rgb(10, 15, 30);
+  padding: .2rem; */
+  animation: tutorial-shake 2.5s ease-in-out infinite;
+}
+
+.body-layout {
+  background: var(--modal-layout);
+  border: var(--deep-blue) solid 1px;
+  color: var(--deep-blue);
+  font-size: .9rem;
+  padding: 2rem;
+}
+
+.theory-layout {
+  /* background: var(--modal-layout-opaque); */
+  /* border: var(--deep-blue) solid 1px; */
+  border: lightgray solid 1px;
+  background: var(--theory-layout);
+  border-radius: .2rem;
+  color: var(--deep-blue);
+  font-size: .85rem;
+  padding: 2rem;
+}
+
+.case {
+  font-size: .9rem;
+}
+.case-header {
+  background: linear-gradient(15deg, var(--matte-yellow-soft), var(--soft-green));
+  border-right: #222 solid .5rem;
+  border-bottom: #222 solid .5rem;
+  border-top: black solid 1.5px;
+  border-left: black solid 1.5px;
+  border-radius: .66rem;
+  display: inline;
+  padding: .44rem;
+  width: 20vw;
+}
+.pool {
+  background: aquamarine;
+  border: #222 solid 1px;
+  border-radius: .3rem;
+}
+.item-b, .blue {
+  background: var(--latex-blue-weak);
+  border: #222 solid 1px;
+  border-radius: .3rem;
+  color: white;
+}
+.item-db, .d-blue {
+  background: var(--deep-blue);
+  border-radius: .3rem;
+  color: white;
+}
+.item-g, .d2-cyan {
+  background: var(--army-green);
+  border-radius: .3rem;
+  color: var(--soft-green);
+}
+.item-g2 {
+  background: yellowgreen;
+  border-radius: .3rem;
+  color: white;
+}
+.item-r, .red {
+  background: #c15;
+  border-radius: .3rem;
+  color: white;
+}
+.item-p {
+  background: purple;
+  border-radius: .3rem;
+  color: yellow;
+}
+.item-s, .mixed {
+  background: linear-gradient(15deg, #adf, #D1FAE5);
+  border: gray solid 1px;
+  /* border-radius: .3rem; */
+  color: black;
+}
+.ppl {
+  background: purple;
+  border-radius: .3rem;
+  color: #f2f2f2;
+}
+.pk {
+  background: pink;
+  border: #222 solid 1px;
+  border-radius: .3rem;
+  color: #222;
+}
+.item-s2, .cream {
+  background: salmon;
+  border: #222 solid .1px;
+  border-radius: .3rem;
+  color: white;
+}
+.item-s3 {
+  background: linear-gradient(70deg, magenta, crimson);
+  border-radius: .3rem;
+  color: black;
+}
+.item-w {
+  background: #f2f2f2;
+  border-radius: .3rem;
+}
+.item-c {
+  background: #246;
+  border-radius: .3rem;
+  color: var(--soft-green);
+}
+.native {
+  background: #f2f2f2;
+  border: #222 solid .1px;
+  color: purple;
+  font-weight: bold;
+}
+.item-lg {
+  background: var(--soft-green);
+  border-radius: .3rem;
+}
+.item-y, .ylw {
+  background: var(--matte-yellow);
+  border: var(--deep-blue) solid .1px;
+  border-radius: .3rem;
+}
+.item-y2 {
+  background: linear-gradient(var(--matte-yellow-soft), yellow);
+  border: purple solid .1px;
+  border-radius: .3rem;
+}
+.d-cyan {
+  background: darkcyan;
+  border-radius: .2rem;
+  color: yellow;
+  /* font-weight: bold; */
+}
+.sql-code {
+  /* background: var(--modal-layout-v3); */
+  background: #adf;
+  border: lightgray solid 1px;
+  border-radius: .3rem;
+  font-size: .85rem;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  margin: .5rem 0;
+  padding: 1rem;
+}
+.shine {
+  background: linear-gradient(15deg, aqua, #adf);
+  border: #222 solid 1px;
+  border-radius: .2rem;
+  padding: .22rem;
+  text-shadow: 0 0 .5rem var(--soft-green);
+}
+.subtitles {
+  background: #fffbbb;
+  /* background: #adf; */
+  border: lightgray solid .5px;
+  border-radius: .2rem;
+  font-size: .85rem;
+  padding: .88rem .44rem;
+  text-align: center;
+}
+
+/*
+baixo -> box-shadow: - aqui positivo - -;
+cima -> box-shadow: - aqui negativo - -;
+esquerda -> box-shadow: aqui negativo - - -;
+direita -> box-shadow: aqui positivo - - -;
+*/
+@keyframes tutorial-shake {
+  0%, 100% { transform: translateX(0); box-shadow: 0 -.4rem .3rem black; border-radius: .22rem; padding: .22rem;}
+  20% { transform: translateX(-3px); box-shadow: .4rem 0 .3rem rgb(0, 128, 28);  border-radius: .22rem; padding: .22rem;}
+  40% { transform: translateX(3px); box-shadow: 0 .4rem .3rem rgb(0, 55, 255); border-radius: .22rem; padding: .22rem;}
+  60% { transform: translateX(-3px); box-shadow: -.4rem 0 .3rem rgb(255, 28, 28);  border-radius: .22rem; padding: .22rem;}
+}
+
+@keyframes tutorial-shake-v2 {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(2.5px); box-shadow: 0 0 .1.4rem white;}
+  75% { transform: translateX(-2.5px); box-shadow: 0 0 1.4rem rgb(10, 15, 30); }
+}

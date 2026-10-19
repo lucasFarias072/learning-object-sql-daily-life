@@ -1,0 +1,16 @@
+
+
+.indicator {
+    font-size: 1.5rem;
+}
+
+.indicator-left {
+    font-size: 1.5rem;
+    transform: rotate(180deg);
+}
+
+.info {
+    cursor: pointer;
+    font-size: 2rem;
+    text-shadow: 0 0 .5rem black;
+}

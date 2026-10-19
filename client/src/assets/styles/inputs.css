@@ -1,0 +1,10 @@
+
+
+#column-input, #table-input {
+    outline: none;
+    background: var(--soft-green);
+    border: var(--deep-blue) solid .1px;
+    border-radius: .1rem;
+    text-align: center;
+}
+

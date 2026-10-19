@@ -1,0 +1,36 @@
+
+
+a {
+    text-decoration: none;
+}
+button {
+    border: transparent solid 1px;
+    outline: none;
+}
+li {
+    list-style-position: inside;
+    list-style-type: none;
+}
+table {
+    border-collapse: collapse;
+    color: #f2f2f2;
+}
+th, td {
+    border: var(--deep-blue) solid 1px;
+    color: black;
+    font-size: .92rem;
+    padding: .7rem .2rem;
+    text-align: left;
+    white-space: nowrap;
+}
+tr {
+    background: rgba(255, 249, 153, .9);
+}
+.light {
+    /* background: rgba(255, 249, 153); */
+    background: var(--soft-green);
+}
+.light-dark {
+    /* background: rgba(255, 188, 122); */
+    background: var(--matte-yellow);
+}

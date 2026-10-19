@@ -1,0 +1,16 @@
+
+
+.flex {display: flex;}
+.column {flex-flow: column wrap;}
+.column2nd {flex-flow: column nowrap;}
+.row {flex-flow: row wrap;}
+
+.go-left {align-items: flex-start; justify-content: flex-start;}
+.go-center {align-items: center; justify-content: center;}
+.go-right {align-items: flex-end; justify-content: flex-end;}
+.go-left-just-center {align-items: flex-start; justify-content: center;}
+.go-right-just-center {align-items: flex-end; justify-content: center;}
+.gap-xsm {gap: .4rem;}
+.gap-sm {gap: 1rem;}
+.gap-mid {gap: 3rem;}
+.gap-lg {gap: 5rem;}

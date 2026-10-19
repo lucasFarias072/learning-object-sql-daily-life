@@ -1,0 +1,25 @@
+
+
+@import 'vars.css';
+
+.draft-panel {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    width: 45%;
+    z-index: 10;
+}
+
+.textarea-draft {
+    background: linear-gradient(var(--matte-yellow-soft), var(--soft-green));
+    border-radius: .5rem;
+    border: transparent solid .1px;
+    box-sizing: border-box;
+    color: var(--deep-blue);
+    min-height: 15rem;
+    overflow: auto;
+    outline: none;
+    padding: .7rem;
+    resize: vertical;
+    width: 100%;
+}

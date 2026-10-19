@@ -1,0 +1,55 @@
+
+
+@import 'vars.css';
+
+.generic-title {
+    background: linear-gradient(30deg, aquamarine, #adf);
+    border-radius: .2rem;
+    box-shadow: 0 0 .1rem #222;
+    padding: .25rem 1rem;
+}
+#sql-subjects, #tool-a, #tool-b {
+    background: var(--matte-yellow-soft);
+}
+.minor-minor-title {
+    font-size: .8rem;
+}
+.minor-title {
+    font-size: 1rem;
+}
+.table-alias {
+    background: var(--modal-layout);
+    border: #374151 solid 1px;
+    border-radius: .3rem;
+    color: var(--deep-blue);
+    font-size: 1.2rem;
+    font-weight: lighter;
+    padding: .33rem 1rem;
+}
+.title-info-type-a {
+    background: #10B981; border-radius: .3rem; border: var(--deep-blue) solid 2px;
+    font-size: 1rem;
+}
+.title-info-type-b {
+    background: var(--deep-blue); border-radius: .3rem; color: var(--soft-green);
+    font-size: 1rem;
+}
+.title-info-type-b-bigger {
+    background: var(--deep-blue); 
+    border-radius: .3rem; 
+    color: var(--soft-green);
+    letter-spacing: .5px;
+    font-size: 1.1rem;
+    padding: .25rem 1rem;
+}
+.title-sm {
+    font-size: 1.1rem; 
+    font-weight: 600; 
+    margin: 0 0 .2rem 0;
+    padding: .3rem .6rem; 
+    display: inline;
+}
+.upper {
+    text-transform: uppercase;
+}
+        

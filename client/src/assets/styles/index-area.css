@@ -1,0 +1,16 @@
+
+
+@import 'vars.css';
+
+/* .area { */
+    /* background: linear-gradient(15deg, var(--soft-green), var(--latex-blue)); */
+     
+    /* #1F2937
+    background: linear-gradient(15deg, #D1FAE5, #3B82F6);
+    background: linear-gradient(40deg, #D1FAE5, #3B82F6, #1F2937);
+    */
+/* } */
+
+#index-area #logo-oa {
+    border-radius: .2rem;
+}

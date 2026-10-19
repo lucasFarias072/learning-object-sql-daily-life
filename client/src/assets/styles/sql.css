@@ -1,0 +1,43 @@
+
+
+@import 'vars.css';
+
+.syntax {
+    background: var(--matte-yellow); 
+    font-size: .8rem;
+}
+.syntax-sql {
+    background: #f2f2f2;
+}
+.syntax, .syntax-sql {
+    border: var(--deep-blue) solid 1px;
+    border-radius: .2rem; 
+    color: purple; 
+    cursor: pointer; 
+    padding: .2rem; 
+    width: 9vw;
+    overflow-wrap: break-word;
+    font-family: consolas;
+    text-align: center;
+}
+
+.syntax-sql {
+    font-weight: 700; 
+    font-size: .9rem;
+}
+
+.on-start {
+    background: rgb(128, 128, 128);
+    box-shadow: 0 0 .44rem rgb(88, 88, 88);
+    color: white;
+}
+
+.in-the-middle {
+    background: var(--matte-yellow);
+    color: var(--deep-blue);
+}
+
+.in-the-end {
+    background: var(--deep-blue);
+    color: white;
+}

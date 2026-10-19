@@ -1,0 +1,30 @@
+
+
+@import 'vars.css';
+
+.hist-li {
+    background: var(--deep-blue); 
+    box-shadow: 0 0 .3rem #222;
+    margin: 2rem;
+    padding: .5rem;
+    border-radius: .4rem;
+}
+
+.hist-sorter {
+   background: var(--soft-green);
+   border-radius: 1rem;
+   border: var(--deep-blue) solid .1px;
+   color: var(--deep-blue);
+   cursor: pointer;
+   padding: .5rem;
+   width: 10vw;
+   margin:  auto;
+}
+
+.hist-txt {
+    background: var(--deep-blue);
+    border: transparent solid 1px; 
+    color: #E5AE1B;
+    letter-spacing: 2px; 
+    outline: none;
+}

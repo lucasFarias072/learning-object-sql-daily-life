@@ -1,0 +1,116 @@
+/* Adicione essas regras ao seu stylesheet global (ou importe este arquivo
+   de dentro de TheorySlides.tsx, se seu projeto já usa import de CSS por
+   componente). São só regras de LAYOUT — cores/tema ficam a seu critério,
+   pra combinar com o resto do projeto. */
+
+.theory-slides {
+    flex-flow: column nowrap;
+    align-items: stretch;
+    height: 100svh;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.theory {
+    flex-flow: column nowrap;
+    align-items: stretch;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.theory > .assunto-teorico {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.theory-slide-content {
+    max-width: 100%;
+    min-width: 0;
+}
+
+.theory-topic-nav {
+    flex-shrink: 0;
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+}
+
+.theory-topic-btn {
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    background: linear-gradient(15deg, var(--matte-yellow-soft), var(--soft-green));
+    opacity: 0.6;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.theory-topic-btn-active {
+    opacity: 1;
+    font-weight: bold;
+}
+
+.theory-slide-viewport {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    width: 100%;
+    overflow: auto;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+}
+
+.theory-slide-controls {
+    flex-shrink: 0;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.theory-slide-arrow {
+    background: linear-gradient(15deg, var(--matte-yellow-soft), var(--soft-green));
+    border: var(--deep-blue) solid 1px;
+    color: var(--deep-blue);
+    font-weight: bold;
+    padding: 0.5rem 1.25rem;
+    cursor: pointer;
+}
+
+.theory-slide-arrow:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.theory-slide-counter {
+    opacity: 0.7;
+    font-size: 0.9rem;
+    padding: .44rem;
+}
+
+/* Webkit */
+/* Firefox */ /* Firefox: cor da barra, cor do fundo */
+.theory-slide-viewport {
+    scrollbar-width: thin;              
+    scrollbar-color: crimson;  
+}
+
+.theory-slide-viewport::-webkit-scrollbar {
+    width: .5rem;
+    height: .5rem;
+}
+
+.theory-slide-viewport::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.theory-slide-viewport::-webkit-scrollbar-thumb {
+    background-color: crimson;
+    border-radius: 999px;
+}
+
+/* .theory-slide-viewport::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+} */

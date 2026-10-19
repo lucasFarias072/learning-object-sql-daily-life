@@ -1,0 +1,38 @@
+
+
+@import 'vars.css';
+
+#btn-blocks, #btn-console {
+    background: var(--deep-blue);
+    border-radius: .2rem;
+    color: var(--soft-green);
+    font-weight: bold;
+    padding: .2rem;
+}
+
+.btn-instruction {
+    /* background: #374151; */
+    background: #adf;
+    /* border: var(--matte-yellow) solid 1px; */
+    border-radius: .2rem;
+    box-shadow: 0 0 .5rem #adf;
+    color: black;
+    cursor: pointer;
+    margin: .5rem;
+    padding: .3rem .6rem;
+}
+
+.btn-notes {
+    background: var(--deep-blue);
+    border-bottom: #222 solid .3rem;
+    border-left: #222 solid .3rem;
+    border-right: #111 solid 1px;
+    border-top: #111 solid 1px;
+    color: var(--soft-green);
+    padding: .5rem;
+}
+
+.btn-notes:hover {
+    background: var(--logo-central-blue);
+    transition: ease-in .6s;
+}
