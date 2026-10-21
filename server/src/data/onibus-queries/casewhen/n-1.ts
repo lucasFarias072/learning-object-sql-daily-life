@@ -11,11 +11,11 @@ export function caseWhenQueryN1(): QueryScenarioBackend {
         cenario: 'onibus-case-when-1',
         consultaTipo: 'case-when',
         id: 1,
-        // Para cada passageiro sentado ou em pé (crie uma classificação customizada), agrupe pela contagem dessa distinção.
+        // Para cada passageiro sentado ou em pé (crie uma classificação customizada com os rótulos (em_peh) e (sentado)). Agrupe pela coluna criada.
         consulta: `
         select case 
         when assento_fk is null 
-        then 'em pé' 
+        then 'em_peh' 
         else 'sentado' 
         end as situacao_passageiro,
         count(*) as encontrados

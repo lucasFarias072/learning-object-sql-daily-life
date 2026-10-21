@@ -11,13 +11,13 @@ export function caseWhenQueryN1(): QueryScenarioBackend {
         cenario: 'quarto-case-when-1',
         consultaTipo: 'case-when',
         id: 1,
-        // Crie uma coluna customizada com os rótulos (sem suíte), (suíte simples), (suíte robusta) com base nos valores atuais de 'suite_qtd'. Conte a quantidade de cada grupo. Agrupe e ordene pelo próprio rótulo.
+        // Crie uma coluna customizada com os rótulos (sem_suite), (suite_simples), (suite_robusta) com base nos valores atuais de 'suite_qtd'. Conte a quantidade de cada grupo. Agrupe e ordene pelo campo criado.
         consulta: `
         select
             case 
-            when suite_qtd is null then 'sem suíte'
-            when suite_qtd = 1 then 'suíte simples'
-            else 'suíte robusta'
+            when suite_qtd is null then 'sem_suite'
+            when suite_qtd = 1 then 'suite_simples'
+            else 'suite_robusta'
             end as tipo_suite,
             count(*) as qtd_quartos
         from quarto_relatorio

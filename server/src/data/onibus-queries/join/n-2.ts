@@ -11,7 +11,7 @@ export function joinQueryN2(): QueryScenarioBackend {
         cenario: 'onibus-join-2',
         consultaTipo: 'join',
         id: 2,
-        // Liste os identificadores dos passageiros que participaram de alguma conversa no ônibus, seja como pessoa_x ou pessoa_y.
+        // Liste os identificadores dos passageiros (repetições possíveis) que participaram de alguma conversa no ônibus, seja como pessoa_x ou pessoa_y.
         consulta: `
         select passageiro_id
         from passageiro psg

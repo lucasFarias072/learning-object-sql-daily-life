@@ -13,10 +13,9 @@ export function aggregateQueryN1(): QueryScenarioBackend {
         id: 1,
         // Para cada guia, quantos passeios fez e qual a média das avaliações atribuidas a eles em cada passeio achado?
         consulta: `
-        select guia_id, count(*) as quantidade_passeios, avg(avaliacao_guia) as media_avaliacao
-        from guia gui
-        join passeio pas on pas.guia_fk = gui.guia_id
-        group by guia_id;
+        select guia_fk, count(*) as quantidade_passeios, avg(avaliacao_guia) as media_avaliativa
+        from passeio
+        group by guia_fk;
         `,
         tabelas: [],
         campos: [],
