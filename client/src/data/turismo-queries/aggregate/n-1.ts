@@ -8,9 +8,9 @@ export function aggregateQueryN1(): QueryScenarioFrontend {
         // agregacao-1-!@#turismo-ft
         scenario: 'turismo', queryType: 'agregacao', queryId: '1', 
         queryText: "Para cada guia, quantos passeios fez e qual a média das avaliações atribuidas a eles em cada passeio achado?",
-        tables: getTables([37, 38], 1),
-        fields: getTableColumns([37, 38]),
-        tablesNames: getTables([37, 38], 2),
+        tables: getTables([38], 1),
+        fields: getTableColumns([38]),
+        tablesNames: getTables([38], 2),
         conditions: [],
         tricksterIds: [],
     }

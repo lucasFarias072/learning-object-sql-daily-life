@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { QueryScenarioFrontend } from '../types/Containers'
+import { apiUrl } from '../config'
 
 export const SQL_KEYWORDS = [
     'select', ' select', 'select ', 'select\n',
@@ -126,8 +127,9 @@ export function useQueryBlocks(chosenQuery: QueryScenarioFrontend | null, active
 
     let cancelled = false
     setStatus('loading')
-
-    const endpoint = `/api/scenarios/${chosenQuery.scenario}-${chosenQuery.queryType}-${chosenQuery.queryId}`
+    
+    // const endpoint = `/api/scenarios/${chosenQuery.scenario}-${chosenQuery.queryType}-${chosenQuery.queryId}`
+    const endpoint = apiUrl(`/api/scenarios/${chosenQuery.scenario}-${chosenQuery.queryType}-${chosenQuery.queryId}`)
     
     /* Versão antiga da captura de dados pros Blocos de ordenação
     fetch(endpoint)
@@ -219,7 +221,9 @@ export function useQueryBlocks(chosenQuery: QueryScenarioFrontend | null, active
     const query = mirror.map((b) => b.text).join(' ')
 
     try {
-      const response = await fetch('/api/exec-query', {
+      // const response = await fetch('/api/exec-query', { 
+      // #prod
+      const response = await fetch(apiUrl('/api/exec-query'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query }),

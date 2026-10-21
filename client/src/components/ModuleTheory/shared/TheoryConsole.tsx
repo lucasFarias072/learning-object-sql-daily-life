@@ -4,13 +4,13 @@
 import { useState } from 'react'
 import { useQueryTest } from '../../../hooks/useQueryTest'
 import { ResultTable } from '../../ModulePractice/ResultTable'
-import { requirementShield } from '../../../../../utils/sqlShield'
+import { requirementShield } from '../../../utils/sqlShield'
 
 interface TheoryConsoleProps {
   instructions: string   // texto que aparece em cima, tipo "digite a consulta do exemplo acima e rode"
 }
 
-export function TheoryConsole({ instructions }: TheoryConsoleProps) {
+export function TheoryConsole(_props: TheoryConsoleProps) {
   const [value, setValue] = useState('')
   const test = useQueryTest()
 

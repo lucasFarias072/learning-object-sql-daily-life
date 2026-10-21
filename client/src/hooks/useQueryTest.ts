@@ -1,6 +1,7 @@
 
 
 import { useCallback, useState } from 'react'
+import { apiUrl } from '../config'
 
 export const useQueryTest = () => {
   const [testResult, setTestResult] = useState<any[] | null>(null)
@@ -11,7 +12,9 @@ export const useQueryTest = () => {
     setTestStatus('sending')
     setTestError(null)
     try {
-      const response = await fetch('/api/exec-query', {
+      // const response = await fetch('/api/exec-query', { 
+      // #prod
+      const response = await fetch(apiUrl('/api/exec-query'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query }),

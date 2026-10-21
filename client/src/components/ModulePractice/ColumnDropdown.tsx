@@ -1,6 +1,7 @@
 
 
 import { useEffect, useState } from 'react'
+import { apiUrl } from '../../config'
 
 export function ColumnDropdown({ table_name, changeTrigger }: { table_name: string, changeTrigger: any }) {
     const [tabelas, setTabelas] = useState<any[]>([])
@@ -19,7 +20,8 @@ export function ColumnDropdown({ table_name, changeTrigger }: { table_name: stri
         async function carregarColunas() {
             try {
                 // ATENÇÃO: Troque a porta (ex: 3333) pela porta onde seu servidor Node está rodando
-                const response = await fetch(`/api/scenarios/column/${table_name}`)
+                // const response = await fetch(`/api/scenarios/column/${table_name}`)
+                const response = await fetch(apiUrl(`/api/scenarios/column/${table_name}`))
                 const dados = await response.json()
                 
                 // Guarda os dados vindos do banco no nosso estado
