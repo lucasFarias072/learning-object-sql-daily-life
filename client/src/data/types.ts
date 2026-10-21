@@ -1,6 +1,7 @@
 
 
-import { type QueryType } from '../../../server/src/data/scenarios/types'
+// import { type QueryType } from '../../../server/src/data/scenarios/types'
+   import { type QueryType } from './scenarioTypes'
 
 export interface QueryScenarioFrontend {
   scenario: string;
