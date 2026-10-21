@@ -7,7 +7,7 @@ export function joinQueryN3(): QueryScenarioFrontend {
     return {
         // join-3-!@#turismo-ft
         scenario: 'turismo', queryType: 'join', queryId: '3', 
-        queryText: "Liste os ids de passeio e o nome dos guias que trabalham nos expedientes de apenas 1 turno (os de 1 letra no alfabeto no seu texto) e que trabalharam em passeios que a nota de indicação foi de 4.5 ou mais e que a avaliação do guia tenha superado a de indicação. (cláusula 'in' recomendada).",
+        queryText: "Liste os IDs dos passeios e os nomes dos guias que trabalham em expedientes de apenas 1 turno (representados por uma letra no texto) e que conduziram passeios cuja nota de indicação foi de 4.5 ou mais e cuja avaliação do guia superou a nota de indicação. (Cláusula 'in' recomendada).",
         tables: getTables([10, 37, 38], 1),
         fields: getTableColumns([10, 37, 38]),
         tablesNames: getTables([10, 37, 38], 2),

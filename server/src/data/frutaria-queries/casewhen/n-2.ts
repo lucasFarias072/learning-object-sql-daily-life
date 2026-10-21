@@ -11,10 +11,10 @@ export function caseWhenQueryN2(): QueryScenarioBackend {
         cenario: 'frutaria-case-when-2',
         consultaTipo: 'case-when',
         id: 2,
-        // Crie uma coluna para frutas com base nas características (miuda e cara), (cara), (pesada), (comum). Frutas miudas caras (R$ 15 adiante e peso por unidade abaixo de 100g). Para frutas caras, dispense o peso médio e mantenha a lógica do preço falado anteriormente. Para pesada, são as frutas com peso por unidade a partir de 300g. O resto além disso, serão frutas comuns. Agrupe por essa coluna e traga a soma do estoque dos valores dela.",
+        // Crie uma coluna para frutas com base nas características (miuda_e_cara), (cara), (pesada), (comum). Frutas miudas caras (R$ 15 adiante e peso por unidade abaixo de 100g). Para frutas caras, dispense o peso médio e mantenha a lógica do preço falado anteriormente. Para pesada, são as frutas com peso por unidade a partir de 300g. O resto além disso, serão frutas comuns. Agrupe por essa coluna e traga a soma do estoque dos valores dela.
         consulta: `
         select case
-            when preco_atual_kg >= 15 and peso_medio_unid_grama < 100 then 'miuda e cara'
+            when preco_atual_kg >= 15 and peso_medio_unid_grama < 100 then 'miuda_e_cara'
             when preco_atual_kg >= 15 then 'cara'
             when peso_medio_unid_grama >= 300 then 'pesada'
             else 'comum'

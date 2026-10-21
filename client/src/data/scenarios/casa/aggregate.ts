@@ -6,9 +6,11 @@ import { aggregateQueryN2 } from "../../casa-queries/aggregate/n-2";
 import { aggregateQueryN3 } from "../../casa-queries/aggregate/n-3";
 import { aggregateQueryN4 } from "../../casa-queries/aggregate/n-4";
 
+void [aggregateQueryN4];
+
 export const casaAGGREGATE: QueryScenarioFrontend[] = [
     aggregateQueryN1(),
     aggregateQueryN2(),
     aggregateQueryN3(),
-    aggregateQueryN4()
+    // aggregateQueryN4()
 ]

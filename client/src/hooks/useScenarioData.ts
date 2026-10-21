@@ -3,6 +3,7 @@
 // hooks/useScenarioData.ts
 import { useState, useEffect } from 'react';
 import type { TableRecord } from '../types/Containers';
+import { apiUrl } from '../config'
 
 // Mapeia o nome lógico da tabela pro endpoint real do backend
 // Nomes idênticos ao das tabelas (incluindo _)
@@ -92,7 +93,7 @@ export function useScenarioData(tabelas: string[]) {
         tabelas.map(async (nomeTabela) => {
           const endpoint = ENDPOINTS[nomeTabela]
           if (!endpoint) return [nomeTabela, []] as const
-          const res = await fetch(endpoint)
+          const res = await fetch(apiUrl(endpoint))
           const json = await res.json()
           return [nomeTabela, json] as const
         })

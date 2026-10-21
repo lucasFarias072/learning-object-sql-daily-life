@@ -133,7 +133,7 @@ const scenarioTablesColumns = [
 ]
 
 const lookingFor = [
-    "passageiro", "passageiro_item", "item"
+    "", "quarto_relatorio"
 ]
 
 const ids = []

@@ -2,56 +2,6 @@
 
 import { sqlNormalizer } from "./sqlNormalizer"
 
-/* Usos de left join 
-    => só dispensam restrição se o cenário garantir pelo menos uma linha com FK nula
-
-    VERIFICAÇÃO (caso entre duas tabelas, não sei sobre além disso)
-    select * from avistamento where algo_visto_fk is null;
-    select * from passageiro where assento_fk is null;
-
-    SE RETORNA LINHAS:
-        . analysis = [true]
-    SENÃO:
-        . criar restrições
-    
-    . exercicio || // case-when-1-!@#exercicio-bk
-    . onibus    || // case-when-1-!@#onibus-bk
-*/
-
-/* Onde a restrição pontual é realmente necessária (porque "chutar" tem chance real de acertar por acaso):
-
-Subconsultas 
-    . quase sempre existe um JOIN que produz exatamente o mesmo conjunto de linhas que uma subconsulta produziria. 
-
-Join
-    "J3": join + polireferência (tabela é referenciada no join + de 1 vez)     
-    "J4": self join (tabela chama join dela mais de uma vez)                                                                      
-    "J5": join + or (linha do join com OR)                                
-    "J8": join com filtro AND e OR juntos
-
-Case when
-    "C2": Uso do case when no select que afete o order by use os valores                
-    "C4": Uso do case when no select, que o group by aproveite e o order by use os valores
-    "C5"/"C6": só dispensam restrição se o cenário garantir FK nula; sem essa garantia, mantenha a checagem de left join
-
-Agregação
-    . do A6 até A15
-*/
-
-/* Restrições adequadas pra agregações com (where) e/ou (having)
-    // A6/A9/A10 (apenas where)
-    sqlInRow.split(" ").filter(word => word === "where").length >= 1,
-    sqlInRow.split(" ").filter(word => word === "having").length === 0
-
-    // A7/A11/A12 (apenas having)
-    sqlInRow.split(" ").filter(word => word === "having").length >= 1,
-    sqlInRow.split(" ").filter(word => word === "where").length === 0
-
-    // A8/A13/A14/A15 (where + having juntos)
-    sqlInRow.split(" ").filter(word => word === "where").length >= 1,
-    sqlInRow.split(" ").filter(word => word === "having").length >= 1
-*/
-
 /* Agregação
     // agregacao-2-!@#exercicio-bk       |*a| 🟢 uso mínimo sem group by
     // agregacao-1-!@#sinuca-bk          |*a| 🟢 uso mínimo sem group by
@@ -206,11 +156,11 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     if (url === 'casa-agregacao-1') {
         // group by com 2 colunas, mesma tabela usada no select e no group by
         analysis = [
-            true
-            // sqlInRow.split(" ").filter(word => word === "join").length === 0,
-            // sqlInRow.split(" ").filter(word => word === "membro_rotina").length === 1,
-            // sqlInRow.split(" ").filter(word => word === "membro_fk,").length === 2,
-            // sqlInRow.split(" ").filter(word => word === "group").length === 1
+            countIt("select") === 1,
+            countIt("group") === 1,
+            countIt("join") === 0,
+            countIt("where") === 0,
+            countIt("having") === 0
         ]
     }
 
@@ -270,8 +220,9 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'casa-join-1') {
         // polireferência: membro_familia referenciado 2x, 3 joins
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "membro_familia").length === 2,
-            sqlInRow.split(" ").filter(word => word === "join").length === 3
+            countIt("select") === 1,
+            countIt("join") === 3,
+            countIt("membro_familia") === 2
         ]
     }
 
@@ -305,9 +256,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     // VERIFICADO: 04 [has] [s]
     else if (url === 'casa-subconsulta-1') {
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "not").length === 1,
-            sqlInRow.split(" ").filter(word => word === "in").length >= 1,
-            sqlInRow.split(" ").filter(word => word === "select").length === 3
+            countIt("select") === 3,
+            countIt("not") === 1,
+            countIt("in") >= 1,
+            countIt("join") === 0
         ]
     }
 
@@ -327,9 +279,11 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'exercicio-agregacao-1') {
         // group by com 2 colunas, com join
         analysis = [
-            true
-            // sqlInRow.split(" ").filter(word => word === "join").length === 2,
-            // sqlInRow.split(" ").filter(word => word === "group").length === 1
+            countIt("select") === 1,
+            countIt("join") === 2,
+            countIt("group") === 1,
+            countIt("where") === 0,
+            countIt("having") === 0
         ]
     }
     
@@ -337,11 +291,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'exercicio-agregacao-2') {
         // count(distinct ...), sem group by, sem join
         analysis = [
-            true
-            // sqlInRow.includes("count("),
-            // sqlInRow.split(" ").filter(word => word === "distinct").length === 1,
-            // sqlInRow.split(" ").filter(word => word === "join").length === 0,
-            // sqlInRow.split(" ").filter(word => word === "group").length === 0
+            countIt("select") === 1,
+            countIt("distinct") === 1,
+            countIt("group") === 0,
+            countIt("join") === 0
         ]
     }
 
@@ -350,9 +303,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log('EXERCICIO.AGREGACAO.3')
 
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "having").length >= 1,
-            sqlInRow.split(" ").filter(word => word === "where").length === 0,
-            sqlInRow.split(" ").filter(word => word === "group").length === 1
+            countIt("select") === 1,
+            countIt("group") === 1,
+            countIt("having") === 1,
+            countIt("where") === 0
         ]
     }
     
@@ -361,18 +315,22 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("EXERCICIO.AGREGACAO.4")
 
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "select").length === 1,
-            sqlInRow.split(" ").filter(word => word === "join").length === 1,
-            sqlInRow.split(" ").filter(word => word === "where").length === 1,
-            sqlInRow.split(" ").filter(word => word === "group").length === 1,
-            sqlInRow.split(" ").filter(word => word === "having").length === 0
+            countIt("select") === 1,
+            countIt("join") === 1,
+            countIt("where") === 1,
+            countIt("group") === 1,
+            countIt("having") === 0
         ]
     }
 
     // VERIFICADO: 26
     else if (url === 'exercicio-case-when-1') {
         analysis = [
-            true
+            countIt("select") === 1,
+            countIt("case") === 1,
+            countIt("group") === 1,
+            countIt("join") === 1,
+            countIt("left") === 1
         ]
     }
 
@@ -401,7 +359,11 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if(url === 'exercicio-join-1') {
         console.log("EXERCICIO.JOIN.1")
 
-        analysis = [true]
+        analysis = [
+            countIt("select") === 1,
+            countIt("join") === 3,
+            countIt("left") === 1
+        ]
     }
     
     // VERIFICADO: 52
@@ -446,13 +408,11 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'frutaria-agregacao-1') {
         // 2 funções agregadoras (count + max) com join, sem where/having
         analysis = [
-            // sqlInRow.includes("count("),
-            // sqlInRow.includes("max("),
-            // sqlInRow.split(" ").filter(word => word === "join").length === 1,
-            // sqlInRow.split(" ").filter(word => word === "group").length === 1,
-            // sqlInRow.split(" ").filter(word => word === "where").length === 0,
-            // sqlInRow.split(" ").filter(word => word === "having").length === 0
-            true
+            countIt("select") === 1,
+            countIt("group") === 1,
+            countIt("join") === 0,
+            countIt("where") === 0,
+            countIt("having") === 0
         ]
     }
     
@@ -461,9 +421,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("FRUTARIA.AGREGAÇÃO.2")
 
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "where").length >= 1,
-            sqlInRow.split(" ").filter(word => word === "having").length === 0,
-            sqlInRow.split(" ").filter(word => word === "group").length === 1
+            countIt("select") === 1,
+            countIt("where") === 1,
+            countIt("group") === 1,
+            countIt("having") === 0
         ]
     }
     
@@ -497,8 +458,11 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'frutaria-case-when-1') {
         // case afetando order by (versão sem segundo case, ordenando direto pelo alias numérico)
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "case").length === 1,
-            sqlInRow.split(" ").filter(word => word === "order").length === 1,
+            countIt("select") === 1,
+            countIt("case") === 1,
+            countIt("order") === 1,
+            countIt("group") === 0,
+            countIt("join") === 0
         ]
     }
     
@@ -519,9 +483,8 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'frutaria-join-1') {
         // join mínimo, 2 joins, sem filtro
         analysis = [
-            true
-            // sqlInRow.split(" ").filter(word => word === "join").length === 2,
-            // sqlInRow.split(" ").filter(word => word === "where").length === 0
+            countIt("select") === 1,
+            countIt("join") === 2
         ]
     }
     
@@ -530,11 +493,11 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("FRUTARIA.JOIN.2")
 
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "select").length === 1,
-            sqlInRow.split(" ").filter(word => word === "join").length === 1,
-            sqlInRow.split(" ").filter(word => word === "where").length === 1,
-            sqlInRow.split(" ").filter(word => word === "and").length >= 1,
-            sqlInRow.split(" ").filter(word => word === "or").length >= 1
+            countIt("select") === 1,
+            countIt("join") === 1,
+            countIt("where") === 1,
+            countIt("and") >= 1,
+            countIt("or") >= 1
         ]
     }
     
@@ -556,10 +519,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log('FRUTARIA.SUB CONSULTA.1')
 
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "select").length >= 2,
-            sqlInRow.split(" ").filter(word => word === "in").length >= 1,
-            sqlInRow.split(" ").filter(word => word === "or").length === 1,
-            sqlInRow.split(" ").filter(word => word === "join").length === 0
+            countIt("select") === 2,
+            countIt("in") === 1,
+            countIt("or") === 1,
+            countIt("join") === 0
         ]
     }
 
@@ -605,11 +568,11 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'onibus-case-when-1') {
         // case + left join (corrigir o typo antes) + group by + is null
         analysis = [
-            true
-            // sqlInRow.split(" ").filter(word => word === "case").length === 1,
-            // sqlInRow.split(" ").filter(word => word === "left").length === 1,
-            // sqlInRow.split(" ").filter(word => word === "null").length === 1,
-            // sqlInRow.split(" ").filter(word => word === "group").length === 1
+            countIt("select") === 1,
+            countIt("case") === 1,
+            countIt("group") === 1,
+            countIt("join") === 1,
+            countIt("left") === 1
         ]
     }
     
@@ -629,9 +592,8 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'onibus-join-1') {
         // join sequencial, 3 joins, sem filtro
         analysis = [
-            true
-            // sqlInRow.split(" ").filter(word => word === "join").length === 3,
-            // sqlInRow.split(" ").filter(word => word === "where").length === 0
+            countIt("select") === 1,
+            countIt("join") === 3
         ]
     }
     
@@ -639,9 +601,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'onibus-join-2') {
         // join + or dentro do próprio on
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "join").length === 1,
-            sqlInRow.split(" ").filter(word => word === "or").length === 1,
-            sqlInRow.split(" ").filter(word => word === "where").length === 0
+            countIt("select") === 1,
+            countIt("join") === 1,
+            (countIt("or") === 1 && countIt("in") === 0) ||
+            (countIt("or") === 0 && countIt("in") === 1)
         ]
     }
 
@@ -724,10 +687,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'parque-aquatico-case-when-1') {
         // case só no select, sem join/group by/order by
         analysis = [
-            true
-            // sqlInRow.split(" ").filter(word => word === "case").length === 1,
-            // sqlInRow.split(" ").filter(word => word === "join").length === 0,
-            // sqlInRow.split(" ").filter(word => word === "group").length === 0
+            countIt("select") === 1,
+            countIt("case") === 1,
+            countIt("group") === 0,
+            countIt("join") === 0
         ]
     }
 
@@ -736,10 +699,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("PARQUE AQUATICO.CASE WHEN.2")
 
         // Versão com else no final do 'order by'
-        const sql = "select pa_entrada_id, case when esta_socio = 0 and hora_entrada < 12 then 'visitante matutino' when esta_socio = 0 and hora_entrada >= 12 then 'visitante vespertino' when esta_socio = 1 and hora_entrada < 12 then 'sócio matutino' else 'sócio vespertino' end as status from parque_aquatico_entrada order by status;"
+        // const sql = "select pa_entrada_id, case when esta_socio = 0 and hora_entrada < 12 then 'visitante matutino' when esta_socio = 0 and hora_entrada >= 12 then 'visitante vespertino' when esta_socio = 1 and hora_entrada < 12 then 'sócio matutino' else 'sócio vespertino' end as status from parque_aquatico_entrada order by status;"
         
-        const expectedSQLSlice = sqlNormalizer(sql.slice(sql.toLowerCase().indexOf('end')))
-        const personSQLSlice = sqlNormalizer(sqlInRow.slice(sqlInRow.toLowerCase().indexOf('end')))
+        // const expectedSQLSlice = sqlNormalizer(sql.slice(sql.toLowerCase().indexOf('end')))
+        // const personSQLSlice = sqlNormalizer(sqlInRow.slice(sqlInRow.toLowerCase().indexOf('end')))
 
         analysis = [
             countIt("select") === 1,
@@ -747,8 +710,8 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("order") === 1,
             countIt("group") === 0,
             countIt("join") === 0,
-            countIt("else") === 1,
-            expectedSQLSlice === personSQLSlice
+            countIt("else") === 1
+            // expectedSQLSlice === personSQLSlice
         ]
     }
 
@@ -820,10 +783,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("PONTO DE ONIBUS.AGREGACAO.1")
 
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "where").length >= 1,
-            sqlInRow.split(" ").filter(word => word === "having").length >= 1,
-            sqlInRow.split(" ").filter(word => word === "group").length === 1,
-            sqlInRow.split(" ").filter(word => word === "join").length === 0
+            countIt("select") === 1,
+            countIt("where") === 1,
+            countIt("group") === 1,
+            countIt("having") === 1
         ]
     }
     
@@ -832,11 +795,11 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log('PONTO DE ONIBUS.AGREGACAO.2')
 
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "having").length >= 1,
-            sqlInRow.split(" ").filter(word => word === "where").length === 0,
-            sqlInRow.split(" ").filter(word => word === "join").length === 1,
-            sqlInRow.split(" ").filter(word => word === "group").length === 1,
-            sqlInRow.split(" ").filter(word => word === "like").length === 1
+            countIt("select") === 1,
+            countIt("join") === 1,
+            countIt("group") === 1,
+            countIt("having") === 1,
+            countIt("where") === 0
         ]
     }
     
@@ -845,10 +808,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("PONTO DE ONIBUS.CASE WHEN.1")
 
         // Versão com else no final do 'order by'
-        const sql = "select case when (duracao_cor_verde - duracao_cor_vermelha) > 3 then 'rápido' when (duracao_cor_verde - duracao_cor_vermelha) > 0 then 'dinâmico'else 'truncado' end as fluxo, count(*) as qtd_semaforos from semaforo group by fluxo order by case fluxo when 'rápido' then 1 when 'dinâmico' then 2 when 'truncado' then 3 end;"
+        const sql = "select case when (duracao_cor_verde - duracao_cor_vermelha) > 3 then 'rapido' when (duracao_cor_verde - duracao_cor_vermelha) > 0 then 'dinamico' else 'truncado' end as fluxo, count(*) as qtd_semaforos from semaforo group by fluxo order by case fluxo when 'rapido' then 1 when 'dinamico' then 2 when 'truncado' then 3 end;"
         
         // Versão com when no final do 'order by'
-        const sqlv2 = "select case when (duracao_cor_verde - duracao_cor_vermelha) > 3 then 'rápido' when (duracao_cor_verde - duracao_cor_vermelha) > 0 then 'dinâmico'else 'truncado' end as fluxo, count(*) as qtd_semaforos from semaforo group by fluxo order by case fluxo when 'rápido' then 1 when 'dinâmico' then 2 else 3 end;"
+        const sqlv2 = "select case when (duracao_cor_verde - duracao_cor_vermelha) > 3 then 'rapido' when (duracao_cor_verde - duracao_cor_vermelha) > 0 then 'dinamico' else 'truncado' end as fluxo, count(*) as qtd_semaforos from semaforo group by fluxo order by case fluxo when 'rapido' then 1 when 'dinamico' then 2 else 3 end;"
         
         const expectedSQLSlice = sqlNormalizer(sql.slice(sql.toLowerCase().indexOf('end')))
         const expectedSQLSlicev2 = sqlNormalizer(sqlv2.slice(sqlv2.toLowerCase().indexOf('end')))
@@ -865,10 +828,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("PONTO DE ONIBUS.CASE WHEN.2")
 
         // Versão com else no final do 'order by'
-        const sql = "select loc_id, case when lotacao <= 20 and horario_loc < 12 then 'vago-dia' when lotacao <= 20 and horario_loc >= 12 then 'vago-tarde-noite' when lotacao > 20 and horario_loc < 12 then 'enchendo-dia' else 'enchendo-tarde-noite' end as relatorio from locomocao order by case relatorio when 'vago-dia' then 1 when 'enchendo-dia' then 2 when 'vago-tarde-noite' then 3 when 'enchendo-tarde-noite' then 4 end;"
+        const sql = "select loc_id, case when lotacao <= 20 and horario_loc < 12 then 'vago_dia' when lotacao <= 20 and horario_loc >= 12 then 'vago_tarde_noite' when lotacao > 20 and horario_loc < 12 then 'enchendo_dia' else 'enchendo_tarde_noite' end as relatorio from locomocao order by case relatorio when 'vago_dia' then 1 when 'enchendo_dia' then 2 when 'vago_tarde_noite' then 3 when 'enchendo_tarde_noite' then 4 end;"
         
         // Versão com when no final do 'order by'
-        const sqlv2 = "select loc_id, case when lotacao <= 20 and horario_loc < 12 then 'vago-dia' when lotacao <= 20 and horario_loc >= 12 then 'vago-tarde-noite' when lotacao > 20 and horario_loc < 12 then 'enchendo-dia' else 'enchendo-tarde-noite' end as relatorio from locomocao order by case relatorio when 'vago-dia' then 1 when 'enchendo-dia' then 2 when 'vago-tarde-noite' then 3 else 'enchendo-tarde-noite' end;"
+        const sqlv2 = "select loc_id, case when lotacao <= 20 and horario_loc < 12 then 'vago_dia' when lotacao <= 20 and horario_loc >= 12 then 'vago_tarde_noite' when lotacao > 20 and horario_loc < 12 then 'enchendo_dia' else 'enchendo_tarde_noite' end as relatorio from locomocao order by case relatorio when 'vago_dia' then 1 when 'enchendo_dia' then 2 when 'vago_tarde_noite' then 3 else 4 end;"
         
         const expectedSQLSlice = sqlNormalizer(sql.slice(sql.toLowerCase().indexOf('end')))
         const expectedSQLSlicev2 = sqlNormalizer(sqlv2.slice(sqlv2.toLowerCase().indexOf('end')))
@@ -925,10 +888,11 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("PONTO DE ONIBUS.SUB CONSULTA.1")
 
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "select").length === 5,
-            sqlInRow.split(" ").filter(word => word === "in").length >= 3,
-            sqlInRow.split(" ").filter(word => word === "or").length === 1,
-            sqlInRow.split(" ").filter(word => word === "join").length === 0
+            countIt("select") === 5,
+            countIt("in") >= 3,
+            countIt("in") <= 4,
+            countIt("or") === 1,
+            countIt("join") === 0
         ]
     }
     
@@ -937,10 +901,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("PONTO DE ONIBUS.SUB CONSULTA.2")
 
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "select").length === 4,
-            sqlInRow.split(" ").filter(word => word === "in").length === 3,
-            sqlInRow.split(" ").filter(word => word === "or").length === 1,
-            sqlInRow.split(" ").filter(word => word === "join").length === 0
+            countIt("select") === 4,
+            countIt("in") >= 2,
+            countIt("or") === 1,
+            countIt("join") === 0
         ]
     }
     
@@ -962,9 +926,11 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("QUARTO.CASE WHEN.1")
 
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "case").length === 1,
-            sqlInRow.split(" ").filter(word => word === "group").length === 1,
-            sqlInRow.split(" ").filter(word => word === "order").length === 1
+            countIt("select") === 1,
+            countIt("case") === 1,
+            countIt("group") === 1,
+            countIt("order") === 1,
+            countIt("join") === 0
         ]
     }
 
@@ -973,9 +939,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("QUARTO.CASE WHEN.2")
 
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "case").length === 2,
-            sqlInRow.split(" ").filter(word => word === "group").length === 1,
-            sqlInRow.split(" ").filter(word => word === "join").length === 0
+            countIt("select") === 1,
+            countIt("case") === 2,
+            countIt("group") === 1,
+            countIt("join") === 0
         ]
     }
     
@@ -983,9 +950,8 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'quarto-join-1') {
         // join mínimo (dono -> quarto_relatorio -> objeto), sem filtro
         analysis = [
-            true
-            // sqlInRow.split(" ").filter(word => word === "join").length === 2,
-            // sqlInRow.split(" ").filter(word => word === "where").length === 0
+            countIt("select") === 1,
+            countIt("join") === 2
         ]
     }
     
@@ -994,14 +960,13 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("QUARTO.JOIN.2")
 
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "select").length === 1,
-            sqlInRow.split(" ").filter(word => word === "distinct").length === 1,
-            sqlInRow.split(" ").filter(word => word === "join").length === 3,
-            sqlInRow.split(" ").filter(word => word === "where").length === 1,
-            sqlInRow.split(" ").filter(word => word === "or").length >= 1,
-            sqlInRow.split(" ").filter(word => word === "or").length <= 2,
-            sqlInRow.split(" ").filter(word => word === "in").length <= 1,
-            sqlInRow.split(" ").filter(word => word === "and").length === 0
+            countIt("select") === 1,
+            countIt("distinct") === 1,
+            countIt("join") === 3,
+            countIt("where") === 1,
+            countIt("and") === 0,
+            (countIt("or") === 2 && countIt("in") === 0) ||
+            (countIt("or") === 1 && countIt("in") === 1)
         ]
     }
 
@@ -1035,10 +1000,9 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("QUARTO.SUB CONSULTA.1")
         
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "where").length === 2,
-            sqlInRow.split(" ").filter(word => word === "1").length === 1,
-            sqlInRow.split(" ").filter(word => word === "dono").length === 1,
-            sqlInRow.split(" ").filter(word => word === "quarto_relatorio").length === 1
+            countIt("select") === 2,
+            countIt("in") === 1,
+            countIt("join") === 0
         ]
     }
     
@@ -1046,11 +1010,9 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'quarto-subconsulta-2') {
         // igualdade baseada em min(), com "is not null"
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "where").length === 3,
-            sqlInRow.split(" ").filter(word => word === "select").length === 3,
-            sqlInRow.includes("min("),
-            sqlInRow.split(" ").filter(word => word === "not").length === 1,
-            sqlInRow.split(" ").filter(word => word === "null").length === 1
+            countIt("select") === 3,
+            countIt("in") >= 1,
+            countIt("join") === 0
         ]
     }
     
@@ -1071,10 +1033,9 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'sinuca-agregacao-1') {
         // agregação mínima, sem group by, sem join
         analysis = [
-            true
-            // sqlInRow.includes("avg("),
-            // sqlInRow.split(" ").filter(word => word === "group").length === 0,
-            // sqlInRow.split(" ").filter(word => word === "join").length === 0
+            countIt("select") === 1,
+            countIt("group") === 0,
+            countIt("join") === 0
         ]
     }
     
@@ -1082,10 +1043,11 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'sinuca-agregacao-2') {
         // group by mínimo, sem join
         analysis = [
-            true
-            // sqlInRow.includes("count("),
-            // sqlInRow.split(" ").filter(word => word === "group").length === 1,
-            // sqlInRow.split(" ").filter(word => word === "join").length === 0
+            countIt("select") === 1,
+            countIt("group") === 1,
+            countIt("join") === 0,
+            countIt("where") === 0,
+            countIt("having") === 0
         ]
     }
     
@@ -1144,9 +1106,11 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'sinuca-join-1') {
         // 3 condições unidas por OR dentro do ON, um único JOIN, com DISTINCT
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "or").length === 2,
-            sqlInRow.split(" ").filter(word => word === "join").length === 1,
-            sqlInRow.split(" ").filter(word => word === "distinct").length === 1
+            countIt("select") === 1,
+            countIt("distinct") === 1,
+            countIt("join") === 1,
+            (countIt("or") === 2 && countIt("in") === 0) ||
+            (countIt("or") === 0 && countIt("in") === 1)
         ]
     }
     
@@ -1154,8 +1118,9 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'sinuca-join-2') {
         // polireferência: sinuquista referenciado 3x, 3 joins
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "sinuquista").length === 3,
-            sqlInRow.split(" ").filter(word => word === "join").length === 3
+            countIt("select") === 1,
+            countIt("join") === 3,
+            countIt("sinuquista") === 3
         ]
     }
     
@@ -1163,10 +1128,9 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'sinuca-subconsulta-1') {
         // mínima, IN puro, sem NOT
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "where").length === 1,
-            sqlInRow.split(" ").filter(word => word === "in").length === 1,
-            sqlInRow.split(" ").filter(word => word === "not").length === 0,
-            sqlInRow.split(" ").filter(word => word === "select").length === 2
+            countIt("select") === 2,
+            countIt("in") === 1,
+            countIt("join") === 0
         ]
     }
     
@@ -1174,10 +1138,11 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'sinuca-subconsulta-2') {
         // not in + in combinados com and
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "not").length === 1,
-            sqlInRow.split(" ").filter(word => word === "in").length === 2,
-            sqlInRow.split(" ").filter(word => word === "and").length === 1,
-            sqlInRow.split(" ").filter(word => word === "select").length === 3
+            countIt("select") === 3,
+            countIt("not") === 1,
+            countIt("in") === 2,
+            countIt("and") === 1,
+            countIt("join") === 0
         ]
     }
     
@@ -1185,22 +1150,24 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'turismo-agregacao-1') {
         // 2 funções agregadoras, join, sem filtro
         analysis = [
-            true
-            // sqlInRow.includes("count("),
-            // sqlInRow.includes("avg("),
-            // sqlInRow.split(" ").filter(word => word === "join").length === 1,
-            // sqlInRow.split(" ").filter(word => word === "where").length === 0,
-            // sqlInRow.split(" ").filter(word => word === "having").length === 0
+            countIt("select") === 1,
+            countIt("group") === 1,
+            countIt("join") === 0,
+            countIt("where") === 0,
+            countIt("having") === 0
         ]
     }
     
     // VERIFICADO: 25
     else if (url === 'turismo-agregacao-2') {
-        console.log("TURISMO.AGREGAÇÃO.1")
+        console.log("TURISMO.AGREGAÇÃO.2")
         
         analysis = [
-            true
-            // sqlInRow.split(" ").filter(word => word === "guia").length === 1,
+            countIt("select") === 1,
+            countIt("join") === 1,
+            countIt("group") === 1,
+            countIt("where") === 0,
+            countIt("having") === 0
         ]
     }
 
@@ -1209,14 +1176,14 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("TURISMO.AGREGACAO.3")
 
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "select").length === 1,
+            // sqlInRow.split(" ").filter(word => word === "select").length === 1,
             countIt("join") === 2,
             // sqlInRow.split(" ").filter(word => word === "join").length === 2,
-            sqlInRow.split(" ").filter(word => word === "where").length === 1,
-            sqlInRow.split(" ").filter(word => word === "group").length === 1,
-            sqlInRow.split(" ").filter(word => word === "having").length === 1,
+            // sqlInRow.split(" ").filter(word => word === "where").length === 1,
+            // sqlInRow.split(" ").filter(word => word === "group").length === 1,
+            // sqlInRow.split(" ").filter(word => word === "having").length === 1,
             countIt("or") === 1 && countIt("in") === 0 || countIt("or") === 0 && countIt("in") === 1, 
-            sqlInRow.split(" ").filter(word => word === "and").length === 0
+            // sqlInRow.split(" ").filter(word => word === "and").length === 0
         ]
     }
     
@@ -1237,11 +1204,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
     else if (url === 'turismo-case-when-1') {
         // case só no select, sem join/group by/order by
         analysis = [
-            true
-            // sqlInRow.split(" ").filter(word => word === "case").length === 1,
-            // sqlInRow.split(" ").filter(word => word === "join").length === 0,
-            // sqlInRow.split(" ").filter(word => word === "group").length === 0,
-            // sqlInRow.split(" ").filter(word => word === "order").length === 0
+            countIt("select") === 1,
+            countIt("case") === 1,
+            countIt("group") === 0,
+            countIt("join") === 0
         ]
     }
     
@@ -1250,10 +1216,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("TURISMO.CASE WHEN.2")
 
         // Versão com else no final do 'order by'
-        const sql = "select guia_id, case when expediente = 'm-' then 'manhã' when expediente = 't-' then 'tarde' when expediente = 'n-' then 'noite' else 'dois turnos' end as jornada from guia order by case jornada when 'dois turnos' then 0 when 'manhã' then 1 when 'tarde' then 2 else 3 end;"
+        const sql = "select guia_id, case when expediente = 'm-' then 'manha' when expediente = 't-' then 'tarde' when expediente = 'n-' then 'noite' else 'dois_turnos' end as jornada from guia order by case jornada when 'dois_turnos' then 0 when 'manha' then 1 when 'tarde' then 2 else 3 end;"
         
         // Versão com when no final do 'order by'
-        const sqlv2 = "select guia_id, case when expediente = 'm-' then 'manhã' when expediente = 't-' then 'tarde' when expediente = 'n-' then 'noite' else 'dois turnos' end as jornada from guia order by case jornada when 'dois turnos' then 0 when 'manhã' then 1 when 'tarde' then 2 when 'noite' then 3 end;"
+        const sqlv2 = "select guia_id, case when expediente = 'm-' then 'manha' when expediente = 't-' then 'tarde' when expediente = 'n-' then 'noite' else 'dois_turnos' end as jornada from guia order by case jornada when 'dois_turnos' then 0 when 'manha' then 1 when 'tarde' then 2 when 'noite' then 3 end;"
         
         const expectedSQLSlice = sqlNormalizer(sql.slice(sql.toLowerCase().indexOf('end')))
         const expectedSQLSlicev2 = sqlNormalizer(sqlv2.slice(sqlv2.toLowerCase().indexOf('end')))
@@ -1270,19 +1236,18 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("TURISMO.CASE WHEN.3")
 
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "case").length === 1,
-            sqlInRow.split(" ").filter(word => word === "when").length >= 2,
-            sqlInRow.split(" ").filter(word => word === "group").length === 1,
-            sqlInRow.split(" ").filter(word => word === "join").length === 0
+            countIt("select") === 1,
+            countIt("case") === 1,
+            countIt("group") === 1,
+            countIt("join") === 0
         ]
     }
     
     // VERIFICADO: 15
     else if (url === 'turismo-join-1') {
         analysis = [
-            true
-            // sqlInRow.split(" ").filter(word => word === "join").length === 3,
-            // sqlInRow.split(" ").filter(word => word === "where").length === 0
+            countIt("select") === 1,
+            countIt("join") >= 2
         ]
     }
     
@@ -1291,11 +1256,13 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log('TURISMO.JOIN.2')
 
         analysis = [
-            sqlInRow.split(" ").filter(word => word === "left").length === 1,
-            sqlInRow.split(" ").filter(word => word === "null").length === 1,
-            sqlInRow.split(" ").filter(word => word === "select").length === 1,
-            sqlInRow.split(" ").filter(word => word === "and").length === 1,
-            sqlInRow.split(" ").filter(word => word === "like").length === 1
+            countIt("select") === 1,
+            countIt("join") === 1,
+            countIt("left") === 1,
+            countIt("where") === 1,
+            countIt("null") === 1,
+            countIt("not") === 0,
+            countIt("and") >= 1
         ]
     }
 
@@ -1316,10 +1283,11 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("TURISMO.SUB CONSULTA.1")
 
         analysis = [
-          sqlInRow.split(" ").filter(word => word === "where").length === 1,
-          sqlInRow.split(" ").filter(word => word === "and").length === 1,
-          sqlInRow.split(" ").filter(word => word === "not").length === 1,
-          sqlInRow.split(" ").filter(word => word === "in").length === 1
+            countIt("select") === 2,
+            countIt("not") === 1,
+            countIt("in") === 1,
+            countIt("and") >= 1,
+            countIt("join") === 0
         ]
     }
 

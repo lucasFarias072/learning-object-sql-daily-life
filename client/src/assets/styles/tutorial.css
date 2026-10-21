@@ -248,6 +248,6 @@ direita -> box-shadow: aqui positivo - - -;
 
 @keyframes tutorial-shake-v2 {
   0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(2.5px); box-shadow: 0 0 .1.4rem white;}
+  /* 25% { transform: translateX(2.5px); box-shadow: 0 0 .1.4rem white;} */
   75% { transform: translateX(-2.5px); box-shadow: 0 0 1.4rem rgb(10, 15, 30); }
 }

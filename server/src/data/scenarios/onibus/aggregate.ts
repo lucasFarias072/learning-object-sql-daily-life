@@ -9,6 +9,6 @@ import { aggregateQueryN4 } from '../../onibus-queries/aggregate/n-4.js';
 export const onibusAGGREGATE: QueryScenarioBackend[] = [
     aggregateQueryN1(),
     aggregateQueryN2(),
-    aggregateQueryN3(),
-    aggregateQueryN4()
+    // aggregateQueryN3(),
+    // aggregateQueryN4()
 ]

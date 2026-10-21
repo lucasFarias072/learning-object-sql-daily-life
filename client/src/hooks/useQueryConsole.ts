@@ -2,10 +2,12 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { QueryScenarioFrontend } from '../types/Containers'
-import { requirementShield } from '../../../utils/sqlShield'
+import { requirementShield } from '../utils/sqlShield'
 
-import { sqlNormalizer } from '../../../utils/sqlNormalizer'
-import { sqlQueryGrammar } from '../../../utils/sqlQueryGrammar'
+import { sqlNormalizer } from '../utils/sqlNormalizer'
+import { sqlQueryGrammar } from '../utils/sqlQueryGrammar'
+
+import { apiUrl } from '../config'
 
 // import { subqueryQueryN1 } from '../../../server/src/data/quarto-queries/subquery/n-1'
 // import { aggregateQueryN2 } from '../../../server/src/data/turismo-queries/aggregate/n-2'
@@ -75,7 +77,8 @@ export function useQueryConsole(chosenQuery: QueryScenarioFrontend | null) {
     if (!chosenQuery) return
 
     let cancelled = false
-    const endpoint = `/api/scenarios/${chosenQuery.scenario}-${chosenQuery.queryType}-${chosenQuery.queryId}`
+    // const endpoint = `/api/scenarios/${chosenQuery.scenario}-${chosenQuery.queryType}-${chosenQuery.queryId}`
+    const endpoint = apiUrl(`/api/scenarios/${chosenQuery.scenario}-${chosenQuery.queryType}-${chosenQuery.queryId}`)
     
     console.log("endpoint = ")
     console.log([chosenQuery.scenario, chosenQuery.queryType, chosenQuery.queryId])
@@ -118,7 +121,9 @@ export function useQueryConsole(chosenQuery: QueryScenarioFrontend | null) {
     // if (analysis.length != 0) veredict = !analysis.includes(false)
     
     try {
-      const response = await fetch('/api/exec-query', {
+      // const response = await fetch('/api/exec-query', {
+      // #prod
+      const response = await fetch(apiUrl('/api/exec-query'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: value }),

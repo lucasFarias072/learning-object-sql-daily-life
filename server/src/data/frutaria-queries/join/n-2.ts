@@ -16,7 +16,7 @@ export function joinQueryN2(): QueryScenarioBackend {
         select descricao_fruta, qtd
         from frutaria_produto fprod
         join estoque estq on estq.frutaria_produto_fk = fprod.frutaria_produto_id
-        where preco_atual_kg >= 18
+        where preco_atual_kg <= 18
         and (qtd < 10 or peso_medio_unid_grama <= 99);
         `,
         tabelas: [],

@@ -11,7 +11,7 @@ export function aggregateQueryN2(): QueryScenarioBackend {
         cenario: 'ponto-de-onibus-agregacao-2',
         consultaTipo: 'agregacao',
         id: 2,
-        // Mostre a descrição de cada zona e quantos ônibus estão vinculados a ela. Dos grupos formados, mostre apenas as zonas que comecem com a letra 'S'.
+        // Mostre a descrição de cada zona e a contagem dos ônibus estão vinculados a ela. Dos grupos formados, mostre apenas as zonas que comecem com a letra 'S'.
         consulta: `
         select descricao_zona, count(*) as qtd_onibus
         from onibus_zona oz

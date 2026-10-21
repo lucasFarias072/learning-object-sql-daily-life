@@ -11,7 +11,7 @@ export function subqueryQueryN1(): QueryScenarioBackend {
         cenario: 'turismo-subconsulta-1',
         consultaTipo: 'subconsulta',
         id: 1,
-        // Liste as descrições dos pontos turísticos, sua avaliação, para aqueles que não possuem registros de passeios atualmente e que possuem avaliação alta (4.7 adiante).
+        // Liste as descrições dos pontos turísticos, sua avaliação, para aqueles que possuem avaliação alta (4.7 adiante) que não possuem registros de passeios atualmente.
         consulta: `
         select descricao_ponto, avaliacao from ponto_turistico
         where ponto_id not in (

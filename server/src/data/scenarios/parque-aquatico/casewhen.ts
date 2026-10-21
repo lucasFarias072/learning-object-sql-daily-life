@@ -9,6 +9,6 @@ import { caseWhenQueryN4 } from '../../parque-aquatico-queries/casewhen/n-4.js';
 export const parqueAquaticoCASEWHEN: QueryScenarioBackend[] = [
     caseWhenQueryN1(),
     caseWhenQueryN2(),
-    caseWhenQueryN3(),
-    caseWhenQueryN4()
+    // caseWhenQueryN3(),
+    // caseWhenQueryN4()
 ]

@@ -8,9 +8,9 @@ export function subqueryQueryN2(): QueryScenarioFrontend {
         // subconsulta-2-!@#quarto-ft
         scenario: 'quarto', queryType: 'subconsulta', queryId: '2', 
         queryText: "Liste o codinome de donos de quarto que obtiveram quartos no mesmo mês do dono de quarto com menor mês de adesão.",
-        tables: getTables([32], 1),
-        fields: getTableColumns([32]),
-        tablesNames: getTables([32], 2),
+        tables: getTables([29, 32], 1),
+        fields: getTableColumns([29, 32]),
+        tablesNames: getTables([29, 32], 2),
         conditions: [],
         tricksterIds: [],
     }

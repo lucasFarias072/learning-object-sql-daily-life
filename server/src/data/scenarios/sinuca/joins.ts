@@ -9,6 +9,6 @@ import { joinQueryN4 } from '../../sinuca-queries/join/n-4.js';
 export const sinucaJOIN: QueryScenarioBackend[] = [
     joinQueryN1(),
     joinQueryN2(),
-    joinQueryN3(),
-    joinQueryN4()
+    // joinQueryN3(),
+    // joinQueryN4()
 ]
