@@ -9,6 +9,6 @@ import { joinQueryN4 } from '../../exercicio-queries/join/n-4.js';
 export const exercicioJOIN: QueryScenarioBackend[] = [
     joinQueryN1(),
     joinQueryN2(),
-    joinQueryN3(),
-    joinQueryN4()
+    // joinQueryN3(),
+    // joinQueryN4()
 ]

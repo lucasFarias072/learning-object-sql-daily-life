@@ -699,10 +699,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("PARQUE AQUATICO.CASE WHEN.2")
 
         // Versão com else no final do 'order by'
-        const sql = "select pa_entrada_id, case when esta_socio = 0 and hora_entrada < 12 then 'visitante matutino' when esta_socio = 0 and hora_entrada >= 12 then 'visitante vespertino' when esta_socio = 1 and hora_entrada < 12 then 'sócio matutino' else 'sócio vespertino' end as status from parque_aquatico_entrada order by status;"
+        // const sql = "select pa_entrada_id, case when esta_socio = 0 and hora_entrada < 12 then 'visitante matutino' when esta_socio = 0 and hora_entrada >= 12 then 'visitante vespertino' when esta_socio = 1 and hora_entrada < 12 then 'sócio matutino' else 'sócio vespertino' end as status from parque_aquatico_entrada order by status;"
         
-        const expectedSQLSlice = sqlNormalizer(sql.slice(sql.toLowerCase().indexOf('end')))
-        const personSQLSlice = sqlNormalizer(sqlInRow.slice(sqlInRow.toLowerCase().indexOf('end')))
+        // const expectedSQLSlice = sqlNormalizer(sql.slice(sql.toLowerCase().indexOf('end')))
+        // const personSQLSlice = sqlNormalizer(sqlInRow.slice(sqlInRow.toLowerCase().indexOf('end')))
 
         analysis = [
             countIt("select") === 1,
@@ -710,8 +710,8 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("order") === 1,
             countIt("group") === 0,
             countIt("join") === 0,
-            countIt("else") === 1,
-            expectedSQLSlice === personSQLSlice
+            countIt("else") === 1
+            // expectedSQLSlice === personSQLSlice
         ]
     }
 
@@ -808,10 +808,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("PONTO DE ONIBUS.CASE WHEN.1")
 
         // Versão com else no final do 'order by'
-        const sql = "select case when (duracao_cor_verde - duracao_cor_vermelha) > 3 then 'rápido' when (duracao_cor_verde - duracao_cor_vermelha) > 0 then 'dinâmico'else 'truncado' end as fluxo, count(*) as qtd_semaforos from semaforo group by fluxo order by case fluxo when 'rápido' then 1 when 'dinâmico' then 2 when 'truncado' then 3 end;"
+        const sql = "select case when (duracao_cor_verde - duracao_cor_vermelha) > 3 then 'rapido' when (duracao_cor_verde - duracao_cor_vermelha) > 0 then 'dinamico' else 'truncado' end as fluxo, count(*) as qtd_semaforos from semaforo group by fluxo order by case fluxo when 'rapido' then 1 when 'dinamico' then 2 when 'truncado' then 3 end;"
         
         // Versão com when no final do 'order by'
-        const sqlv2 = "select case when (duracao_cor_verde - duracao_cor_vermelha) > 3 then 'rápido' when (duracao_cor_verde - duracao_cor_vermelha) > 0 then 'dinâmico'else 'truncado' end as fluxo, count(*) as qtd_semaforos from semaforo group by fluxo order by case fluxo when 'rápido' then 1 when 'dinâmico' then 2 else 3 end;"
+        const sqlv2 = "select case when (duracao_cor_verde - duracao_cor_vermelha) > 3 then 'rapido' when (duracao_cor_verde - duracao_cor_vermelha) > 0 then 'dinamico' else 'truncado' end as fluxo, count(*) as qtd_semaforos from semaforo group by fluxo order by case fluxo when 'rapido' then 1 when 'dinamico' then 2 else 3 end;"
         
         const expectedSQLSlice = sqlNormalizer(sql.slice(sql.toLowerCase().indexOf('end')))
         const expectedSQLSlicev2 = sqlNormalizer(sqlv2.slice(sqlv2.toLowerCase().indexOf('end')))
@@ -828,10 +828,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("PONTO DE ONIBUS.CASE WHEN.2")
 
         // Versão com else no final do 'order by'
-        const sql = "select loc_id, case when lotacao <= 20 and horario_loc < 12 then 'vago-dia' when lotacao <= 20 and horario_loc >= 12 then 'vago-tarde-noite' when lotacao > 20 and horario_loc < 12 then 'enchendo-dia' else 'enchendo-tarde-noite' end as relatorio from locomocao order by case relatorio when 'vago-dia' then 1 when 'enchendo-dia' then 2 when 'vago-tarde-noite' then 3 when 'enchendo-tarde-noite' then 4 end;"
+        const sql = "select loc_id, case when lotacao <= 20 and horario_loc < 12 then 'vago_dia' when lotacao <= 20 and horario_loc >= 12 then 'vago_tarde_noite' when lotacao > 20 and horario_loc < 12 then 'enchendo_dia' else 'enchendo_tarde_noite' end as relatorio from locomocao order by case relatorio when 'vago_dia' then 1 when 'enchendo_dia' then 2 when 'vago_tarde_noite' then 3 when 'enchendo_tarde_noite' then 4 end;"
         
         // Versão com when no final do 'order by'
-        const sqlv2 = "select loc_id, case when lotacao <= 20 and horario_loc < 12 then 'vago-dia' when lotacao <= 20 and horario_loc >= 12 then 'vago-tarde-noite' when lotacao > 20 and horario_loc < 12 then 'enchendo-dia' else 'enchendo-tarde-noite' end as relatorio from locomocao order by case relatorio when 'vago-dia' then 1 when 'enchendo-dia' then 2 when 'vago-tarde-noite' then 3 else 'enchendo-tarde-noite' end;"
+        const sqlv2 = "select loc_id, case when lotacao <= 20 and horario_loc < 12 then 'vago_dia' when lotacao <= 20 and horario_loc >= 12 then 'vago_tarde_noite' when lotacao > 20 and horario_loc < 12 then 'enchendo_dia' else 'enchendo_tarde_noite' end as relatorio from locomocao order by case relatorio when 'vago_dia' then 1 when 'enchendo_dia' then 2 when 'vago_tarde_noite' then 3 else 4 end;"
         
         const expectedSQLSlice = sqlNormalizer(sql.slice(sql.toLowerCase().indexOf('end')))
         const expectedSQLSlicev2 = sqlNormalizer(sqlv2.slice(sqlv2.toLowerCase().indexOf('end')))
@@ -1216,10 +1216,10 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         console.log("TURISMO.CASE WHEN.2")
 
         // Versão com else no final do 'order by'
-        const sql = "select guia_id, case when expediente = 'm-' then 'manhã' when expediente = 't-' then 'tarde' when expediente = 'n-' then 'noite' else 'dois turnos' end as jornada from guia order by case jornada when 'dois turnos' then 0 when 'manhã' then 1 when 'tarde' then 2 else 3 end;"
+        const sql = "select guia_id, case when expediente = 'm-' then 'manha' when expediente = 't-' then 'tarde' when expediente = 'n-' then 'noite' else 'dois_turnos' end as jornada from guia order by case jornada when 'dois_turnos' then 0 when 'manha' then 1 when 'tarde' then 2 else 3 end;"
         
         // Versão com when no final do 'order by'
-        const sqlv2 = "select guia_id, case when expediente = 'm-' then 'manhã' when expediente = 't-' then 'tarde' when expediente = 'n-' then 'noite' else 'dois turnos' end as jornada from guia order by case jornada when 'dois turnos' then 0 when 'manhã' then 1 when 'tarde' then 2 when 'noite' then 3 end;"
+        const sqlv2 = "select guia_id, case when expediente = 'm-' then 'manha' when expediente = 't-' then 'tarde' when expediente = 'n-' then 'noite' else 'dois_turnos' end as jornada from guia order by case jornada when 'dois_turnos' then 0 when 'manha' then 1 when 'tarde' then 2 when 'noite' then 3 end;"
         
         const expectedSQLSlice = sqlNormalizer(sql.slice(sql.toLowerCase().indexOf('end')))
         const expectedSQLSlicev2 = sqlNormalizer(sqlv2.slice(sqlv2.toLowerCase().indexOf('end')))

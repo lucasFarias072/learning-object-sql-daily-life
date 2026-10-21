@@ -6,9 +6,11 @@ import { caseWhenQueryN2 } from "../../sinuca-queries/casewhen/n-2";
 import { caseWhenQueryN3 } from "../../sinuca-queries/casewhen/n-3";
 import { caseWhenQueryN4 } from "../../sinuca-queries/casewhen/n-4";
 
+void [caseWhenQueryN3, caseWhenQueryN4];
+
 export const sinucaCASEWHEN: QueryScenarioFrontend[] = [
     caseWhenQueryN1(),
     caseWhenQueryN2(),
-    caseWhenQueryN3(),
-    caseWhenQueryN4()
+    // caseWhenQueryN3(),
+    // caseWhenQueryN4()
 ]

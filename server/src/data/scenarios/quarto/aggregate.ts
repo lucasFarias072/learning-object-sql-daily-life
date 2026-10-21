@@ -8,7 +8,7 @@ import { aggregateQueryN4 } from '../../quarto-queries/aggregate/n-4.js';
 
 export const quartoAGGREGATE: QueryScenarioBackend[] = [
     aggregateQueryN1(),
-    aggregateQueryN2(),
-    aggregateQueryN3(),
-    aggregateQueryN4()
+    // aggregateQueryN2(),
+    // aggregateQueryN3(),
+    // aggregateQueryN4()
 ]

@@ -9,6 +9,6 @@ import { caseWhenQueryN4 } from '../../exercicio-queries/casewhen/n-4.js';
 export const exercicioCASEWHEN: QueryScenarioBackend[] = [
     caseWhenQueryN1(),
     caseWhenQueryN2(),
-    caseWhenQueryN3(),
-    caseWhenQueryN4()
+    // caseWhenQueryN3(),
+    // caseWhenQueryN4()
 ]

@@ -9,6 +9,6 @@ import { subqueryQueryN4 } from '../../ponto-de-onibus-queries/subquery/n-4.js';
 export const pontoDeOnibusSUBQUERY: QueryScenarioBackend[] = [
     subqueryQueryN1(),
     subqueryQueryN2(),
-    subqueryQueryN3(),
-    subqueryQueryN4()
+    // subqueryQueryN3(),
+    // subqueryQueryN4()
 ]

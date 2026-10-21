@@ -9,6 +9,6 @@ import { subqueryQueryN4 } from '../../parque-aquatico-queries/subquery/n-4.js';
 export const parqueAquaticoSUBQUERY: QueryScenarioBackend[] = [
     subqueryQueryN1(),
     subqueryQueryN2(),
-    subqueryQueryN3(),
-    subqueryQueryN4()
+    // subqueryQueryN3(),
+    // subqueryQueryN4()
 ]

@@ -186,7 +186,11 @@ export function ModulePractice() {
     function selectAssunto(value: string, queryTypeText: string) {
         setSelectedAssunto(value)
         const availableQueries = scenarios.filter(
-            scene => scene.scenario === scenario && scene.queryType === queryTypeText
+            scene =>
+                scene.scenario === scenario &&
+                (queryTypeText === 'livre'
+                    ? scene.queryType !== 'livre' && scene.queryType !== 'exemplo'
+                    : scene.queryType === queryTypeText)
         )
         if (availableQueries.length === 0) return
         const chosenQuery = availableQueries[Math.floor(Math.random() * availableQueries.length)]
@@ -295,7 +299,7 @@ export function ModulePractice() {
                     {/* <p>{chosenQuery ? `${chosenQuery.queryId}. ${chosenQuery.queryText}` : 'Escolha um assunto ➜'}</p> */}
                     {
                         chosenQuery 
-                        ? <p>{chosenQuery.queryId}.{chosenQuery.queryText}</p> 
+                        ? <p>{chosenQuery.queryId}. {chosenQuery.queryText}</p> 
                         : <div className='flex row go-center gap-mid'>
                             <h3>⮜⮜⮜</h3>
                             <h3>Veja o tutorial</h3>

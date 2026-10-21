@@ -10,5 +10,5 @@ export const turismoCASEWHEN: QueryScenarioBackend[] = [
     caseWhenQueryN1(),
     caseWhenQueryN2(),
     caseWhenQueryN3(),
-    caseWhenQueryN4()
+    // caseWhenQueryN4()
 ]

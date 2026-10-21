@@ -9,6 +9,6 @@ import { subqueryQueryN4 } from '../../sinuca-queries/subquery/n-4.js';
 export const sinucaSUBQUERY: QueryScenarioBackend[] = [
     subqueryQueryN1(),
     subqueryQueryN2(),
-    subqueryQueryN3(),
-    subqueryQueryN4()
+    // subqueryQueryN3(),
+    // subqueryQueryN4()
 ]

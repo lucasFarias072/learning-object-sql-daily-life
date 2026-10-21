@@ -6,9 +6,11 @@ import { subqueryQueryN3 } from "../../quarto-queries/subquery/n-3";
 import { subqueryQueryN4 } from "../../quarto-queries/subquery/n-4";
 import type { QueryScenarioFrontend } from "../../types";
 
+void [subqueryQueryN4];
+
 export const quartoSUBQUERY: QueryScenarioFrontend[] = [
     subqueryQueryN1(),
     subqueryQueryN2(),
     subqueryQueryN3(),
-    subqueryQueryN4()
+    // subqueryQueryN4()
 ]

@@ -11,13 +11,13 @@ export function caseWhenQueryN1(): QueryScenarioBackend {
         cenario: 'turismo-case-when-1',
         consultaTipo: 'case-when',
         id: 1,
-        // Liste o nome de cada pessoa e uma classificação customizada que indique se ela é 'estrangeira' ou 'nativa'.
+        // Liste o nome de cada pessoa e também crie uma classificação customizada que indique se ela é 'estrangeira' ou 'nativa'. Para isso, observe as variações de valores numéricos relacionados.
         consulta: `
         select nome,
         case
         when eh_estrangeiro = 1 then 'estrangeiro'
         else 'nativo'
-        end as origem
+        end as origem_pessoa
         from pessoa;
         `,
         tabelas: [],

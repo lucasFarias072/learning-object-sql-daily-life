@@ -9,6 +9,6 @@ import { caseWhenQueryN4 } from '../../frutaria-queries/casewhen/n-4.js';
 export const frutariaCASEWHEN: QueryScenarioBackend[] = [
     caseWhenQueryN1(),
     caseWhenQueryN2(),
-    caseWhenQueryN3(),
-    caseWhenQueryN4()
+    // caseWhenQueryN3(),
+    // caseWhenQueryN4()
 ]
