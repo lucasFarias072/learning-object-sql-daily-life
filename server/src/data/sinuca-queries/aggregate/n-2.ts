@@ -11,7 +11,7 @@ export function aggregateQueryN2(): QueryScenarioBackend {
         cenario: 'sinuca-agregacao-2',
         consultaTipo: 'agregacao',
         id: 2,
-        // Para cada tipo de sinuca favoritada, traga a contagem da distribuição de cada tipo.
+        // Para cada identificador de sinuca favorita, liste a quantidade de sinuquistas que a favoritaram.
         consulta: `
         select sinuca_fk_favorita, count(*) as quantidade_sinuquistas
         from sinuquista

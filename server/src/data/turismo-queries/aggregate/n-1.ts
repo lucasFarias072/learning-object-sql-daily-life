@@ -11,7 +11,7 @@ export function aggregateQueryN1(): QueryScenarioBackend {
         cenario: 'turismo-agregacao-1',
         consultaTipo: 'agregacao',
         id: 1,
-        // Para cada guia, quantos passeios fez e qual a média das avaliações atribuidas a eles em cada passeio achado?
+        // Para cada identificador de guia, liste a quantidade de passeios realizados e a média das avaliações atribuídas a esses passeios.
         consulta: `
         select guia_fk, count(*) as quantidade_passeios, avg(avaliacao_guia) as media_avaliativa
         from passeio

@@ -27,7 +27,7 @@ export function TheoryConsole(_props: TheoryConsoleProps) {
 
       <div className="flex column gap-xsm" style={{ flex: 1, maxWidth: '50vw' }}>
         <div className='flex column go-center gap-xsm'>
-            <button form="send-query-draft" type="submit" className={canSubmit ? 'send-query round-title' : 'send-query round-title disabled'}>ver resultado</button>
+            <button form="send-query-draft" type="submit" className={canSubmit ? 'see-result ' : 'see-result disabled'}>ver resultado</button>
         </div>
      
         <form onSubmit={handleSubmit} id="send-query-draft" className="flex column gap-xsm">

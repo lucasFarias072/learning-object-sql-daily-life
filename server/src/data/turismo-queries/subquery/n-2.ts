@@ -11,7 +11,7 @@ export function subqueryQueryN2(): QueryScenarioBackend {
         cenario: 'turismo-subconsulta-2',
         consultaTipo: 'subconsulta',
         id: 2,
-        // Liste o id do passeio, o expediente do guia e a avaliação dele, apenas para passeios feitos em pontos turísticos com avaliação de 4.5.
+        // Liste o identificador do passeio, o expediente do guia e a avaliação atribuída pelo guia, apenas para passeios feitos em pontos turísticos com avaliação de 4.5.
         consulta: `
         select passeio_id, expediente, avaliacao_guia
         from passeio pass

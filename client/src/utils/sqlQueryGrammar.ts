@@ -629,8 +629,7 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("select") === 1,
             countIt("join") === 2,
             countIt("where") === 1,
-            countIt("and") >= 1,
-            countIt("68") === 1
+            countIt("and") >= 1
         ]
     }
     

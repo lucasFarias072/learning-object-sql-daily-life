@@ -11,7 +11,7 @@ export function joinQueryN1(): QueryScenarioBackend {
         cenario: 'exercicio-join-1',
         consultaTipo: 'join',
         id: 1,
-        // Liste, para cada avistamento, o nome do membro da família que avistou, o tipo de local onde ocorreu, descrição do que foi visto (quando souber o que era) e o horário.
+        // Para cada avistamento, liste o nome do membro da família que avistou, a descrição do tipo do local onde ocorreu, descrição do que foi visto (quando se soube o que era) e o horário.
         consulta: `
         select nome_membro, descricao_local_tipo, descricao_algo, hora_visto
         from avistamento avi

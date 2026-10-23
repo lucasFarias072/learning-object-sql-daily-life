@@ -11,7 +11,7 @@
 }
 
 /* Bloco espelhado */
-#upper-area #blocks-area-mirror {
+#upper-area #blocks-area-mirror, #blocks-area-mirror-cpt {
     background: linear-gradient(30deg, #D1FAE5, aquamarine);
     border: gray solid 1px;
     border-radius: .2rem;
@@ -23,10 +23,13 @@
 }
 
 /* Enunciado da consulta */
-#upper-area #frame-query-text {
-    background: var(--deep-blue);
+#upper-area #frame-query-text, #frame-query-text-cpt {
+    /* background: var(--deep-blue); */
+    background: linear-gradient(15deg, #D1FAE5, rgb(233, 245, 223));
+    border: darkcyan solid 1px;
     border-radius: .2rem;
-    color: var(--soft-green);
+    /* color: var(--soft-green); */
+    color: #1F2937;
     letter-spacing: .5px;
     padding: .7rem;
     text-align: justify;
@@ -57,7 +60,7 @@
 }
 
 /* Assuntos SQL item */
-#upper-area #frame-subject-select, .round-title {
+#upper-area #frame-subject-select, #frame-subject-select-cpt, .round-title {
     background: var(--soft-green);
     /* border: #222 solid 1px; */
     border-bottom: #222 solid .3rem;
@@ -106,7 +109,7 @@
 }
 
 /* Área de texto */
-#bottom-area textarea {
+#bottom-area textarea, #textarea-cpt {
     /* background: linear-gradient(var(--burnt-yellow-stronger), var(--matte-yellow)); */
     background: var(--modal-layout);
     border: var(--deep-blue) solid 1px;
@@ -122,9 +125,11 @@
 
 /* Área de texto (características) */
 #bottom-area #query-console {
-    color: var(--deep-blue);
+    /* color: var(--deep-blue); */
+    text-shadow: 0 0 .1rem purple;
+    color: purple;
     font-size: .85rem;
-    font-weight: 700;
+    /* font-weight: 700; */
     letter-spacing: 2.5px;
 }
 
@@ -139,7 +144,7 @@
 }
 
 /* Área de ordenação de blocos (características) */
-#bottom-area #blocks-area {
+#bottom-area #blocks-area, #blocks-area-cpt {
     /* background: linear-gradient(90deg, #374151, var(--deep-blue), var(--deep-blue)); */
     /* background: linear-gradient(90deg, rgb(16, 137, 129, .7), rgb(16, 137, 129, .6), rgb(16, 137, 129, .5)); */
     background: var(--modal-layout-v2);

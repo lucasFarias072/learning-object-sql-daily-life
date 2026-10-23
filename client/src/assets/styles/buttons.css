@@ -14,6 +14,7 @@
     /* background: #374151; */
     background: #adf;
     /* border: var(--matte-yellow) solid 1px; */
+    border: #222 solid 1px;
     border-radius: .2rem;
     box-shadow: 0 0 .5rem #adf;
     color: black;
