@@ -11,7 +11,7 @@ export function aggregateQueryN1(): QueryScenarioBackend {
         cenario: 'ponto-de-onibus-agregacao-1',
         consultaTipo: 'agregacao',
         id: 1,
-        // Mostre quantos registros de locomoção (apenas a coluna do dado de quantidade) existem para os ônibus, durante os horários a partir das 10h. Mostre ao final, a contagem dos ônibus com mais de 2 registros de locomoção.
+        // Liste somente a quantidade de locomoções em cada grupo formado por ônibus, considerando os registros a partir das 10h e os grupos com mais de 2 locomoções nesse período.
         consulta: `
         select count(*) as qtd_locomocoes
         from locomocao

@@ -9,7 +9,7 @@ export function Home() {
                 <div className="flex column go-center gap-sm mt-1">
                     <Link to="/teorico" className="module w15">📖 Módulo Teórico</Link>
                     <Link to="/pratico" className="module w15">🧠 Módulo Prático</Link>
-                    <Link to="/leitura" className="module w15">👀 Módulo Leia</Link>
+                    <Link to="/leitura" className="module w15 emphasis">👀 Módulo Leia</Link>
                 </div>
             </div>
         </div>

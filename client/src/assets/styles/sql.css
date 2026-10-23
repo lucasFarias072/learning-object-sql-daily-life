@@ -27,8 +27,10 @@
 }
 
 .on-start {
-    background: rgb(128, 128, 128);
-    box-shadow: 0 0 .44rem rgb(88, 88, 88);
+    background: salmon;
+    /* box-shadow: 0 0 .5rem salmon; */
+    /* background: rgb(128, 128, 128); */
+    /* box-shadow: 0 0 .44rem rgb(88, 88, 88); */
     color: white;
 }
 
@@ -38,6 +40,6 @@
 }
 
 .in-the-end {
-    background: var(--deep-blue);
+    background: var(--latex-blue-weak);
     color: white;
 }

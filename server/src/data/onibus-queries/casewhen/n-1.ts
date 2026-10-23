@@ -11,7 +11,7 @@ export function caseWhenQueryN1(): QueryScenarioBackend {
         cenario: 'onibus-case-when-1',
         consultaTipo: 'case-when',
         id: 1,
-        // Para cada passageiro sentado ou em pé, crie uma classificação customizada com os rótulos (em_peh) e (sentado) que se relaciona ao fator de nulidade. Agrupe pela coluna criada.
+        // Classifique cada passageiro como (em_peh) ou (sentado) e liste a quantidade de passageiros em cada situação.
         consulta: `
         select case 
         when assento_fk is null 

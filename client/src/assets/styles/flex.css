@@ -14,3 +14,14 @@
 .gap-sm {gap: 1rem;}
 .gap-mid {gap: 3rem;}
 .gap-lg {gap: 5rem;}
+
+.fill {flex: 1}
+
+.conteiner-grid {
+  display: grid;
+  /* Define 3 colunas: 1ª para o título da linha, 2ª para a Tag1, 3ª para a Tag2 */
+  /* 'max-content' faz a coluna ter o tamanho exato do maior texto dela */
+  grid-template-rows: max-content max-content max-content; 
+  gap: .5rem;
+  align-items: center;
+}

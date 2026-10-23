@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { scenarios } from '../../data/scenarios'
+import { ReturnBtn } from '../shared/ReturnBtn'
 
 export function ScenarioList() {
     let cenariosUnicos = [...new Set(scenarios.map(s => s.scenario))]
@@ -7,7 +8,8 @@ export function ScenarioList() {
 
     return (
         <div className="win h100 flex column go-center gap-xsm area">
-            <h1 className="generic-title">🧩 Cenários para treino</h1>
+            <ReturnBtn/>
+            <h1 className="generic-title" style={{fontSize: "1.5rem"}}>🧩 Cenários para treino</h1>
             <div className="flex column go-center gap-xsm mt-1">
                 {cenariosUnicos.map(scenario => (
                     <Link key={scenario} to={`/pratico/${scenario}`} className="module wide15">

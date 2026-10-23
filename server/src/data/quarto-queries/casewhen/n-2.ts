@@ -11,7 +11,7 @@ export function caseWhenQueryN2(): QueryScenarioBackend {
         cenario: 'quarto-case-when-2',
         consultaTipo: 'case-when',
         id: 2,
-        // Crie duas colunas customizadas, uma para definir época do quarto, outra para definir se o quarto tem banheiro. Use os rótulos (antigo) para antes dos anos 2000, (quase_novo) para até o ano de 2015, (novo) para qualquer outra situação. Use os rótulos (sem_suite) para os quartos com zero banheiros e (com_suite) para qualquer coisa além de zero. Agrupe pelos rótulos e conte-os.
+        // Crie uma classificação para a época do quarto: (antigo) para antes de 2000, (quase_novo) até 2015 e (novo) nos demais casos. Crie outra classificação para a suíte: (sem_suite) quando suite for 0 e (com_suite) nos demais casos. Agrupe pelas duas classificações e liste a quantidade de quartos em cada grupo.
         consulta: `
         select 
             case

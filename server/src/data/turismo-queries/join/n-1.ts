@@ -11,7 +11,7 @@ export function joinQueryN1(): QueryScenarioBackend {
         cenario: 'turismo-join-1',
         consultaTipo: 'join',
         id: 1,
-        // Liste, para cada passeio, o identificador do guia responsável, a pessoa atendida que contratou e o ponto turístico visitado.
+        // Para cada passeio, liste o identificador do guia responsável, o nome da pessoa que o contratou e a descrição do ponto turístico visitado.
         consulta: `
         select guia_id, nome, descricao_ponto
         from passeio pas

@@ -13,22 +13,23 @@ import { useResourceToggle } from '../../hooks/useResourceToggle'
 import { useScenarioData } from '../../hooks/useScenarioData'
 
 // import { ColumnDropdown } from './ColumnDropdown'
+// import { TableDropdown } from './TableDropdown'
 import { DraftPanel } from './DraftPanel'
 import { FeedbackBanner, type FeedbackStatus } from './FeedbackBanner'
 import { QueryBlocksMirror, QueryBlocksOrigin } from './QueryBlocks'
 import { QueryBlocksMirrorTemp } from './QueryBlocks'
 import QueryPreviewModal from "./QueryPreviewModal";
 import { ResultTable } from './ResultTable'
-// import { TableDropdown } from './TableDropdown'
 import { TablePreview } from './TablePreview'
 import { TempMsg } from './TempMsg'
 
 import { scenarios } from '../../data/scenarios'
 
 import { Modal } from '../shared/Modal'
-// import { PositionViewer } from '../shared/PositionViewer'
 import { Tutorial } from '../shared/Tutorial'
 import { TutorialProvider, useTutorialHighlight } from '../shared/TutorialContext'
+
+import { ReturnBtn } from '../shared/ReturnBtn'
 
 const styles = {
     offsetUpper: {
@@ -74,16 +75,11 @@ export function ModulePractice() {
 
     const [feedbackStatus, setFeedbackStatus] = useState<FeedbackStatus>(null)
 
-    // const [currentTableOnDropdown, setCurrentTableOnDropdown] = useState('')
-
-    // const [tableDropdown, setTableDropdown] = useState('')
-    // const [columnDropdown, setColumnDropdown] = useState('')
-
     const [history, setHistory] = useState<QueryFromHistory[]>([]);
     const [recentOrderAbove, setRecentOrderAbove] = useState(true);
     const [openHistory, setOpenHistory] = useState(false);
 
-    const [visibleNote, setVisibleNote] = useState(false);
+    const [notePosition, setNotePosition] = useState<'top-right' | 'bottom-left' | null>(null);
     const [textNote, setTextNote] = useState('');
 
     const [isPreviewOpen, setIsPreviewOpen] = useState(false);
@@ -92,6 +88,14 @@ export function ModulePractice() {
         setHistory(prev => {
             const newHist = [...prev, { id: crypto.randomUUID(), consulta, timestamp: new Date() }];
             return newHist.length > HISTORY_THRESHOLD ? newHist.slice(newHist.length - HISTORY_THRESHOLD) : newHist;
+        });
+    }
+
+    function cycleNotePosition() {
+        setNotePosition(position => {
+            if (position === null) return 'top-right';
+            if (position === 'top-right') return 'bottom-left';
+            return null;
         });
     }
 
@@ -171,17 +175,19 @@ export function ModulePractice() {
             setSelectedAssunto('')
         }
     }
+    
+    /*
+    function handleSetSelectFromTableDropdown(currentValue: any)  {
+        setCurrentTableOnDropdown(currentValue);
+        setTableDropdown(currentValue);
+        // queryConsole.setValue(`${queryConsole.value} ${currentValue}`);
+    };
 
-    // function handleSetSelectFromTableDropdown(currentValue: any)  {
-    //     setCurrentTableOnDropdown(currentValue);
-    //     setTableDropdown(currentValue);
-    //     // queryConsole.setValue(`${queryConsole.value} ${currentValue}`);
-    // };
-
-    // function handleSetSelectFromColumnDropdown(currentValue: any)  {
-    //     setColumnDropdown(currentValue);
-    //     // queryConsole.setValue(`${queryConsole.value} ${currentValue}`);
-    // };
+    function handleSetSelectFromColumnDropdown(currentValue: any)  {
+        setColumnDropdown(currentValue);
+        // queryConsole.setValue(`${queryConsole.value} ${currentValue}`);
+    };
+    */
 
     function selectAssunto(value: string, queryTypeText: string) {
         setSelectedAssunto(value)
@@ -216,7 +222,10 @@ export function ModulePractice() {
     }, [scenario]);
 
     return (
-        <div id="module-practice-inside" className={`win area ${scenario}`} style={{ minHeight: '200vh', width: '100%' }}>
+        // style={{ minHeight: '200vh', width: '100%' }}
+        <div id="module-practice-inside" className={`win area ${scenario}`} >
+            
+            <ReturnBtn/>
 
             <QueryPreviewModal
                 isOpen={isPreviewOpen}
@@ -264,7 +273,7 @@ export function ModulePractice() {
 
             <Tutorial></Tutorial>
 
-            <DraftPanel visible={visibleNote} note={textNote} onChange={setTextNote}/>
+            <DraftPanel position={notePosition} note={textNote} onChange={setTextNote}/>
 
             {/* {consoleOn && <div className='flex column gap-xsm'>
                 <button 
@@ -301,8 +310,8 @@ export function ModulePractice() {
                         chosenQuery 
                         ? <p>{chosenQuery.queryId}. {chosenQuery.queryText}</p> 
                         : <div className='flex row go-center gap-mid'>
-                            <h3>⮜⮜⮜</h3>
-                            <h3>Veja o tutorial</h3>
+                            <h3 style={{color: "darkcyan"}}>⮜⮜⮜</h3>
+                            <h3 style={{color: "darkcyan"}}>Veja o tutorial</h3>
                         </div>
                     }
                     
@@ -328,7 +337,9 @@ export function ModulePractice() {
                                 {/* <option value="5">case-when</option> */}
                             </select>
                         </TutorialProvider>
-                        <button type="button" id="user-query-notes" className={`send-btn-lite btn-notes ${hlUserQueryNotes}`} onClick={() => setVisibleNote(v => !v)}>{visibleNote ? 'Anotações: ON 🟢' : 'Anotações: OFF 🔴'}</button>
+                        <button type="button" id="user-query-notes" className={`send-btn-lite btn-notes ${hlUserQueryNotes}`} onClick={cycleNotePosition}>
+                            {notePosition === null ? 'Anotações: OFF 🔴' : notePosition === 'top-right' ? 'Anotações: Superior direito 🟢' : 'Anotações: Inferior esquerdo 🟢'}
+                        </button>
                     </div>
                 </div>
                 

@@ -35,29 +35,45 @@
     animation: tutorial-shake-v2 2s ease-in-out infinite;
 }
 
+.tutorial-cpt {
+    background: var(--modal-layout);
+    border: var(--deep-blue) solid 1px;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    box-shadow: 0 0 2rem transparent;
+    height: 10vh;
+    width: 10vw;
+    transition: all linear .5s;
+    animation: tutorial-shake-v2 2s ease-in-out infinite;
+}
+
 #tutorial-indicator {
     cursor: pointer;
     font-size: 2rem;
 }
 
 #tutorial-steps {
-    background: rgb(31, 41, 55);
-    border-radius: .33rem; 
+    /* background: rgb(31, 41, 55); */
+    background: linear-gradient(#adf, aquamarine);
+    border: gray solid 2px;
+    /* border-radius: .33rem;  */
     /* border-top-right-radius: .33rem; */
     /* border-bottom-right-radius: .33rem; */
     /* color: var(--matte-yellow); */
-    color: white;
+    /* color: white; */
+    color: black;
+    text-shadow: 0 0 .1rem #222;
     font-size: .8rem;
     font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
     letter-spacing: 1.5px;
-    padding: .5rem;
+    padding: .2rem;
     text-align: left;
     /* text-shadow: 0 0 .5rem #F59E0B; */
     /* text-shadow: 0 0 .5rem white; */
     
     position: fixed;
     top: 35%;
-    height: 22vh;
+    height: 24vh;
     width: 22vw;
     z-index: 2;
 }
@@ -231,6 +247,10 @@
   font-size: .85rem;
   padding: .88rem .44rem;
   text-align: center;
+}
+
+.emphasis {
+    animation: tutorial-shake-v2 3s ease infinite;
 }
 
 /*

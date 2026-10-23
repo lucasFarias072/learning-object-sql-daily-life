@@ -28,8 +28,9 @@ router.get('/stakeholders', (_req, res) => {
   res.json(dados);
 })
 
+// Coluna omitida: aposta_id
 router.get('/apostas-partidas', (_req, res) => {
-  const dados = sqlDailyLifeDB.prepare('SELECT aposta_id, partida_sinuca_fk, sinuquista_fk_apostado FROM aposta_partida ORDER BY partida_sinuca_fk').all()
+  const dados = sqlDailyLifeDB.prepare('SELECT partida_sinuca_fk, sinuquista_fk_apostado FROM aposta_partida').all()
   res.json(dados)
 })
 
@@ -78,8 +79,9 @@ router.get('/locais-tipos', (_req, res) => {
   res.json(dados)
 })
 
+// Coluna omitida: pa_aluguel_id
 router.get('/parque-aquatico-aluguel', (_req, res) => {
-  const dados = sqlDailyLifeDB.prepare('SELECT pa_aluguel_id, paa_entrada_fk, pa_produto_fk FROM parque_aquatico_aluguel ORDER BY pa_aluguel_id').all()
+  const dados = sqlDailyLifeDB.prepare('SELECT paa_entrada_fk, pa_produto_fk FROM parque_aquatico_aluguel').all()
   res.json(dados)
 })
 
@@ -108,8 +110,9 @@ router.get('/passageiros', (_req, res) => {
   res.json(dados)
 })
 
+// Coluna omitida: passageiro_item_id
 router.get('/passageiros-itens', (_req, res) => {
-  const dados = sqlDailyLifeDB.prepare('SELECT passageiro_item_id, passageiro_fk, item_fk FROM passageiro_item ORDER BY item_fk').all()
+  const dados = sqlDailyLifeDB.prepare('SELECT passageiro_fk, item_fk FROM passageiro_item').all()
   res.json(dados)
 })
 
@@ -129,8 +132,9 @@ router.get('/onibus-veiculos', (_req, res) => {
   res.json(dados)
 })
 
+// Coluna omitida: oz_id
 router.get('/onibus-zonas', (_req, res) => {
-  const dados = sqlDailyLifeDB.prepare('select oz_id, zona_fk, onibus_fk FROM onibus_zona order by zona_fk').all()
+  const dados = sqlDailyLifeDB.prepare('select zona_fk, onibus_fk FROM onibus_zona').all()
   res.json(dados)
 })
 
@@ -217,8 +221,9 @@ router.get('/caracteristicas', (_req, res) => {
   res.json(dados)
 })
 
+// Coluna omitida: dc_id
 router.get('/donos-caracteristicas', (_req, res) => {
-  const dados = sqlDailyLifeDB.prepare('SELECT dc_id, dono_fk, caract_fk FROM dono_caracteristica ORDER BY dono_fk').all()
+  const dados = sqlDailyLifeDB.prepare('SELECT dono_fk, caract_fk FROM dono_caracteristica').all()
   res.json(dados)
 })
 
@@ -254,8 +259,9 @@ router.get('/algos', (_req, res) => {
   res.json(dados)
 })
 
+// Coluna omitida: cor_algo_id
 router.get('/cores-algo', (_req, res) => {
-  const dados = sqlDailyLifeDB.prepare('SELECT cor_algo_id, cor_fk, algo_fk FROM cor_algo ORDER BY cor_fk').all()
+  const dados = sqlDailyLifeDB.prepare('SELECT cor_fk, algo_fk FROM cor_algo').all()
   res.json(dados)
 })
 

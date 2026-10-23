@@ -11,7 +11,7 @@ export function aggregateQueryN3(): QueryScenarioBackend {
         cenario: 'exercicio-agregacao-3',
         consultaTipo: 'agregacao',
         id: 3,
-        // Mostre a quantidade de avistamentos de cada membro da família, considere apenas os membros com mais de 3 avistamentos.
+        // Liste somente a quantidade de avistamentos em cada grupo formado por membro da família, considerando os grupos com mais de 3 avistamentos.
         consulta: `
         select count(*) as qtd_avistamentos
         from avistamento

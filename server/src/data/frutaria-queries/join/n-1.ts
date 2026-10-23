@@ -11,7 +11,7 @@ export function joinQueryN1(): QueryScenarioBackend {
         cenario: 'frutaria-join-1',
         consultaTipo: 'join',
         id: 1,
-        // Liste o nome de cada fruta vendida, o tipo do local onde é vendida e o nome desse local.
+        // Liste a descrição de cada fruta vendida, o tipo do local onde é vendida e o nome desse local.
         consulta: `
         select descricao_fruta, descricao_local_tipo, descricao_local
         from frutaria_produto fprod

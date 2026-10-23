@@ -6,6 +6,7 @@ import { ScenarioList } from './components/ModulePractice/ScenarioList'
 import { SubjectList } from './components/ModuleTheory/SubjectList'
 import { ModulePractice} from './components/ModulePractice/ModulePractice'
 import { ModuleTheory } from './components/ModuleTheory/ModuleTheory'
+import { ModuleRead } from './components/ModuleRead/ModuleRead'
 import { TutorialProvider } from './components/shared/TutorialContext'
 
 import './assets/styles/buttons.css'
@@ -40,6 +41,8 @@ function App() {
 
               <Route path="/teorico" element={<SubjectList />} />
               <Route path="/teorico/:subject" element={<ModuleTheory />} />
+
+              <Route path="/leitura" element={<ModuleRead />} />
           </Routes>
 
       </div>

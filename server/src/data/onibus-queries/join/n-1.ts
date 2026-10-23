@@ -11,7 +11,7 @@ export function joinQueryN1(): QueryScenarioBackend {
         cenario: 'onibus-join-1',
         consultaTipo: 'join',
         id: 1,
-        // Liste, identificadores dos passageiros sentados, a credencial do assento e cada item que ele carrega.
+        // Liste o identificador de cada passageiro sentado, a credencial do assento e a descrição de cada item que ele carrega.
         consulta: `
         select passageiro_id, assento_credencial, descricao_item
         from passageiro psg
