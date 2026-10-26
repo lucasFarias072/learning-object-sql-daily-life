@@ -17,7 +17,7 @@ export function JoinCasePolyreference() {
                     <p>⬩➤ Quando uma tabela <Frame cmd='' label='possui referência em mais de um local'/>.</p>
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ No exemplo abaixo'/>, a tabela <Frame cmd='' label='tabela'/> <Frame cmd='ylw i !u' label='dono'/> <Frame cmd='' label='existe em'/> mais de uma tabela: <Frame cmd='d-blue i !u' label='quarto_relatorio' /> e <Frame cmd='ppl i !u' label='dono_caracteristica' />.</p>
                     <p><Frame cmd='red i !u' label='⬩➤ Ao invés disso'/> <Frame cmd='ylw i !u' label='dono'/> ➜ <Frame cmd='d-blue i !u' label='quarto_relatorio' /> ➜ <Frame cmd='ppl i !u' label='dono_caracteristica' />.</p>
-                    <p><Frame cmd='shine i !u' label='⬩➤ Fica isso'/> <Frame cmd='d-blue i !u' label='quarto_relatorio' /> ➡️ <Frame cmd='ylw i !u' label='dono'/> ⬅️ <Frame cmd='ppl i !u' label='dono_caracteristica' /></p>
+                    <p><Frame cmd='shine i !u' label='⬩➤ Fica isso ➜'/> <Frame cmd='d-blue i !u' label='quarto_relatorio' /> <b>---&gt;</b> <Frame cmd='ylw i !u' label='dono'/> <b>&lt;---</b> <Frame cmd='ppl i !u' label='dono_caracteristica' /></p>
                     <Hint/>
                 </div>
                 

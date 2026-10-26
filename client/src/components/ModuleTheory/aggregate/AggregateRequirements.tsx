@@ -15,9 +15,10 @@ export function AggregateRequirements() {
 
                 <div id="req-body-aggregate" className="flex column gap-xsm theory-layout">
                     <ul className="flex column gap-sm">
-                        <li>⬩➤ Pelo menos <Frame cmd='' label='uma função de agregação no'/> <Sql word='select'/>.</li>
-                        <li>⬩➤ Se houver <Frame cmd='' label='colunas não agregadas'/> junto ao <Sql word='select'/>, elas <Frame cmd='' label='precisam obrigatoriamente estar no'/> <Sql word='group by'/></li>
-                        <li>⬩➤ <Sql word='group by'/> é <Frame cmd='shine i !u' label='opcional'/>, mas é <Frame cmd='' label='muito utilizado'/>, pois <Frame cmd='red i !u' label='sua ausência limita'/> a atuação das <Frame cmd='shine i !u' label='funções agregadoras'/>.</li>
+                        <li>⬩➤ As funções agregadoras, por si só, precisam de uma coluna, normalmente numérica, mas aqui <Frame cmd='shine i !u' label='o intuito é falar da sua aliança com'/> <Sql word='group by'/>.</li>
+                        <li>⬩➤ Pelo menos <Frame cmd='' label='uma função de agregação'/> normalmente no <Sql word='select'/> (se for para <Frame cmd='' label='exibir'/>), ou no <Sql word='having'/> (se for para <Frame cmd='' label='filtrar'/>).</li>
+                        <li>⬩➤ Uma ou mais <Frame cmd='' label='colunas não agregadas'/> no <Sql word='group by'/> <Frame cmd='shine i !u' label='(opcionalmente ou obrigatoriamente)'/>, que podem ser exibidas no <Sql word='select'/> <Frame cmd='shine i !u' label='(opcionalmente)'/>.</li>
+                        <li>⬩➤ <Sql word='group by'/> é <Frame cmd='shine i !u' label='opcional'/>, mas é <Frame cmd='' label='muito utilizado'/>, pois <Frame cmd='red i !u' label='sua ausência limita'/> a <Frame cmd='shine i !u' label='atuação das funções agregadoras'/>.</li>
                         <li>⬩➤ Os <Frame cmd='' label='exemplos abaixo'/> demonstram bem como a <Frame cmd='shine i !u' label='atuação da função agregadora muda'/> <Frame cmd='' label='conforme'/> a aplicação do <Sql word='group by'/>.</li>
                         <li>⬩➤ Eles se tratam do assunto de duração de partida de sinuca.</li>
                         {/* <li>⬩➤ Não precisa entender os exemplos, apenas <Frame cmd='' label='tenha em mente'/> que:</li> */}

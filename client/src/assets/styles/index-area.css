@@ -12,5 +12,11 @@
 /* } */
 
 #index-area #logo-oa {
-    border-radius: .2rem;
+    border-radius: .5rem;
+    opacity: .8;
+    transition: ease 1s;
+}
+
+#index-area #logo-oa:hover {
+    opacity: 1;
 }

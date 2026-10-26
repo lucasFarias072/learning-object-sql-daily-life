@@ -14,11 +14,11 @@ export function CaseWhenHaveInMind() {
 
                 <div id="have-in-mind-body-casewhen" className="flex column gap-xsm theory-layout">
                     <ul className="flex column gap-sm">
-                        <li>⬩➤ Seu uso é bem <Frame cmd='' label='mais comum'/> ao <Sql word='select'/>, para <Frame cmd='' label='rotular coisas que não são claras'/> para todos.</li>
-                        <li>⬩➤ Usado na <Frame cmd='' label='ordenação'/> de maneira <Frame cmd='' label='que o'/> <Sql word='order by'/> <Frame cmd='' label='não faz nativamente'/>.</li>
-                        <li>⬩➤ Oferece <Frame cmd='' label='agrupamentos'/> ao <Sql word='group by'/> com <Frame cmd='' label='dados customizados'/>/derivados de colunas com dados reais.</li>
-                        <li>⬩➤ Pode ser usado junto ao filtro where, mas é complicado e contraintuitivo.</li>
-                        <li>⬩➤ <Frame cmd='' label='Se quiser'/> que colunas tenham <Frame cmd='' label='valores'/> customizados <Frame cmd='' label='nulos'/>, <Frame cmd='' label='retire'/> o <Sql word='else'/>, pois é opcional.</li>
+                        <li>⬩➤ Seu <Frame cmd='shine i !u' label='uso é bem mais comum'/> ao <Sql word='select'/>, para <Frame cmd='' label='rotular coisas'/> que <Frame cmd='red i !u' label='não estão claras para todos'/>.</li>
+                        <li>⬩➤ Permite <Frame cmd='shine i !u' label='configurar ordenação customizada'/> de maneira <Frame cmd='' label='que o'/> <Sql word='order by'/> <Frame cmd='' label='não faz nativamente'/>.</li>
+                        <li>⬩➤ Oferece <Frame cmd='shine i !u' label='agrupamentos com dados customizados'/> ao <Sql word='group by'/>, <Frame cmd='' label='derivados'/> de colunas com <Frame cmd='' label='dados reais'/>.</li>
+                        <li>⬩➤ <Frame cmd='' label='Se quiser'/> que colunas tenham <Frame cmd='' label='valores'/> customizados <Frame cmd='' label='nulos'/>, <Frame cmd='red i !u' label='retire'/> o <Sql word='else'/>, pois é opcional.</li>
+                        <li>⬩➤ A cláusulo de filtro <Sql word='where'/> funciona com <Sql word='case when'/> mas é <Frame cmd='red i !u' label='complicado e contraintuitivo'/>.</li>
                     </ul>
                 </div>
 

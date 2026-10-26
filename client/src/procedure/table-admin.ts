@@ -144,7 +144,7 @@ export function getTableColumns(where: number[]): string[][] {
 
         // Exercicio
         {"where": 39, "cols": ['cor_id', 'descricao_cor']},
-        {"where": 40, "cols": ['algo_id', 'descricao_algo']},
+        {"where": 40, "cols": ['algo_id', 'descricao_algo', 'natureza']},
         {"where": 41, "cols": ['cor_algo_id', 'cor_fk', 'algo_fk']},
         {"where": 42, "cols": ['vista_id', 'membro_visto_fk', 'algo_visto_fk', 'local_tipo_visto_fk', 'hora_visto']}
     ]

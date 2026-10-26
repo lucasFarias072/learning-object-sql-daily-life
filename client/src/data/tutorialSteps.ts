@@ -36,11 +36,11 @@ export const tutorialSteps: TutorialStep[] = [
   
     { instruction: 'No console de digitação, a consulta é feita por meio de digitação livre.', target: 'resourceConsole' },
     { instruction: 'Adendo: apesar da digitação livre, o console de digitação tem a limitação de só poder executar uma consulta por vez.', target: 'resourceConsole' },
-    { instruction: '⭐ Por esse motivo, existe o botão de anotações (em destaque e movimento). Clique uma vez para abrir o rascunho no canto superior direito.', target: 'user-query-notes' },
+    { instruction: '⭐ Por esse motivo, existe o botão de anotações (em destaque e movimento). Clique uma vez para abrir as anotações no canto superior direito.', target: 'user-query-notes' },
     { instruction: 'Nele você pode deixar blocos de consulta soltos para copiar e colar no console de digitação, ou apenas registrar pensamentos, conclusões. Em resumo, isso é um bloco de notas virtual.', target: 'user-query-notes' },
-    { instruction: '⭐ Clique uma segunda vez para mover o rascunho para o canto inferior esquerdo.', target: 'user-query-notes' },
+    { instruction: '⭐ Clique uma segunda vez para mover os anotações para o canto inferior esquerdo.', target: 'user-query-notes' },
     { instruction: 'Utilidade: com o bloco de anotação do lado esquerdo, você pode usá-lo como guia de escrita, para não se perder quando for mexer nos blocos de ordenação e registrar seus passos.', target: 'user-query-notes' },
-    { instruction: '⭐ Agora clique uma terceira vez para esconder o rascunho e podermos prosseguir com o tutorial.', target: 'user-query-notes' },
+    { instruction: '⭐ Agora clique uma terceira vez para esconder as anotações e podermos prosseguir com o tutorial.', target: 'user-query-notes' },
     { instruction: 'Agora usaremos a área do console de digitação (área retangular gradiente em destaque e movimento).', target: 'resourceConsole' },
     { instruction: '⭐ Digite a consulta: SELECT * FROM STAKEHOLDER;.', target: 'resourceConsole' },
 

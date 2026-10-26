@@ -47,8 +47,7 @@ export function AggregateCaseGroupByMinimum() {
                     <div className="flex row go-left gap-sm subtitles">
                         <h3 className="shine">Legenda ⬩➤</h3>
                         <Frame cmd='d-blue p !u' label='dicionário'/>
-                        <Frame cmd='ylw p !u' label='palavra 1'/>
-                        <Frame cmd='ylw p !u' label='palavra 2'/>
+                        <Frame cmd='ylw p !u' label='palavras do mesmo dicionário'/>
                         <Frame cmd='blue p !u' label='significado para as palavras'/>
                     </div>
 

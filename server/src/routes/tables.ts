@@ -255,7 +255,7 @@ router.get('/cores', (_req, res) => {
 })
 
 router.get('/algos', (_req, res) => {
-  const dados = sqlDailyLifeDB.prepare('SELECT algo_id, descricao_algo FROM algo ORDER BY descricao_algo').all()
+  const dados = sqlDailyLifeDB.prepare('SELECT algo_id, descricao_algo, natureza FROM algo ORDER BY descricao_algo').all()
   res.json(dados)
 })
 
