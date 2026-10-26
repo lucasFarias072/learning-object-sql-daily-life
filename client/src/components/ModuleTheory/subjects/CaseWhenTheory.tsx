@@ -29,7 +29,7 @@ const sections: TheorySection[] = [
             ],
         },
     { id: "have-in-mind", label: "Tenha em mente!", slides: [{ content: <CaseWhenHaveInMind /> }] },
-    { id: "practice", label: "Teste", slides: [{ content: <CaseWhenPractice /> }] },
+    { id: "practice", label: "Teste!", slides: [{ content: <CaseWhenPractice /> }] },
 ]
 
 export function CaseWhenTheory() {

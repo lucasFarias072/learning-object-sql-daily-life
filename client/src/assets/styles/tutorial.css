@@ -20,15 +20,13 @@
 
 #tutorial {
     background: var(--modal-layout);
-    /* background: var(--deep-blue); */
-    /* background: var(--matte-yellow); */
     border: var(--deep-blue) solid 1px;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     box-shadow: 0 0 2rem transparent;
     position: fixed;
-    top: 5%;
-    margin: 0 0 0 -6rem;
+    top: 8%;
+    margin: 0 0 0 -6.5rem;
     height: 10vh;
     width: 10vw;
     transition: all linear .5s;
@@ -107,6 +105,7 @@
   color: var(--deep-blue);
   font-size: .85rem;
   padding: 2rem;
+  opacity: .9;
 }
 
 .case {
@@ -127,6 +126,13 @@
   background: aquamarine;
   border: #222 solid 1px;
   border-radius: .3rem;
+}
+.hint {
+  background: #acf;
+  border: #222 solid 1px;
+  border-radius: .2rem;
+  padding: .22rem;
+  text-shadow: 0 0 .5rem var(--soft-green);
 }
 .item-b, .blue {
   background: var(--latex-blue-weak);

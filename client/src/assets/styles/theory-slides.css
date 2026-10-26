@@ -92,10 +92,10 @@
 
 /* Webkit */
 /* Firefox */ /* Firefox: cor da barra, cor do fundo */
-.theory-slide-viewport {
+/* .theory-slide-viewport {
     scrollbar-width: thin;              
     scrollbar-color: crimson;  
-}
+} */
 
 .theory-slide-viewport::-webkit-scrollbar {
     width: .5rem;
@@ -107,8 +107,8 @@
 }
 
 .theory-slide-viewport::-webkit-scrollbar-thumb {
-    background-color: crimson;
-    border-radius: 999px;
+    background-color: #adf;
+    border: #222 solid 1px;
 }
 
 /* .theory-slide-viewport::-webkit-scrollbar-thumb:hover {

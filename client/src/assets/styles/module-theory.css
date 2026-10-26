@@ -1,0 +1,38 @@
+
+
+.def-list {
+    text-align: justify;
+}
+
+.label {
+    background: aquamarine;
+    box-shadow: 0 0 .1rem #222;
+    border: #222 solid 1px;
+    padding: .33rem;
+}
+
+.round {
+    border-bottom: purple solid .3rem;
+    border-left: purple solid .3rem;
+    border-right: purple solid 1px;
+    border-top: purple solid 1px;
+    border-radius: .7rem;
+    padding: .33rem .66rem;
+}
+
+.bg-sql {
+    background: linear-gradient(#f2f2f2, white);
+    box-shadow: 0 0 .1rem purple;
+    color: purple;
+    text-transform: uppercase;
+}
+
+.table-styles {
+    font-weight: bold;
+    letter-spacing: .5px;
+}
+
+.table-styles tr th, .table-styles tr td {
+    text-align: center;
+    padding: .33rem;
+}

@@ -40,7 +40,7 @@ export function JoinCaseLeftJoin() {
 
                     <div className="sql-code flex column gap-sm">
                         <p><Sql word='select'/> * <Sql word='from'/> <Frame cmd='ylw i !u' label='assento'/></p>
-                        <p><Frame cmd='blue i u' label='left join'/> <Frame cmd='d-blue i !u' label='passageiro'/> <Sql word='on'/> passageiro.<Frame cmd='pk i !u' label='assento_fk'/> = assento.<Frame cmd='cream i !u' label='assento_id'/></p>
+                        <p><Frame cmd='blue i u' label='left join'/> <Frame cmd='d-blue i !u' label='passageiro'/> <Sql word='on'/> passageiro.<Frame cmd='pk i !u' label='assento_fk'/> = assento.<Frame cmd='cream i !u' label='assento_id'/>;</p>
                     </div>
                 </div>
 

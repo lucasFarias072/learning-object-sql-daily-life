@@ -33,7 +33,7 @@ const sections: TheorySection[] = [
             ],
         },
     { id: "have-in-mind", label: "Tenha em mente!", slides: [{ content: <SubqueryHaveInMind /> }] },
-    { id: "practice", label: "Teste", slides: [{ content: <SubqueryPractice /> }] },
+    { id: "practice", label: "Teste!", slides: [{ content: <SubqueryPractice /> }] },
 ]
 
 export function SubqueryTheory() {

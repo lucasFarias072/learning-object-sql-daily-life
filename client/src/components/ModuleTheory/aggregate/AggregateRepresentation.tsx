@@ -29,7 +29,7 @@ export function AggregationRepresentation() {
                         <li>⬩➤ O <Frame cmd='' label='funcionamento'/> nas <Frame cmd='shine i !u' label='funções agregadoras'/> + <Sql word='group by'/> é <Frame cmd='' label='similar'/>.</li>
                         {/* <li>⬩➤ Valores de um local são agrupados (formam grupos) e algo é destinado a eles.</li> */}
                         <li>⬩➤ A <Frame cmd='red i !u' label='diferença'/> é que, <Frame cmd='' label='dar significado'/> com as <Frame cmd='shine i !u' label='funções agregadoras'/>, significa <Frame cmd='shine i !u' label='gerar dados estatísticos'/>.</li>
-                        <li>⬩➤ Os <Frame cmd='' label='grupos'/> tendem a esperar <Frame cmd='' label='colunas com dados de texto'/>, <Frame cmd='red i !u' label='não é regra'/>, mas <Frame cmd='' label='torna mais intuitívo'/>.</li>
+                        <li>⬩➤ <Frame cmd='shine i !u' label='Os grupos'/> tendem a esperar <Frame cmd='' label='colunas com dados de texto'/>, <Frame cmd='red i !u' label='não é regra'/>, mas <Frame cmd='' label='torna mais intuitívo'/>.</li>
                         <li>⬩➤ As <Frame cmd='shine i !u' label='funções agregadoras'/> esperam <Frame cmd='' label='colunas com dados de números'/>.</li>
                         <li>⬩➤ Os <Frame cmd='' label='exemplos abaixo'/>, demonstram a <Frame cmd='' label='lógica do'/> <Frame cmd='d-blue i !u' label='dicionário'/> ➜ <Frame cmd='ylw i !u' label='seção/palavra'/> ➜ <Frame cmd='blue i !u' label='significado'/>.</li>
                         <li>⬩➤ Quando a <Frame cmd='ylw i !u' label='palavra'/> <Frame cmd='red i !u' label='não está'/> em um <Frame cmd='d-blue i !u' label='dicionário'/>, se <Frame cmd='' label='busca no outro'/> via <Sql word='join'/>.</li>
@@ -40,20 +40,20 @@ export function AggregationRepresentation() {
                 <div className="frame-example mt-1">
                     <div className="flex row go-left gap-sm subtitles">
                         <h3 className="shine">Legenda ⬩➤</h3>
+                        <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 1'/>
+                        <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 2'/>
                         <Frame cmd='ylw p !u' label='palavra(s) (mesmo dicionário)'/>
                         <Frame cmd='d-blue p !u' label='dicionário'/>
                         <Frame cmd='blue p !u' label='significado'/>
                     </div>
 
                     <div className="sql-code flex column gap-sm">
-                        <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/></p>
                         <p><Sql word='select'/> membro_visto_fk, <Frame cmd='blue i u' label='avg(hora_visto)'/></p>
                         <p><Sql word='from'/> <Frame cmd='d-blue i !u' label='avistamento'/></p>
                         <p><Sql word='group by'/> <Frame cmd='ylw i !u' label='membro_visto_fk'/>;</p>
                     </div>
 
                     <div className="sql-code flex column gap-sm">
-                        <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/></p>
                         <p><Sql word='select'/> membro_visto_fk, hora_visto, <Frame cmd='blue i u' label='count(*)'/></p>
                         <p><Sql word='from'/> <Frame cmd='d-blue i !u' label='avistamento'/></p>
                         <p><Sql word='group by'/> <Frame cmd='ylw i !u' label='membro_visto_fk'/>, <Frame cmd='ylw i !u' label='hora_visto'/>;</p>
@@ -62,10 +62,8 @@ export function AggregationRepresentation() {
                 
                 <div className="frame-example mt-1">
                     <div className="flex row go-left gap-sm subtitles">
-                        <div className="flex column gap-xsm">
-                            <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
-                            <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 3'/>
-                        </div>
+                        <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
+                        <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 3'/>
                         <Frame cmd='ylw p !u' label='palavra 1'/>
                         <Frame cmd='cream p !u' label='palavra 2'/>
                         <Frame cmd='d-blue p !u' label='dicionário 1'/>

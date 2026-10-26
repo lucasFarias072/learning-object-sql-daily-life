@@ -4,9 +4,9 @@
 
 .draft-panel {
     position: absolute;
-    top: .5rem;
+    top: .25rem;
     right: .5rem;
-    width: 45%;
+    width: 40%;
     z-index: 10;
 }
 

@@ -84,6 +84,13 @@ export function ModulePractice() {
 
     const [isPreviewOpen, setIsPreviewOpen] = useState(false);
 
+    const querySubject: Record<string, string> = {
+        "agregacao": "🟠agregação🟠 ",
+        "case-when": "🟣case when🟣 ",
+        "join": "🔵join🔵 ",
+        "subconsulta": "🟡subconsulta🟡 ",
+    }
+
     function addToHistory(consulta: string) {
         setHistory(prev => {
             const newHist = [...prev, { id: crypto.randomUUID(), consulta, timestamp: new Date() }];
@@ -223,7 +230,7 @@ export function ModulePractice() {
 
     return (
         // style={{ minHeight: '200vh', width: '100%' }}
-        <div id="module-practice-inside" className={`win area ${scenario}`} >
+        <div id="module-practice-inside" className={`win area background-ink ${scenario}`} >
             
             <ReturnBtn/>
 
@@ -308,7 +315,7 @@ export function ModulePractice() {
                     {/* <p>{chosenQuery ? `${chosenQuery.queryId}. ${chosenQuery.queryText}` : 'Escolha um assunto ➜'}</p> */}
                     {
                         chosenQuery 
-                        ? <p>{chosenQuery.queryId}. {chosenQuery.queryText}</p> 
+                        ? <p>{querySubject[chosenQuery.queryType]} {chosenQuery.queryId}. {chosenQuery.queryText}</p> 
                         : <div className='flex row go-center gap-mid'>
                             <h3 style={{color: "darkcyan"}}>⮜⮜⮜</h3>
                             <h3 style={{color: "darkcyan"}}>Veja o tutorial</h3>
@@ -318,7 +325,7 @@ export function ModulePractice() {
                 </div>
                 
                 <div id="frame-subject" style={{ flex: 'shrink' }} className="flex column go-right gap-xsm">
-                    <div id="frame-subject-components" className="flex column go-center gap-xsm">
+                    <div id="frame-subject-components" className="flex column go-center gap-sm">
                         <div className="flex row gap-xsm">
                             <h1 id="sql-subjects" className="title-sm title-info-type-a w12">Assuntos</h1>
                         </div>
@@ -338,7 +345,7 @@ export function ModulePractice() {
                             </select>
                         </TutorialProvider>
                         <button type="button" id="user-query-notes" className={`send-btn-lite btn-notes ${hlUserQueryNotes}`} onClick={cycleNotePosition}>
-                            {notePosition === null ? 'Anotações: OFF 🔴' : notePosition === 'top-right' ? 'Anotações: Superior direito 🟢' : 'Anotações: Inferior esquerdo 🟢'}
+                            {notePosition === null ? 'Anotações: OFF 🔴' : notePosition === 'top-right' ? 'Anotações: superior direito 🟢' : 'Anotações: inferior esquerdo 🟢'}
                         </button>
                     </div>
                 </div>
@@ -368,7 +375,7 @@ export function ModulePractice() {
                     {queryBlocks && queryBlocks.errorMessage && <TempMsg txtContent={queryBlocks.errorMessage} />}
                     {queryConsole && queryConsole.errorMessage && <TempMsg txtContent={queryConsole.errorMessage} />}
                     <div id="middle-area" className="flex row go-center gap-sm mt-1">
-                        <div id="frame-base-de-dados" className={`flex row go-center gap-sm ${hlBaseDeDados}`}>
+                        <div id="frame-base-de-dados" className={`flex row go-center gap-sm ${hlBaseDeDados} banner-viewport`}>
                             {chosenQuery && chosenQuery.tables.map((tableName: any, index: any) => (
                                 <TablePreview
                                     key={tableName}
@@ -459,11 +466,11 @@ export function ModulePractice() {
                         <p id="resource-status">⭐ {statusLabel}</p>
                         <div className="row">
                             <div id="p-console-frame" className={`flex row gap-sm resource ${hlPConsoleFrame}`}>
-                                <p id="p-console">{consoleOn ? '🟢 Console de Digitação' : '🔴 Console de Digitação'}</p> 
+                                <p id="p-console" className='tool'>{consoleOn ? '🟢 Console de Digitação' : '🔴 Console de Digitação'}</p> 
                                 <button onClick={toggleConsole} id="btn-console" className="upper">{consoleOn ? 'on' : 'off'}</button>
                             </div>
                             <div id="p-blocks-frame" className={`flex row gap-sm resource ${hlPBlocksFrame}`} style={styles.offsetUpper}>
-                                <p id="p-blocks">{blocksOn ? '🟢 Blocos de Ordenação' : '🔴 Blocos de Ordenação'}</p> 
+                                <p id="p-blocks" className='tool'>{blocksOn ? '🟢 Blocos de Ordenação' : '🔴 Blocos de Ordenação'}</p> 
                                 <button onClick={toggleBlocks} id="btn-blocks" className="upper">{blocksOn ? 'on' : 'off'}</button>
                             </div>
                         </div>

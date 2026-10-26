@@ -79,7 +79,7 @@ const scenarioTablesColumns = [
     {"where": 7, "cols": ['cenario_id', 'descricao_cenario']},
     {"where": 8, "cols": ['local_tipo_id', 'descricao_local_tipo']},
     {"where": 9, "cols": ['local_id', 'local_tipo_fk', 'cenario_fk', 'descricao_local']},
-    {"where": 10, "cols": ['pessoa_id', 'local_pess_fk', 'nome']},
+    {"where": 10, "cols": ['pessoa_id', 'local_pess_fk', 'nome', 'eh_estrangeiro', 'qtd_paises_conhecidos', 'origem_fk']},
     {"where": 11, "cols": ['frutaria_produto_id', 'local_fprod_fk', 'preco_atual_kg', 'peso_medio_unid_grama', 'descricao_fruta']},
     {"where": 12, "cols": ['estoque_id', 'frutaria_produto_fk', 'qtd']},
 
@@ -88,12 +88,12 @@ const scenarioTablesColumns = [
     {"where": 14, "cols": ['assento_id', 'assento_credencial', 'estado']},
     {"where": 15, "cols": ['passageiro_id', 'assento_fk', 'peso_kg', 'altura_cm']},
     {"where": 16, "cols": ['passageiro_item_id', 'passageiro_fk', 'item_fk']},
-    {"where": 17, "cols": ['interacao_id', 'pessoa_x', 'pessoa_x']},
+    {"where": 17, "cols": ['interacao_id', 'pessoa_x', 'pessoa_y']},
 
     // Parque Aquático
     {"where": 18, "cols": ["pa_entrada_id", "esta_socio", "dia", "hora_entrada"]},
     {"where": 19, "cols": ["pa_produto_id", "chegada", "descricao_pap"]},
-    {"where": 20, "cols": ["pa_visita_id", "local_pav_fk", "pav_entrada_fk", "hora_entrada"]},
+    {"where": 20, "cols": ["pa_visita_id", "local_pav_fk", "pav_entrada_fk", "hora_visita"]},
     {"where": 21, "cols": ["pa_aluguel_id", "paa_entrada_fk", "pa_produto_fk"]}, 
 
     // Ponto de Ônibus
@@ -127,7 +127,7 @@ const scenarioTablesColumns = [
 
     // Exercicio
     {"where": 39, "cols": ['cor_id', 'descricao_cor']},
-    {"where": 40, "cols": ['algo_id', 'descricao_algo']},
+    {"where": 40, "cols": ['algo_id', 'descricao_algo', 'natureza']},
     {"where": 41, "cols": ['cor_algo_id', 'cor_fk', 'algo_fk']},
     {"where": 42, "cols": ['vista_id', 'membro_visto_fk', 'algo_visto_fk', 'local_tipo_visto_fk', 'hora_visto']}
 ]

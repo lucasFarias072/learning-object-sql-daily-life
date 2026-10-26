@@ -47,7 +47,7 @@ const sections: TheorySection[] = [
         ],
     },
     { id: "have-in-mind", label: "Tenha em mente!", slides: [{ content: <JoinHaveInMind /> }] },
-    { id: "practice", label: "Teste", slides: [{ content: <JoinPractice /> }] },
+    { id: "practice", label: "Teste!", slides: [{ content: <JoinPractice /> }] },
 ]
 
 export function JoinTheory() {
