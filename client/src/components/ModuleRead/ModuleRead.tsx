@@ -38,9 +38,9 @@ export function ModuleRead() {
                             <div>⬩➤ Entusiastas em programação e banco de dados</div>
                             </div>
                           </td>
-                          <td>92</td>
-                          <td>9</td>
-                          <td>50</td>
+                          <td className="font-s-1-2">92</td>
+                          <td className="font-s-1-2">9</td>
+                          <td className="font-s-1-2">50</td>
                         </tr>
                     </tbody>
                   </table>
@@ -52,33 +52,33 @@ export function ModuleRead() {
                 <h2 className="as-line round-title">Módulo Teórico</h2>
               </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Assuntos escolhidos</p>
-                    <div className="flex row gap-mid" style={{fontSize: ".8rem"}}>
-                      <p className="round bg-sql">⬩➤ funções agregadoras + group by</p>
-                      <p className="round bg-sql">⬩➤ case when</p>
-                      <p className="round bg-sql">⬩➤ join</p>
-                      <p className="round bg-sql">⬩➤ subconsultas</p>
-                    </div>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Assuntos escolhidos</h1>
+                    <ul className="flex row gap-mid go-center" style={{fontSize: ".8rem"}}>
+                      <li className="round bg-sql">⬩➤ funções agregadoras + group by</li>
+                      <li className="round bg-sql">⬩➤ case when</li>
+                      <li className="round bg-sql">⬩➤ join</li>
+                      <li className="round bg-sql">⬩➤ subconsultas</li>
+                    </ul>
                 </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Sessões escolhidas para padronizar o módulo teórico</p>
-                    <div className="flex row gap-sm">
-                      <p className="as-line round-title">O que é?</p>
-                      <p className="as-line round-title">Qual a utilidade?</p>
-                      <p className="as-line round-title">Do que precisa?</p>
-                      <p className="as-line round-title">Representação</p>
-                      <p className="as-line round-title">Casos de Uso</p>
-                      <p className="as-line round-title">Tenha em mente</p>
-                    </div>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Sessões padrão</h1>
+                    <ul className="flex row gap-sm go-center">
+                        <li className="as-line round-title">O que é?</li>
+                        <li className="as-line round-title">Qual a utilidade?</li>
+                        <li className="as-line round-title">Do que precisa?</li>
+                        <li className="as-line round-title">Representação</li>
+                        <li className="as-line round-title">Casos de Uso</li>
+                        <li className="as-line round-title">Tenha em mente</li>
+                      </ul>
                 </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Botão Teste</p>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Botão Teste</h1>
                     <div className="w15">
                       <ul className="def-list">
-                        <li>⬩➤ Botão para testar os resultados dos exemplos apresentados em cada sessão de um assunto estudado. É recomendado que se abra uma segunda aba e deixe ele em paralelo ao estudo, fica mais prática o seu uso. Se precisar, abra mais abas.</li>
+                        <li>⬩➤ Botão para testar os resultados de exemplos apresentados espalhados pelas sessões de um assunto. É recomendado que se abra uma segunda aba (ou mais, a depender da necessidade) para que não saia de local onde o exemplo está.</li>
                       </ul>
                     </div>
                     <div className="flex row go-center fill">
@@ -93,8 +93,8 @@ export function ModuleRead() {
                     <h2 className="as-line round-title">Módulo Prático</h2>
                 </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Botão de tutorial</p>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Botão de tutorial</h1>
                     <div className="w15">
                       <ul className="def-list">
                         <li>⬩➤ Botão de acesso ao tutorial para conhecer e treinar rapidamente todas as mecânicas do módulo teórico.</li>
@@ -105,8 +105,8 @@ export function ModuleRead() {
                     </div>
                 </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Seletor de assuntos SQL</p>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Seletor de assuntos SQL</h1>
                     <div className="w15">
                       <ul className="def-list">
                         <li>⬩➤ Opções de assuntos SQL para esse Objeto de Aprendizagem. Dentre eles: Funções agregadoras, Case when, Join e Subconsultas. Sua escolha implica namontagem de uma consulta em tela.</li>
@@ -119,8 +119,8 @@ export function ModuleRead() {
                     </div>
                 </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Caixa de enunciado</p>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Caixa de enunciado</h1>
                     <div className="w15">
                       <ul className="def-list">
                         <li>⬩➤ Local onde os textos das consultas são exibidos, após o usuário selecionar um assunto SQL.</li>
@@ -131,8 +131,8 @@ export function ModuleRead() {
                     </div>
                 </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Tabelas</p>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Tabelas</h1>
                     <div className="w15">
                       <ul className="def-list">
                         <li>⬩➤ Região onde são mostradas todas as tabelas de uma consulta escolhida durante o treino em um cenário no módulo prático. Elas oferecem os campos e tabelas possíveis para a resolução, sem elas não se sabe por exato quais são as tabelas (cor diferente para campos que são chave estrangeira).</li>
@@ -158,8 +158,8 @@ export function ModuleRead() {
                     </div>
                 </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Botão de anotações</p>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Botão de anotações</h1>
                     <div className="w15">
                       <ul className="def-list">
                         <li>⬩➤ Bloco de notas para usar de registro para rascunhos. Serve tanto para consultas feitas pelo console de digitação quanto pelos blocos de ordenação. Ele possui 3 ações de clique, o primeiro abre a janela do bloco de anotações, o segundo muda ele de posição e o terceiro fecha a sua janela.</li>
@@ -170,8 +170,8 @@ export function ModuleRead() {
                     </div>
                 </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Habilitador/Desabilitador de recursos de consulta</p>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Habilitador/Desabilitador de recursos de consulta</h1>
                     <div className="w15">
                       <ul className="def-list">
                         <li>⬩➤ Menu que ativa/desativa os recursos do Console de Digitação e Blocos de Ordenação. A ativação do Console de Digitação anula a visibilidade do recurso dos Blocos de Ordenação.</li>
@@ -205,8 +205,8 @@ export function ModuleRead() {
                     
                 </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Botão de consulta pessoal</p>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Botão de consulta pessoal</h1>
                     <div className="w15">
                       <ul className="def-list">
                         <li>⬩➤ Botão para testar consultas e conhecer tabelas durante os treinos no módulo teórico. É o botão a se usar antes do botão de enviar oficial, que envia de fato a resposta.</li>
@@ -217,8 +217,8 @@ export function ModuleRead() {
                     </div>
                 </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Botão de consulta bonita</p>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Botão de consulta bonita</h1>
                     <div className="w15">
                       <ul className="def-list">
                         <li>⬩➤ Botão para visualizar suas consultas com sintaxes pintada e colorida. Isso é uma resposta à limitações de mudança de cor em tempo real, como acontece nos SGBDs.</li>
@@ -229,8 +229,8 @@ export function ModuleRead() {
                     </div>
                 </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Botão de consulta histórico</p>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Botão de consulta histórico</h1>
                     <div className="w15">
                       <ul className="def-list">
                         <li>⬩➤ Botão para visualizar suas últimas consultas executadas pelo botão de consulta pessoal, por ele é possível ver, copiar de volta e ordenar por ordem crescente ou decrescente.</li>
@@ -241,8 +241,8 @@ export function ModuleRead() {
                     </div>
                 </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Botão de enviar</p>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Botão de enviar</h1>
                     <div className="w15">
                       <ul className="def-list">
                         <li>⬩➤ Botão oficial de envio de resposta para uma consulta pedida. Seu uso engatilha feedbacks de acerto [ correto 🔥😎👍 ], erro [ tenta de novo 😳 ] e de sintaxe (mensagens em banner amarelo).</li>
@@ -253,8 +253,8 @@ export function ModuleRead() {
                     </div>
                 </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Console de Digitação</p>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Console de Digitação</h1>
                     <div className="w15">
                       <ul className="def-list">
                         <li>⬩➤ Área de consulta livre para fazer SELECTS, seja para consultas específicas/rascunhos ou para respostas definitivas dos exercícios presentes nos cenários do módulo teórico.</li>
@@ -267,8 +267,8 @@ export function ModuleRead() {
                     </div>
                 </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Blocos de Ordenação</p>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Blocos de Ordenação</h1>
                     <div className="w15">
                       <ul className="def-list">
                         <li>⬩➤ Espaço que recebe blocos de sintaxe SQL embaralhados, que juntados de forma apropriada, formam uma resposta correta da consulta pedida. Os seus blocos são repassados à região do Bloco de Ordenação Espelhado. Isso consiste na lógica necessária para responder a consulta usando esse recurso.</li>
@@ -279,8 +279,8 @@ export function ModuleRead() {
                     </div>
                 </div>
 
-                <div className="cpt flex row gap-xsm frame-read">
-                    <p className="w12 label">Blocos de Ordenação espelhado</p>
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Blocos de Ordenação espelhado</h1>
                     <div className="w15">
                       <ul className="def-list">
                         <li>⬩➤ Espaço que recebe blocos de sintaxe SQL (por clique) da sua contraparte, que são os Blocos de Ordenação. Ele deve receber todos os blocos para que uma consulta possa ser enviada e verificada através do recurso dos Blocos de Ordenação. Ele também pode repassar de volta os blocos recebidos.</li>

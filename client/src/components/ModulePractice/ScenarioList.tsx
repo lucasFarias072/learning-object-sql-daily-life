@@ -10,13 +10,19 @@ export function ScenarioList() {
         <div className="win h100 flex column go-center gap-xsm area">
             <ReturnBtn/>
             <h1 className="generic-title" style={{fontSize: "1.5rem"}}>🧩 Cenários para treino</h1>
-            <div className="flex column go-center gap-xsm mt-1">
-                {cenariosUnicos.map(scenario => (
-                    <Link key={scenario} to={`/pratico/${scenario}`} className="module wide15">
-                        🏠︎ {scenario}
-                    </Link>
-                ))}
-            </div>
+            <nav className='nav module-practice-nav'>
+                <div className="flex column go-center gap-xsm mt-1">
+                    <ul className='flex column gap-xsm'>
+                        {cenariosUnicos.map(scenario => (
+                            <li className="module wide15">
+                                <Link className='d-block' key={scenario} to={`/pratico/${scenario}`}>
+                                    🏠︎ {scenario}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </nav>
         </div>
     )
 }
