@@ -10,12 +10,17 @@
 .go-right {align-items: flex-end; justify-content: flex-end;}
 .go-left-just-center {align-items: flex-start; justify-content: center;}
 .go-right-just-center {align-items: flex-end; justify-content: center;}
+
+.go-left-no-just {align-items: flex-start;}
+
 .gap-xsm {gap: .4rem;}
 .gap-sm {gap: 1rem;}
 .gap-mid {gap: 3rem;}
 .gap-lg {gap: 5rem;}
 
 .fill {flex: 1}
+
+.d-block {display: block}
 
 .conteiner-grid {
   display: grid;

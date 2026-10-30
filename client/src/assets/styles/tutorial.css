@@ -256,7 +256,7 @@
 }
 
 .emphasis {
-    animation: tutorial-shake-v2 3s ease infinite;
+    animation: light-up 3s ease infinite;
 }
 
 /*
@@ -274,6 +274,12 @@ direita -> box-shadow: aqui positivo - - -;
 
 @keyframes tutorial-shake-v2 {
   0%, 100% { transform: translateX(0); }
-  /* 25% { transform: translateX(2.5px); box-shadow: 0 0 .1.4rem white;} */
   75% { transform: translateX(-2.5px); box-shadow: 0 0 1.4rem rgb(10, 15, 30); }
+}
+
+@keyframes light-up {
+  0%, 100% { transform: translateX(0); box-shadow: 0 -.2rem .3rem #000; border-radius: .22rem; padding: .22rem;}
+  20% { transform: translateX(-1.5px); box-shadow: .2rem 0 .3rem #001;  border-radius: .22rem; padding: .22rem;}
+  40% { transform: translateX(1.5px); box-shadow: 0 .2rem .3rem #002; border-radius: .22rem; padding: .22rem;}
+  60% { transform: translateX(-1.5px); box-shadow: -.2rem 0 .3rem #003;  border-radius: .22rem; padding: .22rem;}
 }

@@ -19,6 +19,10 @@
     transition: all linear .6s;
 }
 
+.font-s-1-2 {
+    font-size: 1.2rem;
+}
+
 .font-s2 {
     font-size: 2rem;
 }
