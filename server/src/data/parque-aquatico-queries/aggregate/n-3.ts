@@ -1,5 +1,7 @@
 
 
+//*TESTADO-93
+
 import type { QueryScenarioBackend } from '../../scenarios/types.js';
 
 export function aggregateQueryN3(): QueryScenarioBackend {
@@ -9,9 +11,12 @@ export function aggregateQueryN3(): QueryScenarioBackend {
         cenario: 'parque-aquatico-agregacao-3',
         consultaTipo: 'agregacao',
         id: 3,
-        // 
+        // Mostre quantas entradas de sócios (coluna esta_socio) existem para cada hora de entrada. Mostre apenas a coluna da contagem.
         consulta: `
-        select * from relationship;
+        select count(*) as entradas_por_hora
+        from parque_aquatico_entrada
+        where esta_socio = 1
+        group by hora_entrada;
         `,
         tabelas: [],
         campos: [],
