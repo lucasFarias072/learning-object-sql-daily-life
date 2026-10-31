@@ -9,6 +9,6 @@ import { aggregateQueryN4 } from '../../parque-aquatico-queries/aggregate/n-4.js
 export const parqueAquaticoAGGREGATE: QueryScenarioBackend[] = [
     aggregateQueryN1(),
     aggregateQueryN2(),
-    // aggregateQueryN3(),
+    aggregateQueryN3(),
     // aggregateQueryN4()
 ]

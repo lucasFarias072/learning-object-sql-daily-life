@@ -3,6 +3,7 @@
 import { sqlNormalizer } from "./sqlNormalizer"
 
 /* Agregação
+
     // agregacao-2-!@#exercicio-bk       |*a| 🟢 uso mínimo sem group by
     // agregacao-1-!@#sinuca-bk          |*a| 🟢 uso mínimo sem group by
 
@@ -17,8 +18,10 @@ import { sqlNormalizer } from "./sqlNormalizer"
     // agregacao-1-!@#turismo-bk         |*a| 🟢 (3) 2 funções agregadoras no select + group by + join (sem filtro)
 
     // agregacao-2-!@#frutaria-bk        |*a| 🟢 1 coluna agregada + group by (join opcional) (filtro where)
+    // agregacao-3-!@#parque-aquatico-bk |*a| 🟢 1 coluna agregada + group by (join opcional) (filtro where)
 
     // agregacao-3-!@#exercicio-bk       |*a| 🟢 1 coluna agregada + group by (join opcional) (filtro having)
+    // agregacao-3-!@#ponto-de-onibus-bk |*a| 🟢 1 coluna agregada + group by (join opcional) (filtro having)
 
     // agregacao-1-!@#ponto-de-onibus-bk |*a| 🟢 1 coluna agregada + group by (join opcional) (filtro where) (filtro having)
 
@@ -32,6 +35,7 @@ import { sqlNormalizer } from "./sqlNormalizer"
     // agregacao-2-!@#parque-aquatico-bk |*a| 🟢 1 coluna no select + group by (join opcional) (filtro where) (filtro having) [temp 2]
     
     // agregacao-4-!@#turismo-bk         |*a| 🟢 vou deixar sem explicação, existe o A15 no comentário explicando
+    // agregacao-2-!@#quarto-bk          |*a| 🟢 vou deixar sem explicação, existe o A15 no comentário explicando
 
     // agregacao-3-!@#frutaria-bk        |*a| 🟢 (3) 2 funções agregadoras no select + group by + join (filtro where)
     // agregacao-2-!@#casa-bk            |*a| 🟢 (3) 2 funções agregadoras no select + group by + join (filtro where)
@@ -53,6 +57,7 @@ import { sqlNormalizer } from "./sqlNormalizer"
     // join-1-!@#frutaria-bk        |*j| 🟢 sequencial (uma tabela precisando diretamente da anterior)
     // join-3-!@#quarto-bk          |*j| 🟢 sequencial (uma tabela precisando diretamente da anterior)
     // join-4-!@#onibus-bk          |*j| 🟢 sequencial (uma tabela precisando diretamente da anterior)
+    // join-3-!@#exercicio-bk       |*j| 🟢 sequencial (uma tabela precisando diretamente da anterior)
     
     // join-1-!@#onibus-bk          |*j| 🟢 polirefência (uma tabela referência para + de 1 join)
     // join-2-!@#sinuca-bk          |*j| 🟢 polirefência (uma tabela referência para + de 1 join)
@@ -152,6 +157,8 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
 
     const countIt = (word: string) => sqlInRow.split(" ").filter(w => w === word).length
     
+    // scenario
+
     // VERIFICADO: 09
     if (url === 'casa-agregacao-1') {
         // group by com 2 colunas, mesma tabela usada no select e no group by
@@ -274,6 +281,8 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("in") >= 3
         ]
     }
+
+    // scenario
     
     // VERIFICADO: 17
     else if (url === 'exercicio-agregacao-1') {
@@ -379,6 +388,18 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("not") === 0
         ]
     }
+    
+    // VERIFICADO: 96
+    else if(url === 'exercicio-join-3') {
+        console.log("EXERCÍCIO.JOIN.3")
+
+        analysis = [
+            countIt("select") === 1,
+            countIt("join") === 2,
+            countIt("where") === 1,
+            countIt("and") >= 1
+        ]
+    }
 
     // VERIFICADO: 73
     else if(url === 'exercicio-subconsulta-1') {
@@ -403,6 +424,8 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("join") === 0
         ]
     }
+
+    // scenario
     
     // VERIFICADO: 02
     else if (url === 'frutaria-agregacao-1') {
@@ -537,6 +560,8 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("join") === 0
         ]
     }
+
+    // scenario
     
     // VERIFICADO: 60
     else if(url === 'onibus-agregacao-1') {
@@ -655,6 +680,8 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("join") === 0
         ]
     }
+
+    // scenario
     
     // VERIFICADO: 59
     else if (url === 'parque-aquatico-agregacao-1') {
@@ -679,6 +706,18 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("where") === 1,
             countIt("group") === 1,
             countIt("having") === 1
+        ]
+    }
+    
+    // VERIFICADO: 93
+    else if (url === 'parque-aquatico-agregacao-3') {
+        console.log("PARQUE AQUÁTICO.AGREGAÇÃO.3")
+
+        analysis = [
+            countIt("select") === 1,
+            countIt("where") === 1,
+            countIt("group") === 1,
+            countIt("having") === 0
         ]
     }
 
@@ -777,6 +816,8 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         ]
     }
 
+    // scenario
+
     // VERIFICADO: 37
     else if (url === 'ponto-de-onibus-agregacao-1') {
         console.log("PONTO DE ONIBUS.AGREGACAO.1")
@@ -796,6 +837,18 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         analysis = [
             countIt("select") === 1,
             countIt("join") === 1,
+            countIt("group") === 1,
+            countIt("having") === 1,
+            countIt("where") === 0
+        ]
+    }
+    
+    // VERIFICADO: 94
+    else if (url === 'ponto-de-onibus-agregacao-3') {
+        console.log("PONTO DE ÔNIBUS.AGREGAÇÃO.3")
+
+        analysis = [
+            countIt("select") === 1,
             countIt("group") === 1,
             countIt("having") === 1,
             countIt("where") === 0
@@ -906,6 +959,8 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("join") === 0
         ]
     }
+
+    // scenario
     
     // VERIFICADO: 56
     else if (url === 'quarto-agregacao-1') {
@@ -915,6 +970,19 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("select") === 1,
             countIt("join") === 1,
             countIt("where") === 0,
+            countIt("group") === 1,
+            countIt("having") === 1
+        ]
+    }
+    
+    // VERIFICADO: 95
+    else if (url === 'quarto-agregacao-2') {
+        console.log("QUARTO.AGREGAÇÃO.2")
+
+        analysis = [
+            countIt("select") === 1,
+            countIt("join") === 1,
+            countIt("where") === 1,
             countIt("group") === 1,
             countIt("having") === 1
         ]
@@ -1027,6 +1095,8 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("join") === 0
         ]
     }
+
+    // scenario
     
     // VERIFICADO: 07
     else if (url === 'sinuca-agregacao-1') {
@@ -1144,6 +1214,8 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("join") === 0
         ]
     }
+
+    // scenario
     
     // VERIFICADO: 18
     else if (url === 'turismo-agregacao-1') {

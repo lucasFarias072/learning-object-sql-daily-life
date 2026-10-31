@@ -104,28 +104,28 @@ export function getTableColumns(where: number[]): string[][] {
         {"where": 13, "cols": ['item_id', 'descricao_item']},
         {"where": 14, "cols": ['assento_id', 'assento_credencial', 'estado']},
         {"where": 15, "cols": ['passageiro_id', 'assento_fk', 'peso_kg', 'altura_cm']},
-        {"where": 16, "cols": ['passageiro_item_id', 'passageiro_fk', 'item_fk']},
+        {"where": 16, "cols": ['passageiro_fk', 'item_fk']},
         {"where": 17, "cols": ['interacao_id', 'pessoa_x', 'pessoa_y']},
 
         // Parque Aquático
         {"where": 18, "cols": ["pa_entrada_id", "esta_socio", "dia", "hora_entrada"]},
         {"where": 19, "cols": ["pa_produto_id", "chegada", "descricao_pap"]},
         {"where": 20, "cols": ["pa_visita_id", "local_pav_fk", "pav_entrada_fk", "hora_visita"]},
-        {"where": 21, "cols": ["pa_aluguel_id", "paa_entrada_fk", "pa_produto_fk"]}, 
+        {"where": 21, "cols": ["paa_entrada_fk", "pa_produto_fk"]}, 
 
         // Ponto de Ônibus
         {"where": 22, "cols": ['semaforo_id', 'local_sem_fk', 'luz', 'duracao_cor_vermelha', 'duracao_cor_verde']},
         {"where": 43, "cols": ['loc_id', 'onibus_loc_fk', 'local_loc_fk', 'lotacao', 'horario_loc']},
         {"where": 44, "cols": ['onibus_id', 'onibus_n']},
         {"where": 45, "cols": ['zona_id', 'descricao_zona']},
-        {"where": 46, "cols": ['oz_id', 'zona_fk', 'onibus_fk']},
+        {"where": 46, "cols": ['zona_fk', 'onibus_fk']},
 
         // Sinuca
         {"where": 23, "cols": ["ficha_id", "valor", "partidas_seguidas"]}, 
         {"where": 24, "cols": ["sinuca_id", "descricao_sinuca", "tamanho"]}, 
         {"where": 25, "cols": ["sinuquista_id", "sinuca_fk_favorita", "nome_sinuquista", "apelido"]}, 
         {"where": 26, "cols": ["partida_sinuca_id", "sinuca_fk", "ficha_fk", "sinuquista_fk_dono_ficha", "sinuquista_fk_desafiante", "vitorioso", "dono_bolas", "desafiante_bolas", "bola_branca", "duracao_seg"]}, 
-        {"where": 27, "cols": ["aposta_id", "partida_sinuca_fk", "sinuquista_fk_apostado"]},
+        {"where": 27, "cols": ["partida_sinuca_fk", "sinuquista_fk_apostado"]},
         
         // Quarto
         {"where": 28, "cols": ['coordenada_id', 'descricao_coord']}, 
@@ -134,7 +134,7 @@ export function getTableColumns(where: number[]): string[][] {
         {"where": 31, "cols": ['coord_id', 'objeto_fk_alvo', 'objeto_fk_ref', 'dono_fk', 'coordenada_fk']},
         {"where": 32, "cols": ['quarto_id', 'dono_fk', 'mes_adesao', 'ano_adesao', 'objeto_fk_comprado_ultimo', 'suite', 'suite_qtd']}, 
         {"where": 33, "cols": ['caract_id', 'descricao_caract']},
-        {"where": 34, "cols": ['dc_id', 'dono_fk', 'caract_fk']},
+        {"where": 34, "cols": ['dono_fk', 'caract_fk']},
 
         // Turismo
         {"where": 35, "cols": ['origem_id', 'descricao_origem']},
@@ -145,7 +145,7 @@ export function getTableColumns(where: number[]): string[][] {
         // Exercicio
         {"where": 39, "cols": ['cor_id', 'descricao_cor']},
         {"where": 40, "cols": ['algo_id', 'descricao_algo', 'natureza']},
-        {"where": 41, "cols": ['cor_algo_id', 'cor_fk', 'algo_fk']},
+        {"where": 41, "cols": ['cor_fk', 'algo_fk']},
         {"where": 42, "cols": ['vista_id', 'membro_visto_fk', 'algo_visto_fk', 'local_tipo_visto_fk', 'hora_visto']}
     ]
     

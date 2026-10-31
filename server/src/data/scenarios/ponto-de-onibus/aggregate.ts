@@ -9,6 +9,6 @@ import { aggregateQueryN4 } from '../../ponto-de-onibus-queries/aggregate/n-4.js
 export const pontoDeOnibusAGGREGATE: QueryScenarioBackend[] = [
     aggregateQueryN1(),
     aggregateQueryN2(),
-    // aggregateQueryN3(),
+    aggregateQueryN3(),
     // aggregateQueryN4()
 ]
