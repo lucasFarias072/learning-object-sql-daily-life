@@ -33,6 +33,8 @@
     background: linear-gradient(#f2f2f2, white);
     box-shadow: 0 0 .1rem purple;
     color: purple;
+    font-weight: bold;
+    letter-spacing: .5px;
     text-transform: uppercase;
 }
 

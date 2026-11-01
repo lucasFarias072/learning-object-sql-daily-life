@@ -13,8 +13,8 @@ export function SubjectList() {
                 <div className="flex column go-center gap-xsm mt-1">
                     <ul className='flex column gap-sm'>
                     {subjects.map(subject => (
-                        <li className='module w15' style={{textAlign: 'center'}}>
-                            <Link className='d-block' key={subject.slug} to={`/teorico/${subject.slug}`}>
+                        <li key={subject.slug} className='module w15' style={{textAlign: 'center'}}>
+                            <Link className='d-block' to={`/teorico/${subject.slug}`}>
                                 {/* <div className='flex column go-center gap-sm'> */}
                                     <p style={{fontSize: "1.5rem"}}>📖</p>
                                     <p>{subject.title}</p>

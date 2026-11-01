@@ -1,8 +1,73 @@
 
 
+import { useEffect, useState } from "react";
 import { ReturnBtn } from "../shared/ReturnBtn";
+import { apiUrl } from "../../config";
 
 export function ModuleRead() {
+  const [totalTabelas, setTotalTabelas] = useState<number | null>(null);
+  const [erroTabelas, setErroTabelas] = useState(false);
+  const [totalCenarios, setTotalCenarios] = useState<number | null>(null);
+  const [erroCenarios, setErroCenarios] = useState(false);
+  const [totalConsultas, setTotalConsultas] = useState<number | null>(null);
+  const [erroConsultas, setErroConsultas] = useState(false);
+
+  useEffect(() => {
+    let cancelado = false;
+
+    async function buscarTotalTabelas() {
+      try {
+        const response = await fetch(apiUrl("/api/all-tables"));
+        if (!response.ok) {
+          throw new Error(`Falha ao buscar tabelas: HTTP ${response.status}`);
+        }
+
+        const dados: { total_tabelas: number } = await response.json();
+        if (!cancelado) setTotalTabelas(dados.total_tabelas);
+      } catch (error) {
+        console.error("Erro ao buscar a quantidade de tabelas:", error);
+        if (!cancelado) setErroTabelas(true);
+      }
+    }
+
+    async function buscarTotalCenarios() {
+      try {
+        const response = await fetch(apiUrl("/api/scenarios-labels"));
+        if (!response.ok) {
+          throw new Error(`Falha ao buscar cenários: HTTP ${response.status}`);
+        }
+
+        const dados: { total_cenarios: number } = await response.json();
+        if (!cancelado) setTotalCenarios(dados.total_cenarios);
+      } catch (error) {
+        console.error("Erro ao buscar a quantidade de cenários:", error);
+        if (!cancelado) setErroCenarios(true);
+      }
+    }
+
+    async function buscarTotalConsultas() {
+      try {
+        const response = await fetch(apiUrl("/api/queries-labels"));
+        if (!response.ok) {
+          throw new Error(`Falha ao buscar consultas: HTTP ${response.status}`);
+        }
+
+        const dados: { total_consultas: number } = await response.json();
+        if (!cancelado) setTotalConsultas(dados.total_consultas);
+      } catch (error) {
+        console.error("Erro ao buscar a quantidade de consultas:", error);
+        if (!cancelado) setErroConsultas(true);
+      }
+    }
+
+    buscarTotalTabelas();
+    buscarTotalCenarios();
+    buscarTotalConsultas();
+    return () => {
+      cancelado = true;
+    };
+  }, []);
+
   return (
     <section className="modulo-read">
       <ReturnBtn/>
@@ -38,9 +103,9 @@ export function ModuleRead() {
                             <div>⬩➤ Entusiastas em programação e banco de dados</div>
                             </div>
                           </td>
-                          <td className="font-s-1-2">92</td>
-                          <td className="font-s-1-2">9</td>
-                          <td className="font-s-1-2">50</td>
+                          <td className="font-s-1-2">{erroConsultas ? "Erro" : totalConsultas ?? "..."}</td>
+                          <td className="font-s-1-2">{erroCenarios ? "Erro" : totalCenarios ?? "..."}</td>
+                          <td className="font-s-1-2">{erroTabelas ? "Erro" : totalTabelas ?? "..."}</td>
                         </tr>
                     </tbody>
                   </table>

@@ -12,5 +12,5 @@ export const turismoJOIN: QueryScenarioFrontend[] = [
     joinQueryN1(),
     joinQueryN2(),
     joinQueryN3(),
-    // joinQueryN4()
+    joinQueryN4()
 ]

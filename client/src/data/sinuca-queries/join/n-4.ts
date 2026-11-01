@@ -7,10 +7,10 @@ export function joinQueryN4(): QueryScenarioFrontend {
     return {
         // join-4-!@#sinuca-ft
         scenario: 'sinuca', queryType: 'join', queryId: '4', 
-        queryText: "",
-        tables: getTables([], 1),
-        fields: getTableColumns([]),
-        tablesNames: getTables([], 2),
+        queryText: "Liste o id da aposta, a descrição da sinuca e a duração da partida, apenas para apostas que acertaram no vitorioso, em partidas que duraram até 512 segundos.",
+        tables: getTables([24, 26, 27], 1),
+        fields: getTableColumns([24, 26, 27]),
+        tablesNames: getTables([24, 26, 27], 2),
         conditions: [],
         tricksterIds: [],
     }

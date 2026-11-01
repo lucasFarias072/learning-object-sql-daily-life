@@ -24,10 +24,11 @@ function areArraysTwins(a: unknown[], b: unknown[]): boolean {
       .sort()
   const sa = serializar(a)
   const sb = serializar(b)
-  console.log(">>>>> TESTE: areArrayTwins (OPEN) <<<<<")
-  console.log(sa)
-  console.log(sb)
-  console.log(">>>>> TESTE: areArrayTwins (CLOSE) <<<<<")
+
+  // console.log(">>>>> TESTE: areArrayTwins (OPEN) <<<<<")
+  // console.log(sa)
+  // console.log(sb)
+  // console.log(">>>>> TESTE: areArrayTwins (CLOSE) <<<<<")
 
   return !result ? result : sa.every((val, i) => val === sb[i])
 }
@@ -80,9 +81,9 @@ export function useQueryConsole(chosenQuery: QueryScenarioFrontend | null) {
     // const endpoint = `/api/scenarios/${chosenQuery.scenario}-${chosenQuery.queryType}-${chosenQuery.queryId}`
     const endpoint = apiUrl(`/api/scenarios/${chosenQuery.scenario}-${chosenQuery.queryType}-${chosenQuery.queryId}`)
     
-    console.log("endpoint = ")
-    console.log([chosenQuery.scenario, chosenQuery.queryType, chosenQuery.queryId])
-    console.log(endpoint)
+    // console.log("endpoint = ")
+    // console.log([chosenQuery.scenario, chosenQuery.queryType, chosenQuery.queryId])
+    // console.log(endpoint)
 
     fetch(endpoint)
       .then((res) => res.json())
@@ -102,7 +103,7 @@ export function useQueryConsole(chosenQuery: QueryScenarioFrontend | null) {
 
   const canSubmit = status !== 'sending' && requirementShield(value)
 
-  console.log(canSubmit)
+  // console.log(canSubmit)
 
   const submit = useCallback(async (): Promise<boolean | undefined> => {
     if (!chosenQuery || !gabaritoRef.current) return undefined
@@ -138,7 +139,7 @@ export function useQueryConsole(chosenQuery: QueryScenarioFrontend | null) {
       }
 
       const { resultado } = await response.json()
-      console.log(resultado)
+      // console.log(resultado)
       const correct = areArraysTwins(gabaritoRef.current.dados, resultado) && veredict
       setStatus(correct ? 'correct' : 'incorrect')
       return correct
