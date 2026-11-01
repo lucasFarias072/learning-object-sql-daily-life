@@ -3,7 +3,6 @@
 import { sqlNormalizer } from "./sqlNormalizer"
 
 /* Agregação
-
     // agregacao-2-!@#exercicio-bk       |*a| 🟢 uso mínimo sem group by
     // agregacao-1-!@#sinuca-bk          |*a| 🟢 uso mínimo sem group by
 
@@ -24,6 +23,7 @@ import { sqlNormalizer } from "./sqlNormalizer"
     // agregacao-3-!@#ponto-de-onibus-bk |*a| 🟢 1 coluna agregada + group by (join opcional) (filtro having)
 
     // agregacao-1-!@#ponto-de-onibus-bk |*a| 🟢 1 coluna agregada + group by (join opcional) (filtro where) (filtro having)
+    // agregacao-3-!@#onibus-bk          |*a| 🟢 1 coluna agregada + group by (join opcional) (filtro where) (filtro having)
 
     // agregacao-2-!@#ponto-de-onibus-bk |*a| 🟢 1 coluna no select + group by (join opcional) (filtro having)
     // agregacao-1-!@#onibus-bk          |*a| 🟢 1 coluna no select + group by (join opcional) (filtro having)
@@ -51,8 +51,9 @@ import { sqlNormalizer } from "./sqlNormalizer"
     // agregacao-3-!@#sinuca-bk          |*a| 🟢 leia o comentário em A17
 */
 
-/* Junção
+/* Junção 
     // join-1-!@#quarto-bk          |*j| 🟢 uso mínimo do join (cruzamento, sem filtros)
+    // join-4-!@#ponto-de-onibus-bk |*j| 🟢 uso mínimo do join (cruzamento, sem filtros)
     
     // join-1-!@#frutaria-bk        |*j| 🟢 sequencial (uma tabela precisando diretamente da anterior)
     // join-3-!@#quarto-bk          |*j| 🟢 sequencial (uma tabela precisando diretamente da anterior)
@@ -77,6 +78,7 @@ import { sqlNormalizer } from "./sqlNormalizer"
     // join-2-!@#turismo-bk         |*j| 🟢 left join que precise do null
     // join-2-!@#exercicio-bk       |*j| 🟢 left join que precise do null
     // join-3-!@#casa-bk            |*j| 🟢 left join que precise do null
+    // join-4-!@#turismo-bk         |*j| 🟢 left join que precise do null
 
     // join-2-!@#frutaria-bk        |*j| 🟢 join + condicional AND + OR (juntos)
     // join-1-!@#parque-aquatico-bk |*j| 🟢 join + condicional AND + OR (juntos)
@@ -89,6 +91,8 @@ import { sqlNormalizer } from "./sqlNormalizer"
     // join-3-!@#turismo-bk         |*j| 🟢 join + condicional AND (1 ou + de 1)
     // join-1-!@#ponto-de-onibus-bk |*j| 🟢 join + condicional AND (1 ou + de 1)
     // join-3-!@#parque-aquatico-bk |*j| 🟢 join + condicional AND (1 ou + de 1)
+    // join-3-!@#sinuca-bk          |*j| 🟢 join + condicional AND (1 ou + de 1)
+    // join-4-!@#sinuca-bk          |*j| 🟢 join + condicional AND (1 ou + de 1)
 */
 
 /* Case When
@@ -108,6 +112,8 @@ import { sqlNormalizer } from "./sqlNormalizer"
     // case-when-1-!@#casa-bk            |*c| 🟢 case + group by + order by (uso direto do alias do case, sem ordenação arbitrária)
 
     // case-when-2-!@#quarto-bk          |*c| 🟢 case (qtd: 2) + group by (sem join)
+
+    // case-when-3-!@#parque-aquatico-bk |*c| 🟢 case (qtd: 2) + group by (com join)
 
     // case-when-1-!@#ponto-de-onibus-bk |*c| 🟢 case + group by + order by (ordenação arbitrária)
     // case-when-2-!@#exercicio-bk       |*c| 🟢 case + group by + order by (ordenação arbitrária)
@@ -145,6 +151,7 @@ import { sqlNormalizer } from "./sqlNormalizer"
     // subconsulta-2-!@#exercicio-bk       |*s| 🟢 uso mínimo com 2 tabelas envolvidas + OR
     
     // subconsulta-1-!@#ponto-de-onibus-bk |*s| 🟢 sub consulta com OR externo (dois caminhos)
+    // subconsulta-3-!@#casa-bk            |*s| 🟢 sub consulta com OR externo (dois caminhos)
 
     // subconsulta-2-!@#ponto-de-onibus-bk |*s| 🟢 sub consulta com OR dentro de outra subconsulta
 
@@ -279,6 +286,18 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("join") === 0,
             countIt("and") >= 1,
             countIt("in") >= 3
+        ]
+    }
+    
+    // VERIFICADO: 99
+    else if (url === 'casa-subconsulta-3') {
+        console.log("CASA.SUBCONSULTA.3")
+
+        analysis = [
+            countIt("select") === 4,
+            countIt("in") >= 2,
+            countIt("or") === 1,
+            countIt("join") === 0
         ]
     }
 
@@ -589,6 +608,19 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
         ]
     }
     
+    // VERIFICADO: 102
+    else if(url === 'onibus-agregacao-3') {
+        console.log("ÔNIBUS-AGREGAÇÃO-3")
+
+        analysis = [
+            countIt("select") === 1,
+            countIt("join") === 1,
+            countIt("where") === 1,
+            countIt("group") === 1,
+            countIt("having") === 1
+        ]
+    }    
+
     // VERIFICADO: 03 [has] [cw] (retirado)
     else if (url === 'onibus-case-when-1') {
         // case + left join (corrigir o typo antes) + group by + is null
@@ -750,6 +782,18 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("join") === 0,
             countIt("else") === 1
             // expectedSQLSlice === personSQLSlice
+        ]
+    }
+    
+    // VERIFICADO: 100
+    else if (url === 'parque-aquatico-case-when-3') {
+        console.log("PARQUE AQUÁTICO.CASE WHEN.3")
+
+        analysis = [
+            countIt("select") === 1,
+            countIt("case") === 2,
+            countIt("group") === 1,
+            countIt("join") === 1
         ]
     }
 
@@ -932,6 +976,16 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("and") >= 1,
             countIt("or") >= 1,
             countIt("distinct") === 0
+        ]
+    }
+    
+    // VERIFICADO: 103
+    else if (url === 'ponto-de-onibus-join-4') {
+        console.log("PONTO DE ÔNIBUS.JOIN.4")
+
+        analysis = [
+            countIt("select") === 1,
+            countIt("join") === 3
         ]
     }
 
@@ -1192,6 +1246,32 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("sinuquista") === 3
         ]
     }
+
+    // VERIFICADO: 97
+    else if (url === 'sinuca-join-3') {
+        console.log("JOIN.SINUCA.3")
+
+        analysis = [
+            countIt("select") === 1,
+            countIt("join") === 1,
+            countIt("where") === 1,
+            countIt("and") >= 1,
+            countIt("or") === 0
+        ]
+    }
+
+    // VERIFICADO: 98
+    else if (url === 'sinuca-join-4') {
+        console.log("SINUCA.JOIN.4")
+
+        analysis = [
+            countIt("select") === 1,
+            countIt("join") === 2,
+            countIt("where") === 1,
+            countIt("and") >= 1,
+            countIt("or") === 0
+        ]
+    }
     
     // VERIFICADO: 14 [has] [s]
     else if (url === 'sinuca-subconsulta-1') {
@@ -1346,6 +1426,21 @@ export function sqlQueryGrammar(url: string, sqlInRow: string) {
             countIt("join") === 2,
             countIt("where") === 1,
             countIt("and") === 2
+        ]
+    }
+    
+    // VERIFICADO: 101
+    else if (url === 'turismo-join-4') {
+        console.log("TURISMO.JOIN.4")
+
+        analysis = [
+            countIt("select") === 1,
+            countIt("join") === 1,
+            countIt("left") === 1,
+            countIt("where") === 1,
+            countIt("null") === 1,
+            countIt("not") === 0,
+            countIt("and") >= 1
         ]
     }
     

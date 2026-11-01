@@ -1,21 +1,42 @@
 import { Router } from 'express'
 import { sqlDailyLifeDB } from '../db/database.js'
+import { getQueryLength } from '../data/scenarios/count.js'
 
 const router = Router()
 
-router.get('/scenarios/table/:scenario', (_req, res) => {
-  const {scenario} = _req.params;
-  const dados = sqlDailyLifeDB.prepare("select table_name, alias from relationship where scenario_name = ?;").all(scenario)
+// Rotas dos seletores mantidas para possível reativação:
+// router.get('/scenarios/table/:scenario', (_req, res) => {
+//   const {scenario} = _req.params;
+//   const dados = sqlDailyLifeDB.prepare("select table_name, alias from relationship where scenario_name = ?;").all(scenario)
+//   res.json(dados);
+// })
+//
+// router.get('/scenarios/column/:table_name', (_req, res) => {
+//   const {table_name} = _req.params;
+//   const dados = sqlDailyLifeDB.prepare(`
+//   select distinct r.alias, table_field from relationship_column rc
+//   join relationship r on r.rel_id = rc.rel_fk
+//   where table_name = ?;`).all(table_name.split(" ")[0])
+//   res.json(dados);
+// })
+
+router.get('/all-tables', (_req, res) => {
+  const dados = sqlDailyLifeDB.prepare(`
+    SELECT COUNT(*) AS total_tabelas
+    FROM sqlite_schema
+    WHERE type = 'table'
+      AND name NOT IN ('relationship', 'relationship_column', 'stakeholder', 'scenario');
+  `).get()
   res.json(dados);
 })
 
-router.get('/scenarios/column/:table_name', (_req, res) => {
-  const {table_name} = _req.params;
-  const dados = sqlDailyLifeDB.prepare(`
-  select distinct r.alias, table_field from relationship_column rc
-  join relationship r on r.rel_id = rc.rel_fk
-  where table_name = ?;`).all(table_name.split(" ")[0])
+router.get('/scenarios-labels', (_req, res) => {
+  const dados = sqlDailyLifeDB.prepare("select count(*) as total_cenarios from scenario").get()
   res.json(dados);
+})
+
+router.get('/queries-labels', (_req, res) => {
+  res.json({ total_consultas: getQueryLength() })
 })
 
 router.get('/relationships', (_req, res) => {
@@ -28,9 +49,9 @@ router.get('/stakeholders', (_req, res) => {
   res.json(dados);
 })
 
-// Coluna omitida: aposta_id
+// Coluna omitida: aposta_id (tive que retirar a omissão por causa da consulta 98)
 router.get('/apostas-partidas', (_req, res) => {
-  const dados = sqlDailyLifeDB.prepare('SELECT partida_sinuca_fk, sinuquista_fk_apostado FROM aposta_partida').all()
+  const dados = sqlDailyLifeDB.prepare('SELECT aposta_id, partida_sinuca_fk, sinuquista_fk_apostado FROM aposta_partida').all()
   res.json(dados)
 })
 

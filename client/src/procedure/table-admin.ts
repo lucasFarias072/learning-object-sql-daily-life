@@ -125,7 +125,7 @@ export function getTableColumns(where: number[]): string[][] {
         {"where": 24, "cols": ["sinuca_id", "descricao_sinuca", "tamanho"]}, 
         {"where": 25, "cols": ["sinuquista_id", "sinuca_fk_favorita", "nome_sinuquista", "apelido"]}, 
         {"where": 26, "cols": ["partida_sinuca_id", "sinuca_fk", "ficha_fk", "sinuquista_fk_dono_ficha", "sinuquista_fk_desafiante", "vitorioso", "dono_bolas", "desafiante_bolas", "bola_branca", "duracao_seg"]}, 
-        {"where": 27, "cols": ["partida_sinuca_fk", "sinuquista_fk_apostado"]},
+        {"where": 27, "cols": ["aposta_id", "partida_sinuca_fk", "sinuquista_fk_apostado"]},
         
         // Quarto
         {"where": 28, "cols": ['coordenada_id', 'descricao_coord']}, 

@@ -59,9 +59,9 @@ export function QueryBlocksOrigin({
 
   if (enabled) {
     const queryStages = parseInt(`${state.origin.length / 3}`)
-    console.log("queryStages => ", queryStages)
+    // console.log("queryStages => ", queryStages)
     for(let i = 0; i < state.origin.length; i++) {
-      console.log(`[índice ${i}] => `, state.origin[i])
+      // console.log(`[índice ${i}] => `, state.origin[i])
       if(queryStages >= i + 1) blocksAnalysis.push('on-start')
       else if(queryStages < i + 1 && queryStages * 2 >= i + 1) blocksAnalysis.push('in-the-middle')
       else blocksAnalysis.push('in-the-end')

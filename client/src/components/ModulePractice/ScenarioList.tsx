@@ -14,7 +14,7 @@ export function ScenarioList() {
                 <div className="flex column go-center gap-xsm mt-1">
                     <ul className='flex column gap-xsm'>
                         {cenariosUnicos.map(scenario => (
-                            <li className="module wide15">
+                            <li key={scenario} className="module wide15">
                                 <Link className='d-block' key={scenario} to={`/pratico/${scenario}`}>
                                     🏠︎ {scenario}
                                 </Link>
