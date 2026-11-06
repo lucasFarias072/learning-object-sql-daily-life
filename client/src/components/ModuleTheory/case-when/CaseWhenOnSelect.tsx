@@ -16,7 +16,7 @@ export function CaseWhenOnSelect() {
                 <div id="case-on-select-body-casewhen" className="flex column gap-sm theory-layout">
                     <p>⬩➤ <Sql word='case when'/> é <Frame cmd='' label='muito utilizado'/> para <Frame cmd='' label='gerar coluna customizada'/> na cláusula <Sql word='select'/>, ele <Frame cmd='' label='usa dados brutos'/> e os <Frame cmd='' label='transforma-os em algo mais legível'/>.</p>
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ Quem tem os dados brutos?'/> <Frame cmd='pk i !u' label='local_tipo'/></p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/> A tabela <Frame cmd='pk i !u' label='local_tipo'/> é o que <Frame cmd='' label='possui dados brutos'/> que <Frame cmd='' label='serão usados'/> <Frame cmd='red i !u' label='sem precisar fazer junção'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/> A tabela <Frame cmd='pk i !u' label='local_tipo'/> é o que <Frame cmd='' label='possui dados brutos'/> que <Frame cmd='' label='são chave estrangeira'/> e que serão <Frame cmd='red i !u' label='usados sem precisar fazer junção'/>.</p>
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> A <Frame cmd='' label='construção'/> do <Sql word='case when'/> no <Sql word='select'/>, <Frame cmd='red i !u' label='não se restringe'/> a <Frame cmd='' label='apenas 1 uso'/>, podem ser vários.</p>
                     <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> <Sql word='else'/> <Frame cmd='shine i !u' label='não é cláusula mandatória'/>, mas <Frame cmd='' label='sua ausência pode gerar'/> resultados de <Frame cmd='' label='linhas'/> <Sql word='null'/>.</p>
                     <Hint/>

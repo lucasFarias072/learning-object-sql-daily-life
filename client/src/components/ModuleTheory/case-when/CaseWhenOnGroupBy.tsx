@@ -14,14 +14,11 @@ export function CaseWhenOnGroupBy() {
                 </div>
 
                 <div id="case-with-group-by-body-casewhen" className="flex column gap-sm theory-layout">
-                    <p>⬩➤ <Sql word='group by'/> tende a <Frame cmd='' label='operar'/> como um <Frame cmd='' label='receptor do alias'/>, ou seja, se instancia um <Sql word='case'/> no <Sql word='select'/> e o <Sql word='group by'/> recebe-o.</p>
+                    <p>⬩➤ <Sql word='group by'/> tende a <Frame cmd='' label='operar'/> como um <Frame cmd='' label='receptor do alias'/>, ou seja ➜ <Sql word='select'/> recebe ➜ <Sql word='case'/> passa para ➜ <Sql word='group by'/>.</p>
                     <p>⬩➤ <Sql word='group by'/> <Frame cmd='shine i !u' label='pode ter seu próprio'/> <Sql word='case'/>, mas ele <Frame cmd='red i !u' label='não consegue passar um alias'/>, portanto ficará <Frame cmd='red i !u' label='sem poder exibir'/> no <Sql word='select'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/> o <Sql word='group by'/> simplesmente <Frame cmd='' label='agrupa pelo alias'/> montado para o <Sql word='select'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/> é a forma <Frame cmd='' label='mais simples e adequada'/> de usar <Sql word='case when'/> no <Sql word='group by'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> o <Sql word='group by'/> <Frame cmd='' label='gera a coluna'/>, <Frame cmd='red i !u' label='mas ela não é permitida'/> passagem para o <Sql word='select'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> é <Frame cmd='' label='útil'/> se quiser <Frame cmd='' label='mostrar apenas o dado gerado'/>, <Frame cmd='red i !u' label='o rótulo textual não é importante'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 3'/> existe a <Frame cmd='' label='solução'/>, que seria a <Frame cmd='' label='replicação da lógica'/> do <Sql word='group by'/> no <Sql word='select'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 3'/> é <Frame cmd='red i !u' label='contraintuitivo'/>, e serve de exemplo para <Frame cmd='' label='mostrar que é possível fazer'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/> o <Sql word='group by'/> <Frame cmd='' label='agrupa pelo alias'/> dado ao <Sql word='case'/> montado no <Sql word='select'/> ➜ <Frame cmd='shine i !u' label='quando permitido'/> pelo <Sql word='sgbd'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> o <Sql word='group by'/> <Frame cmd='' label='gera a coluna do'/> <Sql word='case'/>, <Frame cmd='red i !u' label='sem exibir o alias'/> no <Sql word='select'/> ➜ <Frame cmd='' label='mostrar apenas o dado gerado'/> ➜ <Frame cmd='red i !u' label='o rótulo textual não é importante'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 3'/> <Frame cmd='' label='replicação da lógica'/> do <Sql word='select'/> no <Sql word='group by'/>, que seria a <Frame cmd='shine i !u' label='solução para a indisponibilidade'/> no caso do <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/>.</p>
                     <Hint/>
                 </div>
                 

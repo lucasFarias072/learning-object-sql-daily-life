@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from "react"
+import {ReturnBtn} from "../../shared/ReturnBtn"
 
 export interface TheorySlide {
     content: ReactNode
@@ -50,7 +51,8 @@ export function TheorySlides({ sections }: TheorySlidesProps) {
 
     return (
         <div className="theory-slides flex column">
-            <nav className="theory-topic-nav flex row wrap gap-xsm">
+            <ReturnBtn/>
+            <nav className="theory-topic-nav flex row go-center wrap gap-xsm">
                 {sections.map((section, index) => (
                     <button key={section.id} type="button" className={"theory-topic-btn" + (index === sectionIndex ? " theory-topic-btn-active" : "")} onClick={() => goToSection(index)}>
                         {section.label}

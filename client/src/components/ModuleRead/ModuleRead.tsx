@@ -88,6 +88,7 @@ export function ModuleRead() {
                           <th>Criador</th>
                           <th>Orientador</th>
                           <th>Público alvo</th>
+                          <th>Categoria</th>
                           <th>Consultas</th>
                           <th>Cenários</th>
                           <th>Tabelas</th>
@@ -103,6 +104,7 @@ export function ModuleRead() {
                             <div>⬩➤ Entusiastas em programação e banco de dados</div>
                             </div>
                           </td>
+                          <td>Material de apoio</td>
                           <td className="font-s-1-2">{erroConsultas ? "Erro" : totalConsultas ?? "..."}</td>
                           <td className="font-s-1-2">{erroCenarios ? "Erro" : totalCenarios ?? "..."}</td>
                           <td className="font-s-1-2">{erroTabelas ? "Erro" : totalTabelas ?? "..."}</td>

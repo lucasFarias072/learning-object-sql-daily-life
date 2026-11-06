@@ -14,7 +14,7 @@ export function AggregateCaseWhere() {
                 </div>
 
                 <div id="case-where-body-aggregate" className="flex column gap-sm theory-layout">
-                    <p>⬩➤ O uso da cláusula <Sql word='where'/> age como <Frame cmd='' label='filtro na tabela'/> afetada pelo agrupamento, <Frame cmd='shine i !u' label='antes do agrupamento'/> acontecer.</p>
+                    <p>⬩➤ O uso da cláusula <Sql word='where'/> age como <Frame cmd='' label='filtro na(s) tabela(s)'/> afetada(s) pelo agrupamento, <Frame cmd='shine i !u' label='antes do agrupamento'/> acontecer.</p>
                     <p>⬩➤ Basicamente, <Frame cmd='shine i !u' label='reduz a carga de trabalho'/> que chega ao <Sql word='group by'/>.</p>
                     <p>⬩➤ Na lógica proposta do <Frame cmd='d-blue i !u' label='dicionário'/> ➜ <Frame cmd='ylw i !u' label='sessão/palavra'/> ➜ <Frame cmd='blue i !u' label='significado'/>, <Sql word='where'/> trabalha como <Frame cmd='red i !u' label='redutor do conteúdo'/> do <Frame cmd='d-blue i !u' label='dicionário'/>.</p>
                     <p>⬩➤ O <Frame cmd='' label='uso'/> do <Sql word='where'/> equivaleria a <Frame cmd='red i !u' label='rasgar/filtrar'/> o <Frame cmd='d-blue i !u' label='dicionário'/> e <Frame cmd='' label='usar apenas parte'/> dele.</p>

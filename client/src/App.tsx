@@ -1,6 +1,7 @@
 
 
-import { Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { Home } from './components/Home/Home'
 import { ScenarioList } from './components/ModulePractice/ScenarioList'
 import { SubjectList } from './components/ModuleTheory/SubjectList'
@@ -8,6 +9,8 @@ import { ModulePractice} from './components/ModulePractice/ModulePractice'
 import { ModuleTheory } from './components/ModuleTheory/ModuleTheory'
 import { ModuleRead } from './components/ModuleRead/ModuleRead'
 import { TutorialProvider } from './components/shared/TutorialContext'
+import { scenarios } from './data/scenarios'
+import { subjects } from './data/subjects'
 
 import './assets/styles/buttons.css'
 import './assets/styles/custom.css'
@@ -31,7 +34,36 @@ import './assets/styles/view.css'
 import './assets/styles/theory-slides.css'
 import './App.css'
 
+const appTitle = 'Objeto de Aprendizagem do SQL Daily Life'
+
+function getPageTitle(pathname: string) {
+  const [section, page] = pathname.split('/').filter(Boolean)
+
+  if (!section) return appTitle
+  if (section === 'leitura') return 'Módulo Leia'
+  if (section === 'teorico') {
+    if (!page) return 'Módulo Teórico'
+
+    const subject = subjects.find(item => item.slug === page)
+    return subject ? `${subject.title} | Módulo Teórico` : 'Módulo Teórico'
+  }
+  if (section === 'pratico') {
+    if (!page) return 'Módulo Prático'
+
+    const scenario = scenarios.find(item => item.scenario === page)?.scenario
+    return scenario ? `${scenario.toUpperCase()} | Módulo Prático` : 'Módulo Prático'
+  }
+
+  return appTitle
+}
+
 function App() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    document.title = getPageTitle(pathname)
+  }, [pathname])
+
   return (
       <div id="main-frame" className="h100 flex column background-ink">
 
