@@ -106,13 +106,20 @@
 .temp-msg-style {
     background: var(--matte-yellow);
     border-radius: .2rem;
+    box-sizing: border-box;
     box-shadow: 0 0 .5rem yellow;
     color: purple;
     font-size: 1.2rem;
+    top: 25%;
+    left: 50%;
+    max-width: 90vw;
     padding: .5rem;
+    position: fixed;
+    /* top: 1rem; */
+    transform: translateX(-50%);
     text-align: center;
-    width: 90%;
-    margin: auto;
+    width: min(90vw, 40rem);
+    z-index: 1000;
 }
 
 #tables-select, #columns-select {
