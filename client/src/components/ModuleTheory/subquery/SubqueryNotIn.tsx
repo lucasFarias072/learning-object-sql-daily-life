@@ -16,10 +16,11 @@ export function SubqueryCaseNotIn() {
                 </div>
                 
                 <div id="case-not-in-body-subquery" className="flex column gap-sm theory-layout">
-                    <p>⬩➤ O <Sql word='in'/> existe num cenário onde há pelo menos 2 consultas: a mais interna oferece resultados para a mais externa.</p>
-                    <p>⬩➤ O <Sql word='in'/> responde <Frame cmd='shine i !u' label='ao que corresponde'/> vindo do <Frame cmd='ylw i !u' label='lado de dentro'/> para aquilo <Frame cmd='' label='que está'/> do <Frame cmd='cream i !u' label='lado de fora'/>, o <Sql word='not in'/> <Frame cmd='red i !u' label='quer o oposto disso'/>.</p>
+                    <p>⬩➤ O <Sql word='in'/> é a <Frame cmd='' label='cláusula'/> que <Frame cmd='shine i !u' label='pede correspondência'/> para a subconsulta formada no escopo dela .</p>
+                    <p>⬩➤ O <Sql word='in'/> <Frame cmd='shine i !u' label='quer saber o que corresponde'/> da <Frame cmd='ylw i !u' label='subconsulta mais interna'/> para aquilo <Frame cmd='' label='que está'/> do <Frame cmd='cream i !u' label='consulta externa/subconsulta mais externa'/>.</p>
+                    <p>⬩➤ <Sql word='not in'/> <Frame cmd='red i !u' label='quer o oposto disso'/>.</p>
                     <p>⬩➤ <Sql word='not in'/> busca as <Frame cmd='red i !u' label='não correspondências'/>, <Frame cmd='' label='assim como'/> o <Sql word='left join'/> <Frame cmd='' label='combinado'/> com <Sql word='where campo is null'/>.</p>
-                    <p>⬩➤ Ou seja, <Sql word='not in'/> <Frame cmd='' label='serve à perguntas de consultas'/> que falem sobre <Frame cmd='red i !u' label='ausência, não ter algo'/>.</p>
+                    <p>⬩➤ Ou seja, <Sql word='not in'/> <Frame cmd='' label='responde à perguntas de consultas'/> que falem <Frame cmd='red i !u' label='sobre ausência'/>.</p>
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/> e <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> obtem os mesmos resultados, pois <Frame cmd='' label='respondem à mesma coisa'/> ➜ <Frame cmd='red i !u' label='não correspondência'/>.</p>
                     <Hint/>
                 </div>
@@ -33,7 +34,7 @@ export function SubqueryCaseNotIn() {
                     </div>
 
                     <div className="sql-code flex column gap-sm">
-                        <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/></p>
+                        <p><Frame cmd='d-cyan i !u' label='--⬩➤ Ex. 1'/></p>
                         <p><Frame cmd='cream i u' label='select'/> descricao_algo <Sql word='from'/> algo</p>
                         <p><Sql word='where'/> algo_id <Frame cmd='red i u' label='not in'/> <Frame cmd='cream i !u' label='('/></p>
                         <p className="pl-4"><Frame cmd='ylw i u' label='select'/> algo_fk <Sql word='from'/> cor_algo</p>
@@ -41,7 +42,7 @@ export function SubqueryCaseNotIn() {
                     </div>
 
                     <div className="sql-code flex column gap-sm">
-                        <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/></p>
+                        <p><Frame cmd='d-cyan i !u' label='--⬩➤ Ex. 2'/></p>
                         <p><Sql word='select'/> descricao_algo <Sql word='from'/> algo al</p>
                         <p><Frame cmd='red i u' label='left join'/> cor_algo cal <Sql word='on'/> cal.algo_fk = al.algo_id</p>
                         <p><Frame cmd='red i u' label='where'/> algo_fk <Frame cmd='red i u' label='is null'/>;</p>

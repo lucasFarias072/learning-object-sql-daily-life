@@ -15,7 +15,7 @@ import { SubqueryHaveInMind } from "../subquery/SubqueryHaveInMind"
 import { SubqueryPractice } from "../subquery/SubqueryPractice"
 
 const sections: TheorySection[] = [
-    { id: "introduction", label: "O que é 'Sub consulta'?", slides: [{ content: <SubqueryWhatIsIt /> }] },
+    { id: "introduction", label: "O que é 'Subconsulta'?", slides: [{ content: <SubqueryWhatIsIt /> }] },
     { id: "usefullness", label: "Qual a utilidade?", slides: [{ content: <SubqueryUtility /> }] },
     { id: "requirements", label: "Do que precisa?", slides: [{ content: <SubqueryRequirements /> }] },
     { id: "representation", label: "Representação", slides: [{ content: <SubqueryRepresentation /> }] },

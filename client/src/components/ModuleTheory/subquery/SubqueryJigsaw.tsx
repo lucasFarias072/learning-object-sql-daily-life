@@ -14,15 +14,16 @@ export function SubqueryCaseJigsaw() {
                 </div>
 
                 <div id="case-modus-operandi-body-subquery" className="flex column gap-sm theory-layout">
-                    <p>⬩➤ Para <Frame cmd='' label='entender melhor'/> o funcionamento, vamos <Frame cmd='' label='usar pedaços'/> de uma consulta inteira e <Frame cmd='' label='depois juntar'/>.</p>
+                    <p>⬩➤ Para <Frame cmd='' label='entender melhor'/> o funcionamento, vamos <Frame cmd='' label='usar pedaços'/> de uma <Frame cmd='' label='consulta inteira'/> e <Frame cmd='' label='depois juntar'/>.</p>
                     <p>⬩➤ <Frame cmd='' label='Para cada'/> <Sql word='select'/>, existe <Frame cmd='shine i !u' label='uma subconsulta'/> sendo iniciada.</p>
                     <p>⬩➤ Vamos <Frame cmd='' label='isolar'/> as subconsultas: <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/>, <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/>, <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 3'/>.</p>
-                    <p>⬩➤ <Frame cmd='' label='A subconsulta pedida'/>: a descrição de algo (seja coisa ou animal) que possuem cor verde ou azul.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Visão humana:'/> O todo é a tabela <Frame cmd='d-cyan i !u' label='algo'/>, as cores daquilo de qualquer algo, estão na tabela <Frame cmd='d-cyan i !u' label='cor_algo'/>, o nome das cores está na tabela <Frame cmd='d-cyan i !u' label='cor'/>.</p>
+                    <p>⬩➤ <Frame cmd='cream i !u' label='A consulta externa (versão completa) pede'/> ➜ a descrição de algo (seja coisa ou animal) que possuem cor verde ou azul.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Visão humana:'/> A <Frame cmd='' label='tabela externa'/> é <Frame cmd='d-cyan i !u' label='algo'/>, <Frame cmd='' label='as cores'/> daquilo de qualquer algo, estão na tabela <Frame cmd='d-cyan i !u' label='cor_algo'/>, <Frame cmd='' label='o nome das cores'/> está na tabela <Frame cmd='d-cyan i !u' label='cor'/>.</p>
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ Visão humana:'/> <Frame cmd='' label='Eu salto entre tabelas cruzando as chaves'/> e chego onde a consulta quer.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Visão do SQL:'/> <Frame cmd='' label='Capturo os códigos das cores'/> verde e azul, <Frame cmd='' label='entrego'/> à <Frame cmd='shine i !u' label='consulta logo acima'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Visão do SQL:'/> <Frame cmd='' label='Capturo os códigos do que é algo'/> que tem os códigos de cor que eu recebi e <Frame cmd='' label='entrego'/> à <Frame cmd='shine i !u' label='consulta logo acima'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Visão do SQL:'/> <Frame cmd='' label='Comparo os códigos'/> do que foi <Frame cmd='shine i !u' label='recebido da consulta logo baixo'/> ➜ <Frame cmd='shine i !u' label='resultado'/> ➜ <Frame cmd='' label='Mostro as descrições do que é algo'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Visão SQL (parte 1)'/> <Frame cmd='' label='Capturo os códigos das cores'/> verde e azul, <Frame cmd='' label='entrego'/> à <Frame cmd='shine i !u' label='consulta logo acima'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Visão SQL (parte 2)'/> <Frame cmd='' label='Capturo os códigos do que é algo (coisa ou animal)'/> que tem os códigos de cor que eu recebi e <Frame cmd='' label='entrego'/> à <Frame cmd='shine i !u' label='consulta logo acima'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Visão SQL (parte 3)'/> <Frame cmd='' label='Comparo os códigos'/> do que foi <Frame cmd='' label='recebido'/> da <Frame cmd='shine i !u' label='consulta logo baixo'/> ➜ <Frame cmd='shine i !u' label='resultado'/> ➜ <Frame cmd='' label='Mostro as descrições do que é algo'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Apenas na parte 3'/> foram <Frame cmd='' label='recebidos códigos compatíveis'/> com o da <Frame cmd='cream i !u' label='tabela da consulta externa'/>.</p>
                     <p>⬩➤ A <Frame cmd='d-cyan i !u' label='visão humana'/> interpreta de <Frame cmd='shine i !u' label='fora pra dentro'/>, <Frame cmd='' label='conceitualmente'/> e seguindo uma <Frame cmd='' label='lógica relacional'/>.</p>
                     <p>⬩➤ A <Frame cmd='d-cyan i !u' label='visão da máquina'/> interpreta de <Frame cmd='shine i !u' label='dentro pra fora'/>, <Frame cmd='' label='processualmente'/>, seguindo uma <Frame cmd='' label='lógica procedural'/>.</p>
                     <Hint/>
@@ -30,10 +31,8 @@ export function SubqueryCaseJigsaw() {
                 
                 <div className="frame-example ex-subquery mt-1">
                     <div className="flex row go-left gap-sm subtitles">
-                        <div className="flex column gap-xsm">
-                            <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
-                            <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 1'/>
-                        </div>
+                        <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
+                        <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 1'/>
                         <Frame cmd='ylw p !u' label='subconsulta mais interna'/>
                     </div>
 
@@ -45,10 +44,8 @@ export function SubqueryCaseJigsaw() {
 
                 <div className="frame-example ex-subquery mt-1">
                     <div className="flex row go-left gap-sm subtitles">
-                        <div className="flex column gap-xsm">
-                            <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
-                            <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 2'/>
-                        </div>
+                        <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
+                        <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 2'/>
                         <Frame cmd='cream p !u' label='consulta externa'/>
                         <Frame cmd='ylw p !u' label='subconsulta mais interna'/>
                     </div>

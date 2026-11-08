@@ -14,11 +14,13 @@ export function JoinCaseJoinPlusOr() {
                 </div>
 
                 <div id="case-join-with-or-body-join" className="flex column gap-sm theory-layout">
-                    <p>⬩➤ Uso de uma <Frame cmd='' label='mesma tabela' /> para <Frame cmd='' label='pegar algo' /> que <Frame cmd='' label='está dividido' /> nela <Frame cmd='' label='e juntar' />.</p>
-                    <p>⬩➤ Esse caso é o <Frame cmd='' label='inverso do caso anterior' />, pois ele quer <Frame cmd='' label='juntar algo que está divido' /> em uma única coisa.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex.: Lâmpada & TV' /> ➜ mesma tabela de origem, separadas por propósitos diferentes.</p>
-                    <p>⬩➤ <Frame cmd='' label='Dessa vez'/>, <Frame cmd='' label='se quer saber todos'/> os objetos de alguém, então <Frame cmd='red i !u' label='não faz sentido separar'/> o que é alvo do que é referência.</p>
-                    <p>⬩➤ A consulta <Frame cmd='red i !u' label='não distingue mais os papéis' />, por isso o <Sql word='join + or'/> é <Frame cmd='' label='apropriado' />.</p>
+                    <p>⬩➤ Uso de uma <Frame cmd='' label='tabela com duplicação de alguma referência' /> para <Frame cmd='' label='pegar algo' /> que <Frame cmd='' label='está dividido' /> nela <Frame cmd='' label='e juntar' />.</p>
+                    <p>⬩➤ Ou seja, <Frame cmd='' label='existe'/> uma <Frame cmd='red i !u' label='separação de papéis'/> & <Frame cmd='shine i !u' label='intenção de desfazer essa separação'/>.</p>
+                    <p>⬩➤ É o <Frame cmd='red i !u' label='inverso do caso' /> <Sql word='self join'/>.</p>
+                    <p>⬩➤ <Sql word='join + or'/> busca <Frame cmd='' label='juntar algo' /> que está <Frame cmd='' label='dividido numa tabela' />.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex.: Lâmpada & TV' /> ➜ <Frame cmd='' label='mesma tabela de origem'/>, separadas por <Frame cmd='red i !u' label='propósitos diferentes'/>, que <Frame cmd='shine i !u' label='podem ser desfeitos'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ O que se quer saber agora ?' /> <Frame cmd='' label='todos os objetos'/> de alguém, então <Frame cmd='red i !u' label='não faz sentido separar'/> o que é <Frame cmd='shine i !u' label='alvo'/> do que é <Frame cmd='shine i !u' label='referência'/>.</p>
+                    <p>⬩➤ Se <Frame cmd='' label='a consulta'/> <Frame cmd='red i !u' label='não distingue mais os papéis' />, por isso o <Sql word='join + or'/> é <Frame cmd='' label='apropriado' />.</p>
                     <Hint/>
                 </div>
                 
@@ -39,7 +41,7 @@ export function JoinCaseJoinPlusOr() {
                             <Frame cmd='cream p !u' label="referência" />
                         </div>
                         <div className="flex column gap-xsm">
-                            <Frame cmd='pool p !u' label="junção + or" />
+                            <Frame cmd='pool p !u' label="OR na junção" />
                         </div>
                     </div>
 

@@ -16,11 +16,11 @@ export function SubqueryReplaceJoin() {
                 </div>
 
                 <div id="case-join-avoider-body-subquery" className="flex column gap-sm theory-layout">
-                    <p>⬩➤ Subconsultas podem ser <Frame cmd='red i !u' label='úteis para evitar'/> o uso do <Sql word='join'/>.</p>
-                    <p>⬩➤ O <Sql word='join'/> é majoritariamente usado para buscar <Frame cmd='' label='dados de outros locais'/>, para <Frame cmd='' label='resolver uma consulta'/>.</p>
+                    <p>⬩➤ Subconsultas podem ser <Frame cmd='red i !u' label='úteis para evitar por completo'/> o uso do <Sql word='join'/>.</p>
+                    <p>⬩➤ O <Sql word='join'/> é majoritariamente <Frame cmd='' label='usado'/> para <Frame cmd='' label='buscar dados de outros locais'/>, para <Frame cmd='' label='resolver uma consulta'/>.</p>
                     <p>⬩➤ A <Frame cmd='shine i !u' label='subconsulta'/> faz a <Frame cmd='' label='mesma coisa'/>.</p>
-                    <p>⬩➤ Só que o <Sql word='join'/> <Frame cmd='' label='também é usado'/> para <Frame cmd='' label='exibir dados de mais de uma tabela'/>, com o <Frame cmd='red i !u' label='custo de juntá-las'/>.</p>
-                    <p>⬩➤ Na <Frame cmd='shine i !u' label='subconsulta'/>, é <Frame cmd='' label='possível eliminar esse custo'/> de juntar e usar apenas para resolver.</p>
+                    <p><Frame cmd='red i !u' label='⬩➤ Questão'/> ➜ <Sql word='join'/> <Frame cmd='' label='também é usado'/> para <Frame cmd='' label='exibir dados de mais de uma tabela'/>, com o <Frame cmd='red i !u' label='custo de juntá-las'/>.</p>
+                    <p><Frame cmd='shine i !u' label='⬩➤ Condição'/> ➜ se apenas os <Frame cmd='' label='dados de uma única tabela'/> forem <Frame cmd='' label='mostrados'/> ➜ <Frame cmd='shine i !u' label='subconsulta pode substituir'/> o <Sql word='join'/>.</p>
                     <Hint/>
                 </div>
                 
