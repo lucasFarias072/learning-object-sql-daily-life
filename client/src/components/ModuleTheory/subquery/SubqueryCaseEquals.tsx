@@ -17,20 +17,18 @@ export function SubqueryCaseEquals() {
 
                 <div id="case-equals-body-subquery" className="flex column gap-sm theory-layout">
                     <p>⬩➤ <Frame cmd='shine i !u' label='Subconsultas'/> <Frame cmd='' label='usam'/> <Sql word='where'/> + <Sql word='in'/> ou <Sql word='not in'/> como <Frame cmd='' label='comparador de diversos valores'/> ➜ <Frame cmd='' label='retorno de mais de um valor'/>.</p>
-                    <p>⬩➤ <Frame cmd='' label='Além destes'/> a <Frame cmd='shine i !u' label='igualdade'/> <Sql word='='/> <Frame cmd='' label='pressupõe'/> que cada <Frame cmd='' label='subconsulta'/> nessa forma <Frame cmd='' label='retorne no máximo um valor'/>.</p>
-                    <p>⬩➤ <Frame cmd='shine i !u' label='Seu uso'/> está <Frame cmd='' label='mais associado'/> à situações em que:</p>
-                    <p className="pl-2">⬩➤ A <Frame cmd='' label='subconsulta criará a última da cadeia'/> de subconsultas, <Frame cmd='' label='ou seja'/>, ela é a <Frame cmd='' label='penúltima subconsulta'/>.</p>
+                    <p>⬩➤ <Frame cmd='' label='Além destes'/> a <Frame cmd='shine i !u' label='igualdade'/> ➜ <Sql word='='/> <Frame cmd='' label='pressupõe'/> que cada <Frame cmd='' label='subconsulta'/> nessa forma <Frame cmd='' label='retorne no máximo um valor'/>.</p>
+                    <p>⬩➤ <Frame cmd='shine i !u' label='Seu uso'/> está <Frame cmd='' label='mais associado à situações'/> em que:</p>
+                    <p className="pl-2">⬩➤ A <Frame cmd='' label='subconsulta criará a última da cadeia'/> de subconsultas, <Frame cmd='' label='ou seja'/>, ela é a <Frame cmd='shine i !u' label='penúltima subconsulta'/>.</p>
                     <p className="pl-2">⬩➤ A penúltima subconsulta <Frame cmd='' label='buscará por algo'/> que <Frame cmd='' label='se sabe'/> que o <Frame cmd='' label='retorno é valor único'/>.</p>
-                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> A igualdade é uma opção, mas o <Sql word='in'/> <Frame cmd='' label='obtem resultados também para 1'/>.</p>
+                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> A <Frame cmd='shine i !u' label='igualdade'/> ➜ <Sql word='='/> é <Frame cmd='' label='uma opção'/>, mas o <Sql word='in'/> <Frame cmd='' label='obtem resultados também para 1'/>.</p>
                     <Hint/>
                 </div>
                 
                 <div className="frame-example ex-subquery mt-1">
                     <div className="flex row go-left gap-sm subtitles">
-                        <div className="flex column gap-xsm">
-                            <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
-                            <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 1'/>
-                        </div>
+                        <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
+                        <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 1'/>
                         <Frame cmd='cream p !u' label='consulta externa'/>
                         <Frame cmd='ylw p !u' label='declaração da subconsulta'/>
                         <Frame cmd='blue p !u' label='igualdade = espera 1 resultado'/> 
@@ -46,10 +44,8 @@ export function SubqueryCaseEquals() {
 
                 <div className="frame-example ex-subquery mt-1">
                     <div className="flex row go-left gap-sm subtitles">
-                        <div className="flex column gap-xsm">
-                            <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
-                            <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 2'/>
-                        </div>
+                        <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
+                        <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 2'/>
                         <Frame cmd='ylw p !u' label='consulta mais interna'/>
                         <Frame cmd='d-blue p !u' label='consulta logo acima/intermediária'/>
                         <Frame cmd='cream p !u' label='consulta externa'/>

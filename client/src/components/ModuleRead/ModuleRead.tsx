@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { ReturnBtn } from "../shared/ReturnBtn";
 import { apiUrl } from "../../config";
+import { Frame } from "../shared/Frame";
+import { Sql } from "../shared/Sql";
 
 export function ModuleRead() {
   const [totalTabelas, setTotalTabelas] = useState<number | null>(null);
@@ -150,6 +152,39 @@ export function ModuleRead() {
                     </div>
                     <div className="flex row go-center fill">
                       <button className="see-result">ver resultado</button>
+                    </div>
+                </div>
+
+                <div className="cpt flex row gap-mid frame-read">
+                    <h1 className="w12 label">Destaques visuais</h1>
+                    <div>
+                      <ul className="def-list-group-a flex column gap-sm">
+                        <li><Frame cmd='' label='texto'/> ➜ texto chave para leitura mais rápida.</li>
+                        <li><Frame cmd='shine i !u' label='texto'/> ➜ texto chave de ênfase numa ideia, observação ou legenda.</li>
+                        <li><Frame cmd='red i !u' label='texto'/> ➜ texto chave de ênfase numa ideia contrária ou negativa.</li>
+                        <li><Frame cmd='d-cyan i !u' label='texto'/> ➜ texto de exemplo, chamar atenção, pergunta relevante.</li>
+                        <li><span className="hint">texto</span> ➜ texto indicador de dica.</li>
+                      </ul>
+                    </div>
+                    <div className="w15">
+                      <ul className="def-list-group-b flex column gap-sm">
+                        <li>Quadros usados para destacar textos em exemplos</li>
+                        <div className="flex row gap-sm">
+                        <li><Frame cmd='ylw i !u' label='texto'/></li>
+                        <li><Frame cmd='d-blue i !u' label='texto'/></li>
+                        <li><Frame cmd='blue i !u' label='texto'/></li>
+                        <li><Frame cmd='cream i !u' label='texto'/></li>
+                        <li><Frame cmd='pk i !u' label='texto'/></li>
+                        <li><Frame cmd='pool i !u' label='texto'/></li>
+                        <li><Frame cmd='ppl i !u' label='texto'/></li>
+                        <li><Frame cmd='red i !u' label='texto'/></li>
+                        </div>
+                      </ul>
+                    </div>
+                    <div>
+                      <ul className="def-list-group-b flex column gap-sm">
+                        <li><Sql word='texto'/> ➜ cláusula SQL destacada</li>
+                      </ul>
                     </div>
                 </div>
 

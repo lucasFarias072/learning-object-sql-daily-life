@@ -14,16 +14,16 @@ export function JoinCaseSelfJoin() {
                 </div>
                 
                 <div id="case-self-join-body-join" className="flex column gap-sm theory-layout">
-                    <p>⬩➤ Uso de uma <Frame cmd='' label='mesma referência de uma tabela em um'/> <Sql word='join'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Porque isso seria necessário?' /></p>
-                    <p>⬩➤ Por que uma <Frame cmd='' label='tabela' /> pode ter a mesma referência <Frame cmd='' label='repetida' />, <Frame cmd='' label='para fins'/> de assumir <Frame cmd='' label='papéis diferentes' />.</p>
-                    <p>⬩➤ Ou seja, <Frame cmd='' label='o registro'/> de uma tabela <Frame cmd='' label='é duplicado ou até mais'/>, a <Frame cmd='' label='origem é a mesma'/>, mas cada com um <Frame cmd='red i !u' label='propósito distinto'/>.</p>
-                    <p>⬩➤ Poderia ser algo como <Frame cmd='shine i !u' label='funcionário ➜ supervisor'/>, <Frame cmd='shine i !u' label='cidade saída ➜ cidade chegada'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ No exemplo  abaixo'/> ➜ <Frame cmd='' label='um objeto'/> assume <Frame cmd='' label='papel'/> de <Frame cmd='' label='alvo' /> e um <Frame cmd='' label='outro'/> objeto assume <Frame cmd='' label='papel'/> de <Frame cmd='' label='referência' /> dele.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Lâmpada & TV' /> ➜ lâmpada é o objeto alvo e a <Frame cmd='ui' label='tv' /> é o objeto referência pra <Frame cmd='' label='dizer onde está' /> a <Frame cmd='' label='lâmpada' />.</p>
-                    <p>⬩➤ Os objetos pertencem a mesma origem/tabela e mesma coluna, mas os papéis são outros.</p>
-                    <p>⬩➤ Se uma <Frame cmd='' label='consulta quiser saber sobre ambos papéis'/>, então <Frame cmd='d-cyan i !u' label='objeto' /> terá que ser <Frame cmd='' label='juntado'/> <Frame cmd='' label='2 vezes' />.</p>
-                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.' /> <Sql word='self join'/> <Frame cmd='shine i !u' label='precisa'/> <Frame cmd='pool i !u' label='usar apelidos' /> para <Frame cmd='' label='diferenciar referências idênticas' />.</p>
+                    <p>⬩➤ Quando acontece uma <Frame cmd='shine i !u' label='repetição de uma referência'/> numa <Frame cmd='' label='mesma tabela'/>.</p>
+                    <p>⬩➤ Ou seja, <Frame cmd='' label='existe'/> uma <Frame cmd='red i !u' label='separação de papéis intencional'/> & <Frame cmd='shine i !u' label='preservação dessa separação'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Porque isso pode acontecer ?' /></p>
+                    <p>⬩➤ Por que a <Frame cmd='' label='repetição da referência de uma tabela' /> pode <Frame cmd='' label='ser usada'/> com a <Frame cmd='' label='finalidade de assumir'/> <Frame cmd='shine i !u' label='papéis diferentes' />.</p>
+                    <p>⬩➤ Ou seja, <Frame cmd='' label='o registro ➜ chave estrangeira'/> de uma tabela <Frame cmd='' label='se repete duas ou mais vezes'/> numa <Frame cmd='' label='outra tabela'/>, ou seja: <Frame cmd='' label='mesma origem'/> ➜ <Frame cmd='red i !u' label='papel distinto'/>.</p>
+                    <p>⬩➤ <Frame cmd='' label='Algo como'/> ➜ <Frame cmd='shine i !u' label='funcionário ➜ supervisor'/>, <Frame cmd='shine i !u' label='cidade saída ➜ cidade chegada'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ No exemplo  abaixo'/> ➜ <Frame cmd='' label='um objeto'/> assume <Frame cmd='shine i !u' label='papel de alvo'/> enquanto o <Frame cmd='' label='outro'/> objeto assume <Frame cmd='shine i !u' label='papel de referência'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex.: Lâmpada & TV' /> ➜ <Frame cmd='' label='lâmpada'/> é o <Frame cmd='shine i !u' label='objeto alvo'/> e a <Frame cmd='ui' label='tv' /> é o <Frame cmd='shine i !u' label='objeto referência'/> para <Frame cmd='' label='dizer onde está' /> a <Frame cmd='' label='lâmpada' />.</p>
+                    <p>⬩➤ Se uma <Frame cmd='' label='consulta quiser saber sobre ambos papéis'/>, então <Frame cmd='shine i !u' label='ambos objetos' /> terão que ser <Frame cmd='' label='juntados'/> em <Sql word='join'/> <Frame cmd='red i !u' label='diferentes'/>.</p>
+                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.' /> <Sql word='self join'/> <Frame cmd='shine i !u' label='precisa usar'/> <Frame cmd='pool i !u' label='apelidos' /> para <Frame cmd='red i !u' label='diferenciar referências de uma mesma tabela' />.</p>
                     <Hint/>
                 </div>
                 

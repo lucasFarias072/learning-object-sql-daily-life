@@ -168,8 +168,7 @@
 .item-s, .mixed {
   background: linear-gradient(15deg, #adf, #D1FAE5);
   border: gray solid 1px;
-  /* border-radius: .3rem; */
-  color: black;
+  border-radius: .1rem;
 }
 .ppl {
   background: purple;
@@ -242,8 +241,8 @@
   background: linear-gradient(15deg, aqua, #adf);
   border: #222 solid 1px;
   border-radius: .2rem;
-  padding: .22rem;
-  text-shadow: 0 0 .5rem var(--soft-green);
+  /* box-shadow: 0 0 .33rem aqua; */
+  padding: .33rem .66rem;
 }
 .subtitles {
   background: #fffbbb;

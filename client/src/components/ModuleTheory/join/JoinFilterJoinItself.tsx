@@ -14,11 +14,9 @@ export function JoinFilterJoinItself() {
                 </div>
 
                 <div id="filter-join-itself-body-join" className="flex column gap-sm theory-layout">
-                    <p>⬩➤ O <Frame cmd='' label='próprio'/> uso do <Sql word='join'/> cria um filtro, pois <Frame cmd='' label='filtrará'/> chaves entre tabelas cujas <Frame cmd='' label='linhas não correspondam na junção'/>.</p>
-                    <p>⬩➤ Ocorre uma <Frame cmd='red i !u' label='exclusão automática por falta de correspondência'/> de chaves iguais.</p>
-                    <p>⬩➤ Ou seja, é um <Frame cmd='' label='filtro não declarativo'/> da cláusula.</p>
-                    <p>⬩➤ Experimente <Frame cmd='' label='modificar'/> o <Frame cmd='' label='exemplo abaixo'/> pela <Frame cmd='shine i !u' label='troca'/> do <Sql word='join'/> por <Sql word='left join'/> e verá <Frame cmd='shine i !u' label='uma linha a mais'/> na contagem.</p>
-                    <p>⬩➤ Isso <Frame cmd='' label='evidencia o filtro aplicado'/> pelo <Sql word='join'/>.</p>
+                    <p>⬩➤ O <Frame cmd='' label='próprio'/> uso do <Sql word='join'/> cria um filtro, pois quando <Frame cmd='red i !u' label='não encontra correspondência'/>, a <Frame cmd='shine i !u' label='linha que satifez essa condição'/> é <Frame cmd='red i !u' label='retirada'/> do resultado.</p>
+                    <p>⬩➤ <Sql word='join'/> está <Frame cmd='' label='programado'/> para fazer uma <Frame cmd='red i !u' label='exclusão automática por falta de correspondência'/> entre a chave primária e a estrangeira.</p>
+                    <p>⬩➤ <Frame cmd='shine i !u' label='Experimente modificar'/> o <Frame cmd='d-cyan i !u' label='exemplo abaixo'/> pela <Frame cmd='shine i !u' label='troca'/> do <Sql word='join'/> por <Sql word='left join'/> e verá <Frame cmd='shine i !u' label='uma linha a mais'/> na contagem.</p>
                     <Hint/>
                 </div>
                 

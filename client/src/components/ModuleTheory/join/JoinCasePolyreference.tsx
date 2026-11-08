@@ -14,10 +14,9 @@ export function JoinCasePolyreference() {
                 </div>
 
                 <div id="case-polyref-body-join" className="flex column gap-sm theory-layout">
-                    <p>⬩➤ Quando uma tabela <Frame cmd='' label='possui referência em mais de um local'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ No exemplo abaixo'/>, a tabela <Frame cmd='' label='tabela'/> <Frame cmd='ylw i !u' label='dono'/> <Frame cmd='' label='existe em'/> mais de uma tabela: <Frame cmd='d-blue i !u' label='quarto_relatorio' /> e <Frame cmd='ppl i !u' label='dono_caracteristica' />.</p>
-                    <p><Frame cmd='red i !u' label='⬩➤ Ao invés disso'/> <Frame cmd='ylw i !u' label='dono'/> ➜ <Frame cmd='d-blue i !u' label='quarto_relatorio' /> ➜ <Frame cmd='ppl i !u' label='dono_caracteristica' />.</p>
-                    <p><Frame cmd='shine i !u' label='⬩➤ Fica isso ➜'/> <Frame cmd='d-blue i !u' label='quarto_relatorio' /> <b>---&gt;</b> <Frame cmd='ylw i !u' label='dono'/> <b>&lt;---</b> <Frame cmd='ppl i !u' label='dono_caracteristica' /></p>
+                    <p>⬩➤ Quando uma tabela <Frame cmd='' label='possui referência'/> em <Frame cmd='shine i !u' label='mais de uma tabela'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ No exemplo abaixo'/>, a <Frame cmd='' label='tabela'/> <Frame cmd='ylw i !u' label='dono'/> <Frame cmd='shine i !u' label='está referenciada'/> em ➜ <Frame cmd='d-blue i !u' label='quarto_relatorio' /> e <Frame cmd='pool i !u' label='dono_caracteristica' />.</p>
+                    <p>⬩➤ Ou seja, <Frame cmd='shine i !u' label='a relação'/> fica: <Frame cmd='d-blue i !u' label='quarto_relatorio' /> <b>-----&gt;&gt;</b> <Frame cmd='ylw i !u' label='dono'/> <b>&lt;&lt;-----</b> <Frame cmd='pool i !u' label='dono_caracteristica' /></p>
                     <Hint/>
                 </div>
                 
@@ -26,7 +25,7 @@ export function JoinCasePolyreference() {
                         <h3 className="shine">Legenda ⬩➤</h3>
                         <Frame cmd='ylw p !u' label='folha de papel 1'/>
                         <Frame cmd='d-blue p !u' label='folha de papel 2'/>
-                        <Frame cmd='ppl p !u' label='folha de papel 3'/>
+                        <Frame cmd='pool p !u' label='folha de papel 3'/>
                         <Frame cmd='blue p !u' label='cola'/>
                         <Frame cmd='pk p !u' label="cópia da referência" />
                         <Frame cmd='cream p !u' label="referência" />
@@ -35,7 +34,7 @@ export function JoinCasePolyreference() {
                     <div className="sql-code flex column gap-sm">
                         <p><Sql word='select'/> * <Sql word='from'/> <Frame cmd='ylw i !u' label='dono' /></p>
                         <p><Frame cmd='blue i u' label='join' /> <Frame cmd='d-blue i !u' label='quarto_relatorio' /> <Frame cmd='blue i u' label='on' /> quarto_relatorio.<Frame cmd='pk i !u' label='dono_fk'/> = <Frame cmd='ylw i !u' label='dono'/>.<Frame cmd='cream i !u' label='dono_id' /></p>
-                        <p><Frame cmd='blue i u' label='join' /> <Frame cmd='ppl i !u' label='dono_caracteristica' /> <Frame cmd='blue i u' label='on' /> dono_caracteristica.<Frame cmd='pk i !u' label='dono_fk'/> = <Frame cmd='ylw i !u' label='dono'/>.<Frame cmd='cream i !u' label='dono_id' />;</p>
+                        <p><Frame cmd='blue i u' label='join' /> <Frame cmd='pool i !u' label='dono_caracteristica' /> <Frame cmd='blue i u' label='on' /> dono_caracteristica.<Frame cmd='pk i !u' label='dono_fk'/> = <Frame cmd='ylw i !u' label='dono'/>.<Frame cmd='cream i !u' label='dono_id' />;</p>
                     </div>
                 </div>
 

@@ -14,9 +14,9 @@ export function JoinRequirements() {
 
                 <div id="req-body-join" className="flex column gap-xsm theory-layout">
                     <ul className="flex column gap-sm">
-                        <li>⬩➤ <Frame cmd='' label='Duas ou mais tabelas'/>, para que <Frame cmd='' label='sejam juntadas'/> em busca de dados.</li>
-                        <li>⬩➤ Pelo menos um <Frame cmd='' label='dado único'/> que exista <Frame cmd='' label='entre tabelas'/> <Frame cmd='shine i !u' label='[copia] ➜ [cola]'/>.</li>
-                        <li>⬩➤ A <Frame cmd='' label='cláusula'/> <Sql word='join'/> usa <Sql word='on'/> como <Frame cmd='shine i !u' label='ponto de junção'/> entre as tabelas.</li>
+                        <li>⬩➤ <Frame cmd='' label='Duas ou mais tabelas'/> ➜ <Frame cmd='' label='dados mistos'/> vindos de <Frame cmd='shine i !u' label='locais diferentes'/>.</li>
+                        <li>⬩➤ <Frame cmd='' label='Pelo menos um dado único'/> que exista <Frame cmd='' label='entre tabelas'/> <Frame cmd='shine i !u' label='[copia] ➜ [cola]'/>.</li>
+                        <li>⬩➤ A <Frame cmd='' label='cláusula'/> [ <Sql word='join'/> + <Sql word='on'/> ] cria um <Frame cmd='shine i !u' label='ponto de junção'/> entre as tabelas.</li>
                     </ul>
                 </div>
 

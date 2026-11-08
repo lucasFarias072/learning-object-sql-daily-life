@@ -15,13 +15,13 @@ export function JoinCaseLeftJoin() {
 
                 <div id="case-left-join-body-join" className="flex column gap-sm theory-layout">
                     <p>⬩➤ <Sql word='left join'/> é um <Frame cmd='red i !u' label='opositor'/> à lógica do <Sql word='join'/>.</p>
-                    <p>⬩➤ Enquanto <Sql word='join'/> <Frame cmd='' label='retira chaves sem correspondência'/> do resultado, <Sql word='left join'/> <Frame cmd='' label='evidencia'/>.</p>
-                    <p>⬩➤ <Sql word='left join'/>, portanto, tem uma <Frame cmd='' label='relação direta'/> com a <Frame cmd='red i !u' label='não correspondência'/>.</p>
-                    <p>⬩➤ Ao juntar, a <Frame cmd='' label='tabela exposta'/> ao <Sql word='left join'/>, tem <Frame cmd='' label='todas colunas'/> com <Frame cmd='red i !u' label='valor nulo'/> do <Frame cmd='shine i !u' label='lado direito da junção'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/> mostra isso, a <Frame cmd='' label='tabela'/> <Frame cmd='d-blue i !u' label='passageiro'/>, coloca todas suas <Frame cmd='' label='linhas'/> como <Frame cmd='red i !u' label='nulo'/>, quando <Frame cmd='red i !u' label='não há correspondência'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> <Sql word='where campo nulo is null'/> é o <Frame cmd='' label='filtro'/> para mostrar as <Frame cmd='red i !u' label='não correspondência'/> (usar algum <Frame cmd='shine i !u' label='campo do lado direito da junção'/>).</p>
-                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> Uma <Frame cmd='shine i !u' label='forma de depurar'/> <Sql word='left join'/>, e usando <Sql word='select *'/>, sem passar colunas.</p>
-                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> Ao escolher um <Frame cmd='shine i !u' label='campo do lado direito da junção'/> <Frame cmd='' label='optar pelos que são'/> campo de <Frame cmd='' label='chave primária/estrangeira'/>, ao invés dos campos comuns.</p>
+                    <p>⬩➤ Enquanto <Sql word='join'/> <Frame cmd='red i !u' label='retira linhas de chaves sem correspondência'/> do resultado, <Sql word='left join'/> <Frame cmd='shine i !u' label='mantém as linhas sem correspondência'/>.</p>
+                    <p>⬩➤ <Sql word='left join'/>, portanto, tem uma <Frame cmd='' label='relação objetiva na busca'/> com a <Frame cmd='red i !u' label='não correspondência'/>.</p>
+                    <p>⬩➤ Ao juntar, a <Frame cmd='d-blue i !u' label='tabela exposta'/> ao <Sql word='left join'/>, <Frame cmd='' label='posiciona todas as linhas'/> com <Frame cmd='red i !u' label='valor nulo ➜ sem correspondência'/> no <Frame cmd='shine i !u' label='lado direito da junção'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/> ➜ <Frame cmd='' label='tabela'/> <Frame cmd='d-blue i !u' label='passageiro'/>, coloca todas suas <Frame cmd='red i !u' label='linhas sem correspondência ➜ nulas'/> no <Frame cmd='shine i !u' label='lado direito'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> ➜ <Sql word='where campo nulo is null'/> é o <Frame cmd='' label='filtro'/> para mostrar as <Frame cmd='red i !u' label='não correspondência'/> ➜ usar em algum <Frame cmd='shine i !u' label='campo do lado direito da junção'/>.</p>
+                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> Uma <Frame cmd='shine i !u' label='forma de depurar'/> <Sql word='left join'/> é pelo uso do <Sql word='select'/> <Frame cmd='shine i !u' label='sem passar colunas'/> ➜ <Sql word='select *'/>.</p>
+                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> Ao escolher um <Frame cmd='shine i !u' label='campo do lado direito da junção'/>, <Frame cmd='' label='opte pelos que são'/> campo de <Frame cmd='shine i !u' label='chave primária/estrangeira'/>, <Frame cmd='red i !u' label='ao invés dos campos comuns'/>.</p>
                     <Hint/>
                 </div>
                 
@@ -40,7 +40,8 @@ export function JoinCaseLeftJoin() {
 
                     <div className="sql-code flex column gap-sm">
                         <p><Sql word='select'/> * <Sql word='from'/> <Frame cmd='ylw i !u' label='assento'/></p>
-                        <p><Frame cmd='blue i u' label='left join'/> <Frame cmd='d-blue i !u' label='passageiro'/> <Sql word='on'/> passageiro.<Frame cmd='pk i !u' label='assento_fk'/> = assento.<Frame cmd='cream i !u' label='assento_id'/>;</p>
+                        <p><Frame cmd='blue i u' label='left join'/> <Frame cmd='d-blue i !u' label='passageiro'/> <Sql word='on'/> passageiro.<Frame cmd='pk i !u' label='assento_fk'/> = assento.<Frame cmd='cream i !u' label='assento_id'/></p>
+                        <p><Sql word='order by'/> passageiro_id;</p>
                     </div>
                 </div>
 
