@@ -16,20 +16,20 @@ export function JoinCaseSelfJoin() {
                 <div id="case-self-join-body-join" className="flex column gap-sm theory-layout">
                     <p>⬩➤ Quando acontece uma <Frame cmd='shine i !u' label='repetição de uma referência'/> numa <Frame cmd='' label='mesma tabela'/>.</p>
                     <p>⬩➤ Ou seja, <Frame cmd='' label='existe'/> uma <Frame cmd='red i !u' label='separação de papéis intencional'/> & <Frame cmd='shine i !u' label='preservação dessa separação'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Porque isso pode acontecer ?' /></p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Por que isso pode acontecer?' /></p>
                     <p>⬩➤ Por que a <Frame cmd='' label='repetição da referência de uma tabela' /> pode <Frame cmd='' label='ser usada'/> com a <Frame cmd='' label='finalidade de assumir'/> <Frame cmd='shine i !u' label='papéis diferentes' />.</p>
                     <p>⬩➤ Ou seja, <Frame cmd='' label='o registro ➜ chave estrangeira'/> de uma tabela <Frame cmd='' label='se repete duas ou mais vezes'/> numa <Frame cmd='' label='outra tabela'/>, ou seja: <Frame cmd='' label='mesma origem'/> ➜ <Frame cmd='red i !u' label='papel distinto'/>.</p>
                     <p>⬩➤ <Frame cmd='' label='Algo como'/> ➜ <Frame cmd='shine i !u' label='funcionário ➜ supervisor'/>, <Frame cmd='shine i !u' label='cidade saída ➜ cidade chegada'/>.</p>
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ No exemplo  abaixo'/> ➜ <Frame cmd='' label='um objeto'/> assume <Frame cmd='shine i !u' label='papel de alvo'/> enquanto o <Frame cmd='' label='outro'/> objeto assume <Frame cmd='shine i !u' label='papel de referência'/>.</p>
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex.: Lâmpada & TV' /> ➜ <Frame cmd='' label='lâmpada'/> é o <Frame cmd='shine i !u' label='objeto alvo'/> e a <Frame cmd='ui' label='tv' /> é o <Frame cmd='shine i !u' label='objeto referência'/> para <Frame cmd='' label='dizer onde está' /> a <Frame cmd='' label='lâmpada' />.</p>
-                    <p>⬩➤ Se uma <Frame cmd='' label='consulta quiser saber sobre ambos papéis'/>, então <Frame cmd='shine i !u' label='ambos objetos' /> terão que ser <Frame cmd='' label='juntados'/> em <Sql word='join'/> <Frame cmd='red i !u' label='diferentes'/>.</p>
+                    <p>⬩➤ Se uma <Frame cmd='' label='consulta quiser saber sobre ambos os papéis'/>, então <Frame cmd='shine i !u' label='ambos os objetos' /> terão que ser <Frame cmd='' label='juntados'/> em <Sql word='join'/> <Frame cmd='red i !u' label='diferentes'/>.</p>
                     <p><Frame cmd='shine i !u' label='⬩➤ Obs.' /> <Sql word='self join'/> <Frame cmd='shine i !u' label='precisa usar'/> <Frame cmd='pool i !u' label='apelidos' /> para <Frame cmd='red i !u' label='diferenciar referências de uma mesma tabela' />.</p>
                     <Hint/>
                 </div>
                 
                 <div className="frame-example ex-join mt-1">
                     <div className="flex row go-left gap-sm subtitles">
-                        <h3 className="shine">Legenda ⬩➤</h3>
+                        <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
                         <div className="flex column gap-xsm">
                             <Frame cmd='ylw p !u' label='folha de papel 1'/>
                             <Frame cmd='d-blue p !u' label='folha de papel 2'/>

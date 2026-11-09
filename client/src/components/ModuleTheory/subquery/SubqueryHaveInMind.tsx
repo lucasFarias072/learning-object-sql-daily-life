@@ -17,7 +17,7 @@ export function SubqueryHaveInMind() {
                         <li>⬩➤ Subconsultas <Frame cmd='' label='trabalham'/> com <Frame cmd='shine i !u' label='entrega de chaves entre consultas'/>.</li>
                         <li>⬩➤ Subconsultas são <Frame cmd='' label='consultas SQL aninhadas'/> que o <Frame cmd='' label='resultado'/> gerado da <Frame cmd='' label='consulta mais interna'/> é <Frame cmd='' label='repassado'/> à <Frame cmd='' label='consulta externa logo acima dela'/>.</li>
                         <li>⬩➤ Subconsulta <Frame cmd='' label='cruza chaves/salta entre tabelas'/>, mas <Frame cmd='red i !u' label='não existe junção de tabelas'/>, como no <Sql word='join'/>.</li>
-                        <li>⬩➤ Subconsulta inteiras <Frame cmd='' label='acessam apenas os campos'/> da <Frame cmd='shine i !u' label='tabela da consulta externa'/> no <Sql word='select'/>. Para <Frame cmd='' label='acessar mais campos'/> ➜ use <Sql word='join'/>.</li>
+                        <li>⬩➤ As subconsultas inteiras <Frame cmd='' label='acessam apenas os campos'/> da <Frame cmd='shine i !u' label='tabela da consulta externa'/> no <Sql word='select'/>. Para <Frame cmd='' label='acessar mais campos'/> ➜ use <Sql word='join'/>.</li>
                         <li>⬩➤ Subconsultas são <Frame cmd='' label='alternativas para'/> <Frame cmd='red i !u' label='evitar parcialmente/completamente'/> <Sql word='join'/>, <Frame cmd='shine i !u' label='quando'/> o <Sql word='select'/> <Frame cmd='shine i !u' label='quiser mostrar campos de apenas uma tabela'/>.</li>
                     </ul>
                 </div>

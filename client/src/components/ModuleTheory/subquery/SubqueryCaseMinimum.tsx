@@ -15,13 +15,13 @@ export function SubqueryCaseMinimum() {
                 
                 <div id="case-minimum-body-subquery" className="flex column gap-sm theory-layout">
                     <p>⬩➤ O caso mínimo é quando <Frame cmd='' label='duas tabelas precisam se conectar'/> para <Frame cmd='' label='alcançar'/> o <Frame cmd='' label='objetivo da consulta'/>.</p>
-                    <p>⬩➤ Na <Frame cmd='shine i !u' label='subconsulta'/>, tabelas se conectam <Frame cmd='' label='pelo correspondência de chaves'/>, são similares ao <Sql word='join'/>.</p>
+                    <p>⬩➤ Na <Frame cmd='shine i !u' label='subconsulta'/>, tabelas se conectam <Frame cmd='' label='pela correspondência de chaves'/>, são similares ao <Sql word='join'/>.</p>
                     <p>⬩➤ <Frame cmd='red i !u' label='Diferente'/> do <Sql word='join'/>, a <Frame cmd='shine i !u' label='subconsulta'/> <Frame cmd='' label='conecta tabelas'/> <Frame cmd='shine i !u' label='sem juntar todas as colunas'/>.</p>
                     <p>⬩➤ <Sql word='in'/> é <Frame cmd='' label='cláusula'/> para <Frame cmd='shine i !u' label='procurar correspondência'/> por chave estrangeira entre as tabelas.</p>
                     <p>⬩➤ <Sql word='='/> <Frame cmd='' label='se assemelha'/> ao <Sql word='in'/>, mas <Frame cmd='' label='espera'/> que a <Frame cmd='shine i !u' label='subconsulta'/> retorne <Frame cmd='shine i !u' label='apenas um dado'/>.</p>
                     <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> <Frame cmd='' label='Para cada'/> <Sql word='select'/> ➜ <Frame cmd='shine i !u' label='uma subconsulta iniciada'/>.</p>
                     <p><Frame cmd='shine i !u' label='⬩➤ Isso existe'/> Se <Frame cmd='' label='uma tabela'/> tiver <Frame cmd='red i !u' label='chave estrangeira configurada para ser nula'/>, o uso do <Sql word='in'/> ou <Sql word='='/> <Frame cmd='red i !u' label='não são recomendados'/> ➜ usar <Sql word='not exists'/>.</p>
-                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> <Sql word='not exists'/> <Frame cmd='red i !u' label='não será tratado aqui'/>, mas <Frame cmd='' label='um exemplo'/> correspondente será <Frame cmd='' label='deixado como motivo de informação'/>.</p>
+                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> <Sql word='not exists'/> <Frame cmd='red i !u' label='não será tratado aqui'/>, mas <Frame cmd='' label='um exemplo'/> correspondente será <Frame cmd='' label='incluído a título de informação'/>.</p>
                     <Hint/>
                 </div>
                 

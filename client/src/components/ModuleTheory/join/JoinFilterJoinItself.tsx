@@ -14,7 +14,7 @@ export function JoinFilterJoinItself() {
                 </div>
 
                 <div id="filter-join-itself-body-join" className="flex column gap-sm theory-layout">
-                    <p>⬩➤ O <Frame cmd='' label='próprio'/> uso do <Sql word='join'/> cria um filtro, pois quando <Frame cmd='red i !u' label='não encontra correspondência'/>, a <Frame cmd='shine i !u' label='linha que satifez essa condição'/> é <Frame cmd='red i !u' label='retirada'/> do resultado.</p>
+                    <p>⬩➤ O <Frame cmd='' label='próprio'/> uso do <Sql word='join'/> cria um filtro, pois quando <Frame cmd='red i !u' label='não encontra correspondência'/>, a <Frame cmd='shine i !u' label='linha que satisfez essa condição'/> é <Frame cmd='red i !u' label='retirada'/> do resultado.</p>
                     <p>⬩➤ <Sql word='join'/> está <Frame cmd='' label='programado'/> para fazer uma <Frame cmd='red i !u' label='exclusão automática por falta de correspondência'/> entre a chave primária e a estrangeira.</p>
                     <p>⬩➤ <Frame cmd='shine i !u' label='Experimente modificar'/> o <Frame cmd='d-cyan i !u' label='exemplo abaixo'/> pela <Frame cmd='shine i !u' label='troca'/> do <Sql word='join'/> por <Sql word='left join'/> e verá <Frame cmd='shine i !u' label='uma linha a mais'/> na contagem.</p>
                     <Hint/>
@@ -22,7 +22,7 @@ export function JoinFilterJoinItself() {
                 
                 <div className="frame-example ex-join mt-1">
                     <div className="flex row go-left gap-sm subtitles">
-                        <h3 className="shine">Legenda ⬩➤</h3>
+                        <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
                         <Frame cmd='ylw p !u' label='folha de papel 1'/>
                         <Frame cmd='d-blue p !u' label='folha de papel 2'/>
                         <Frame cmd='pk p !u' label="cópia da referência" />

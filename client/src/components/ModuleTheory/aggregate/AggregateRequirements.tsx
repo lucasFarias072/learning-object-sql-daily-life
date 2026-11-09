@@ -15,9 +15,9 @@ export function AggregateRequirements() {
 
                 <div id="req-body-aggregate" className="flex column gap-xsm theory-layout">
                     <ul className="flex column gap-sm">
-                        <li>⬩➤ As funções agregadoras, por si só, precisam de uma coluna, normalmente numérica, mas aqui <Frame cmd='shine i !u' label='o intuito é falar da sua aliança com'/> <Sql word='group by'/>.</li>
-                        <li>⬩➤ Pelo menos <Frame cmd='' label='uma função de agregação'/> normalmente no <Sql word='select'/> (se for para <Frame cmd='' label='exibir'/>), ou no <Sql word='having'/> (se for para <Frame cmd='' label='filtrar'/>).</li>
-                        <li>⬩➤ Uma ou mais <Frame cmd='' label='colunas não agregadas'/> no <Sql word='group by'/> <Frame cmd='shine i !u' label='(opcionalmente ou obrigatoriamente)'/>, que podem ser exibidas no <Sql word='select'/> <Frame cmd='shine i !u' label='(opcionalmente)'/>.</li>
+                        <li>⬩➤ As funções agregadoras, <Frame cmd='' label='por si só'/>, precisam de <Frame cmd='' label='uma coluna numérica'/>, mas aqui <Frame cmd='shine i !u' label='o intuito é falar da sua aliança com'/> <Sql word='group by'/>.</li>
+                        <li>⬩➤ <Frame cmd='' label='Pelo menos uma função agregadora'/> normalmente no <Sql word='select'/> (se for para <Frame cmd='' label='exibir na tabela resultante'/>), ou no <Sql word='having'/> (se for para <Frame cmd='' label='filtrar da tabela resultante'/>).</li>
+                        <li>⬩➤ Uma ou mais <Frame cmd='' label='colunas não agregadas'/> usadas pelo <Sql word='group by'/> <Frame cmd='shine i !u' label='(uso obrigatório)'/>, que podem ser exibidas no <Sql word='select'/> <Frame cmd='shine i !u' label='(uso opcional)'/>.</li>
                         <li>⬩➤ <Sql word='group by'/> é <Frame cmd='shine i !u' label='opcional'/>, mas é <Frame cmd='' label='muito utilizado'/>, pois <Frame cmd='red i !u' label='sua ausência limita'/> a <Frame cmd='shine i !u' label='atuação das funções agregadoras'/>.</li>
                         <li>⬩➤ Os <Frame cmd='' label='exemplos abaixo'/> demonstram bem como a <Frame cmd='shine i !u' label='atuação da função agregadora muda'/> <Frame cmd='' label='conforme'/> a aplicação do <Sql word='group by'/>.</li>
                         <li>⬩➤ Eles se tratam do assunto de duração de partida de sinuca.</li>
@@ -30,9 +30,9 @@ export function AggregateRequirements() {
                 
                 <div className="frame-example mt-1">
                     <div className="flex row go-left gap-sm subtitles">
-                        <h3 className="shine">Legenda ⬩➤</h3>
+                        <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
                         {/* <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1:'/> */}
-                        <Frame cmd='ylw p !u' label='função agregadora com base na própria coluna'/>
+                        <Frame cmd='ylw p !u' label='função agregadora com base em uma coluna, sem agrupar'/>
                     </div>
 
                     <div className="sql-code flex column gap-sm">
@@ -42,23 +42,24 @@ export function AggregateRequirements() {
                 
                 <div className="frame-example mt-1">
                     <div className="flex row go-left gap-sm subtitles">
-                        <h3 className="shine">Legenda ⬩➤</h3>
+                        <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
                         {/* <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2:'/> */}
-                        <Frame cmd='ylw p !u' label='função agregadora com base em outra coluna'/>
+                        <Frame cmd='ylw p !u' label='função agregadora com base em uma coluna'/>
+                        <Frame cmd='blue p !u' label='coluna trazida da linha do resultado da função agregadora'/>
                     </div>
 
                     <div className="sql-code flex column gap-sm">
-                        <p><Sql word='select'/> <Frame cmd='ylw i !u' label='ficha_fk'/>, <Sql word='max'/>(duracao_seg) <Sql word='from'/> partida_sinuca;</p>
+                        <p><Sql word='select'/> <Frame cmd='blue i !u' label='ficha_fk'/>, <Sql word='max'/>(<Frame cmd='ylw i !u' label='duracao_seg'/>) <Sql word='from'/> partida_sinuca;</p>
                     </div>
                 </div>
                 
                 <div className="frame-example mt-1">
                     <div className="flex row go-left gap-sm subtitles">
-                        <h3 className="shine">Legenda ⬩➤</h3>
+                        <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
                         {/* <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 3:'/> */}
-                        <Frame cmd='ylw p !u' label='cada valor único de ficha separado'/>
-                        <Frame cmd='d-blue p !u' label='o que separa/cria grupos'/>
-                        <Frame cmd='blue p !u' label='estatística para cada linha'/>
+                        <Frame cmd='ylw p !u' label='cada valor único de ficha separado (mostrado)'/>
+                        <Frame cmd='d-blue p !u' label='quem recebe a coluna e segrega seus valores em grupos'/>
+                        <Frame cmd='blue p !u' label='estatística para cada linha/valor'/>
                     </div>
 
                     <div className="sql-code flex column gap-sm">
@@ -68,11 +69,11 @@ export function AggregateRequirements() {
                 
                 <div className="frame-example mt-1">
                     <div className="flex row go-left gap-sm subtitles">
-                        <h3 className="shine">Legenda ⬩➤</h3>
+                        <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
                         {/* <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 4:'/> */}
                         <Frame cmd='ylw p !u' label='cada valor único de ficha separado (omitido)'/>
-                        <Frame cmd='d-blue p !u' label='o que separa/cria grupos'/>
-                        <Frame cmd='blue p !u' label='estatística para cada linha'/>
+                        <Frame cmd='d-blue p !u' label='quem recebe a coluna e segrega seus valores em grupos'/>
+                        <Frame cmd='blue p !u' label='estatística para cada linha/valor'/>
                     </div>
 
                     <div className="sql-code flex column gap-sm">

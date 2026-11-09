@@ -36,7 +36,7 @@ export function AggregationRepresentationPart2() {
             </div>
 
             <div className="flex row go-left gap-sm subtitles mv-1">
-                <h3 className="shine">Legenda ⬩➤</h3>
+                <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
                 <Paint label='quem serve dados/coluna agregada' css='blue' padding='p-mid' slender={false} />
                 <Paint label='critério que separa' css='ylw' padding='p-mid' slender={false} />
                 <Paint label='opera a coluna agregada' css='d-blue' padding='p-mid' slender={false} />

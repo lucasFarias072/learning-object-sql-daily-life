@@ -15,12 +15,14 @@ export function JoinFilterWhereIsNull() {
 
                 <div id="filter-is-null-body-join" className="flex column gap-sm theory-layout">
                     <p>⬩➤ A cláusula <Frame cmd='' label='serve tanto'/> para <Sql word='join'/> <Frame cmd='' label='quanto'/> para <Sql word='left join'/>.</p>
-                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> As <Frame cmd='d-cyan i !u' label='regras abaixo'/> podem parecer complicadas, <Frame cmd='' label='leia elas usando'/> os <Frame cmd='d-cyan i !u' label='exemplos'/> <Frame cmd='shine i !u' label='como base'/> e ficará <Frame cmd='' label='mais fácil de entender'/>.</p>
-                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> Note que, <Frame cmd='' label='os casos'/> com <Sql word='join'/> que <Sql word='where campo is null'/> <Frame cmd='shine i !u' label='é útil'/>, são aqueles que o <Sql word='where'/> <Frame cmd='shine i !u' label='usa dados da tabela externa'/> ➜ vindos do <Sql word='select'/>.</p>
+                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> As <Frame cmd='d-cyan i !u' label='regras abaixo'/> podem parecer complicadas, <Frame cmd='' label='leia-as usando'/> os <Frame cmd='d-cyan i !u' label='exemplos'/> <Frame cmd='shine i !u' label='como base'/> e ficará <Frame cmd='' label='mais fácil de entender'/>.</p>
+                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> Note que <Frame cmd='' label='os casos'/> com <Sql word='join'/> que <Sql word='where campo is null'/> <Frame cmd='shine i !u' label='é útil'/>, são aqueles que o <Sql word='where'/> <Frame cmd='shine i !u' label='usa dados da tabela externa'/> ➜ vindos do <Sql word='select'/>.</p>
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ Regras'/></p>
-                    <p className="pl-2">⬩➤ Para o <Sql word='join'/>, <Frame cmd='' label='usar em campos'/> que <Frame cmd='shine i !u' label='permitem valores nulos'/> que <Frame cmd='red i !u' label='não são chave estrangeira'/>.</p>
-                    <p className="pl-2">⬩➤ Para o <Sql word='join'/>, <Frame cmd='' label='usar em campos'/> que <Frame cmd='shine i !u' label='permitem valores nulos'/> & <Frame cmd='shine i !u' label='são chave estrangeira'/> mas <Frame cmd='red i !u' label='sua tabela não pode estar no'/> <Sql word='join'/>.</p>
-                    <p className="pl-2">⬩➤ Para o <Sql word='left join'/>, <Frame cmd='' label='usar em campos'/> que <Frame cmd='shine i !u' label='permitem valores nulos'/> & <Frame cmd='shine i !u' label='são chave estrangeira'/>.</p>
+                    <div className="flex column gap-sm frame-indent">
+                        <p className="pl-2">⬩➤ Para o <Sql word='join'/>, <Frame cmd='' label='usar em campos'/> que <Frame cmd='shine i !u' label='permitem valores nulos'/> que <Frame cmd='red i !u' label='não são chave estrangeira'/>.</p>
+                        <p className="pl-2">⬩➤ Para o <Sql word='join'/>, <Frame cmd='' label='usar em campos'/> que <Frame cmd='shine i !u' label='permitem valores nulos'/> & <Frame cmd='shine i !u' label='são chave estrangeira'/> mas <Frame cmd='red i !u' label='sua tabela não pode estar no'/> <Sql word='join'/>.</p>
+                        <p className="pl-2">⬩➤ Para o <Sql word='left join'/>, <Frame cmd='' label='usar em campos'/> que <Frame cmd='shine i !u' label='permitem valores nulos'/> & <Frame cmd='shine i !u' label='são chave estrangeira'/>.</p>
+                    </div>
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/> note que a <Frame cmd='pool i !u' label='campo'/> <Frame cmd='red i !u' label='não é chave estrangeira'/>, então o <Sql word='join'/> <Frame cmd='' label='não interfere no resultado'/>.</p>
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> note que a <Frame cmd='pool i !u' label='campo'/> <Frame cmd='shine i !u' label='é chave estrangeira'/>, mas ela <Frame cmd='red i !u' label='não pode fazer parte'/> do <Sql word='join'/> ➜ <Frame cmd='red i !u' label='senão some'/> dos resultados.</p>
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 3'/> note que a <Frame cmd='pool i !u' label='campo'/> <Frame cmd='shine i !u' label='é chave estrangeira'/>, o <Sql word='join'/> precisa <Frame cmd='' label='ser convertido para'/> <Sql word='left join'/> ➜ <Frame cmd='red i !u' label='para não sumir'/> dos resultados.</p>
@@ -61,7 +63,7 @@ export function JoinFilterWhereIsNull() {
                 <div className="frame-example ex-join mt-1">
                     <div className="flex row go-left gap-sm subtitles">
                         <div className="flex column gap-xsm">
-                            <h3 className="shine">Legenda ⬩➤</h3>
+                            <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
                             <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 2'/>
                         </div>
                         <div className="flex column gap-xsm">
@@ -92,7 +94,7 @@ export function JoinFilterWhereIsNull() {
                 <div className="frame-example ex-join mt-1">
                     <div className="flex row go-left gap-sm subtitles">
                         <div className="flex column gap-xsm">
-                            <h3 className="shine">Legenda ⬩➤</h3>
+                            <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
                             <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 3'/>
                         </div>
                         <div className="flex column gap-xsm">

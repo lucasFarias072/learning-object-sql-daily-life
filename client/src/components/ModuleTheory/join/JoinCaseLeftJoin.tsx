@@ -84,9 +84,9 @@ export function JoinCaseLeftJoin() {
                         <Sql word='left join'/> passageiro <Sql word='on'/> passageiro.assento_fk = assento.assento_id <Sql word='and'/> assento_id % 2 = 0
                     </p>
                     <p>⬩➤ Isso significa que agora são <Frame cmd='' label='duas condições'/>, não é mais apenas o <Frame cmd='u' label='left join'/> na sua igualdade de chaves.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Regra: 2 elevado à quantidade de condições'/> = duas, resulta em <Frame cmd='' label='4 possibillidades'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Regra: 2 elevado à quantidade de condições'/> = duas, resulta em <Frame cmd='' label='4 possibilidades'/>.</p>
                     <p>⬩➤ As 4 possibilidades: <Frame cmd='' label='(true, true)'/> <Frame cmd='' label='(true, false)'/> <Frame cmd='' label='(false, true)'/> <Frame cmd='' label='(false, false)'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Porque são 2 booleanos por possibilidade?'/> por que são duas condições, podendo gerar 2 booleanos delas.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Por que são 2 booleanos por possibilidade?'/> porque são duas condições, podendo gerar 2 booleanos delas.</p>
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ Regra booleana aqui:'/> <Frame cmd='ui' label='true && true'/> derivado de <Frame cmd='' label='condição 1'/> <Sql word='and'/> <Frame cmd='' label='condição 2'/>.</p>
                     <p>⬩➤ <Frame cmd='' label='Linhas'/> no <Frame cmd='u' label='left join'/> <Frame cmd='' label='contradizem'/> a regra booleana: <Frame cmd='' label='(false, true)'/> <Frame cmd='' label='(true, false)'/> <Frame cmd='' label='(false, false)'/>.</p>
                     
@@ -104,7 +104,7 @@ export function JoinCaseLeftJoin() {
                         <p><Sql word='where'/> passageiro.assento_fk <Sql word='is'/> <Sql word='null'/>;</p>
                     </div>
 
-                    <p>⬩➤ A <Frame cmd='' label='consulta cima'/> retorna <Frame cmd='' label='16 linhas'/>, subdividas da seguinte maneira:</p>
+                    <p>⬩➤ A <Frame cmd='' label='consulta acima'/> retorna <Frame cmd='' label='16 linhas'/>, subdivididas da seguinte maneira:</p>
                     <p>⬩➤ <Frame cmd='' label='(false, true)'/> <Sql word='D10, E5, E13'/> <Frame cmd='ylw i !u' label='🔴 não corresponde no cruzamento das chaves'/> <Frame cmd='d-blue i !u' label='🟢 ids pares'/>.</p>
                     <p>⬩➤ <Frame cmd='' label='(false, false)'/> <Sql word='D1, D3, E8, E10'/> <Frame cmd='ylw i !u' label='🔴 não corresponde no cruzamento das chaves'/> <Frame cmd='d-blue i !u' label='🔴 ids ímpares'/>.</p>
                     <p>⬩➤ <Frame cmd='' label='(true, false)'/> <Sql word='D5, D7, D9, D11, D13, E2, E4, E6, E12'/> <Frame cmd='ylw i !u' label='🟢 corresponde no cruzamento das chaves'/> <Frame cmd='d-blue i !u' label='🔴 ids ímpares'/>.</p>

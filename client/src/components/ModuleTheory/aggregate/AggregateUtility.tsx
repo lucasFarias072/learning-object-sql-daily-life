@@ -2,6 +2,7 @@
 
 import { Frame } from "../../shared/Frame"
 import { Sql } from "../../shared/Sql"
+import { Hint } from "../../shared/Hint"
 
 export function AggregateUtility() {
     return (
@@ -15,11 +16,14 @@ export function AggregateUtility() {
                 <div id="util-body-aggregate" className="flex column gap-xsm theory-layout">
                     <ul className="flex column gap-sm">
                         <li>⬩➤ <Frame cmd='' label='Responder perguntas' /> de <Frame cmd='shine i !u' label='cunho estatístico'/>: quantidade de registros, total, médio, maior, menor.</li>
-                        <li>⬩➤ <Frame cmd='' label='Gerar'/> relatórios para dados agrupados, <Frame cmd='red i !u' label='evita'/> a necessidade de <Frame cmd='' label='contar ou analisar manualmente cada grupo'/> de registros.</li>
-                        <li>⬩➤ <Frame cmd='' label='Individualmente'/>, elas <Frame cmd='red i !u' label='são incompletas'/>, <Frame cmd='' label='respondem à uma coluna'/> e <Frame cmd='' label='retornam um resultado'/>.</li>
-                        <li>⬩➤ Sua <Frame cmd='shine i !u' label='união com'/> <Sql word='group by'/>, permite <Frame cmd='shine i !u' label='gerar resultados agrupados'/> e aplicar resultados estatísticos em todos, ao mesmo tempo.</li>
-                        <li><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/> e <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> mostram uma <Frame cmd='' label='busca manual e individual'/>, <Frame cmd='red i !u' label='sem a ajuda'/> do <Sql word='group by'/>.</li>
-                        <li><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 3'/> <Frame cmd='' label='agrupo tudo de uma só vez'/> <Frame cmd='shine i !u' label='por causa do'/> <Sql word='group by'/>.</li>
+                        {/* <li><Frame cmd='shine i !u' label='⬩➤ Obs.'/> ➜ <Frame cmd='red i !u' label='sua operabilidade é limitada'/> à aspectos individuais, o <Sql word='group by'/> permite juntar mais dados para expandir sua aplicabilidade.</li> */}
+                        <li>⬩➤ <Frame cmd='' label='Gerar relatórios para dados agrupados'/>, <Frame cmd='red i !u' label='evitar operações manuais em dados'/>.</li>
+                        <li>⬩➤ <Frame cmd='' label='Individualmente'/>, elas <Frame cmd='red i !u' label='são incompletas'/>, <Frame cmd='' label='respondem a uma coluna'/> e <Frame cmd='' label='retornam um resultado'/>.</li>
+                        <li>⬩➤ Sua <Frame cmd='shine i !u' label='união com'/> <Sql word='group by'/>, permite <Frame cmd='shine i !u' label='gerar resultados agrupados'/> e <Frame cmd='' label='aplicar'/> resultados estatísticos <Frame cmd='' label='em todos, ao mesmo tempo'/>.</li>
+                        <li>⬩➤ <Sql word='group by'/> cria grupos de dados e <Frame cmd='' label='expande a aplicabilidade'/> das <Frame cmd='shine i !u' label='funções agregadoras'/>.</li>
+                        <li><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/> e <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> ➜ mostram uma <Frame cmd='' label='busca manual e individual'/> ➜ <Frame cmd='red i !u' label='sem a ajuda'/> do <Sql word='group by'/>.</li>
+                        <li><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 3'/> ➜ <Frame cmd='' label='agrupo tudo de uma só vez'/> <Frame cmd='shine i !u' label='por causa do'/> <Sql word='group by'/>.</li>
+                        <Hint/>
                     </ul>
                 </div>
 

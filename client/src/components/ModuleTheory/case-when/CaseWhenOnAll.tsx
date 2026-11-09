@@ -17,14 +17,20 @@ export function CaseWhenOnAll() {
                 
                 <div className="flex column gap-sm theory-layout">
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ Esse exemplo'/> servirá apenas para <Frame cmd='' label='demonstrar a possibilidade'/> do uso de <Sql word='case when'/> em <Frame cmd='' label='lugares combinados'/>.</p>
-                    <p>⬩➤ O <Sql word='select'/> <Frame cmd='' label='configura e passa o caso'/> ➜ <Sql word='group by'/> assim como <Sql word='order by'/> <Frame cmd='' label='usa valores do caso'/> para criar ordenação customizada.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Tabelas?'/> <Frame cmd='d-blue i !u' label='cor'/> (usar os nomes das cores no caso) ➜ <Frame cmd='ppl i !u' label='algo'/> (gerar grupos desses valores) ➜ <Frame cmd='cream i !u' label='cor_algo'/> (todos os registro de: cores, algo).</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Valores criados?'/> <Frame cmd='' label='primária, extremo e híbrida'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Criados com base em qual coluna?'/> <Frame cmd='' label='descricao_cor'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Coluna customizada resultante?'/> <Frame cmd='blue i !u' label='grupo_cor'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Base de criação dos grupos?'/> <Frame cmd='' label='descricao_algo'/> + <Frame cmd='blue i !u' label='grupo_cor ➜ apelido da coluna customizada'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ordenação?'/> <Frame cmd='' label='valores definidos em'/> <Frame cmd='blue i !u' label='grupo_cor'/>.</p>
-                    <p>⬩➤ O <Frame cmd='' label='resultado'/> disso é o que a consulta <Frame cmd='' label='abaixo'/>, retorna.</p>
+                    <p>⬩➤ O <Sql word='select'/> <Frame cmd='' label='configura e passa o caso'/> ➜ <Sql word='group by'/> ➜ <Frame cmd='' label='acessar valores customizados'/> e <Frame cmd='' label='formar grupos'/> deles.</p>
+                    <p>⬩➤ O <Sql word='select'/> <Frame cmd='' label='configura e passa o caso'/> ➜ <Sql word='order by'/> <Frame cmd='' label='usa valores do caso'/> para <Frame cmd='' label='criar ordenação customizada'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Tabelas'/></p>
+                    <div className="flex column gap-sm frame-indent">
+                        <li className="pl-2">⬩➤ <Frame cmd='d-blue i !u' label='cor'/> ➜ usar os nomes das cores <Frame cmd='ylw i !u' label='dentro do caso'/> para criar valores customizados.</li>
+                        <li className="pl-2">⬩➤ <Frame cmd='ppl i !u' label='algo'/> ➜ gerar grupos pela coluna = <b>descricao_algo</b>.</li>
+                        <li className="pl-2">⬩➤ <Frame cmd='cream i !u' label='cor_algo'/> ➜ todos os registros de: cores, algo.</li>
+                    </div>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Valores criados'/> ➜ <Frame cmd='' label='primária, extremo e híbrida'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Criados com base em qual coluna'/> ➜ <Frame cmd='' label='descricao_cor'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Coluna customizada resultante'/> ➜ <Frame cmd='blue i !u' label='grupo_cor'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Base de criação dos grupos'/> ➜ <Frame cmd='' label='descricao_algo'/> + <Frame cmd='blue i !u' label='grupo_cor ➜ apelido da coluna customizada'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ordenação'/> ➜ <Frame cmd='' label='valores definidos em'/> <Frame cmd='blue i !u' label='grupo_cor'/>.</p>
+                    <p>⬩➤ O <Frame cmd='' label='resultado'/> disso é o que a consulta <Frame cmd='' label='abaixo'/> retorna.</p>
                     <Hint/>
                 </div>
                 
@@ -34,17 +40,17 @@ export function CaseWhenOnAll() {
                             <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
                         </div>
                         <div className="flex column gap-xsm">
-                            <Frame cmd='ylw p !u' label='Origem do caso e uso do caso (seus valores)'/>
-                            <Frame cmd='p !u' label='Cláusulas lógicas necessárias'/>
-                            <Frame cmd='cream p !u' label='Tabela onde cor e algo se encontram juntos'/>
+                            <Frame cmd='ylw p !u' label='Origem do caso & uso do caso (seus valores)'/>
+                            <Frame cmd='pool p !u' label='Cláusulas lógicas necessárias'/>
+                            <Frame cmd='cream p !u' label='Tabela onde cor e algo se encontram'/>
                         </div>
                         <div className="flex column gap-xsm">
                             <Frame cmd='blue p !u' label='Apelido para o caso'/>
                             <Frame cmd='pk p !u' label='Cláusula lógica opcional'/>
                         </div>
                         <div className="flex column gap-xsm">
-                            <Frame cmd='d-blue p !u' label='Tabela para dar valores às cores'/>
-                            <Frame cmd='ppl p !u' label='Tabela para dar valores aos grupos'/>
+                            <Frame cmd='d-blue p !u' label='Tabela que oferece a coluna para dar valores às cores'/>
+                            <Frame cmd='ppl p !u' label='Tabela que oferece a coluna e seus valores para formar grupos'/>
                         </div>
                     </div>
 
