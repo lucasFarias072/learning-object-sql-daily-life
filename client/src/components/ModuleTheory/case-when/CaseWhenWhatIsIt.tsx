@@ -14,10 +14,10 @@ export function CaseWhenWhatIsIt() {
 
                 <div id="what-is-body-casewhen" className="flex column gap-xsm theory-layout">
                     <ul className="flex column gap-sm">
-                        <li>⬩➤ É uma <Frame cmd='' label='expressão condicional'/> dentro do <Sql word='sql'/>.</li>
-                        <li>⬩➤ Representa as expressões "se/senão" <Frame cmd='' label='usadas para gerar valores customizados'/> com base em condições montadas na sua estrutura.</li>
-                        <li>⬩➤ Os <Frame cmd='' label='valores gerados nas condições'/>, passam a <Frame cmd='' label='existir temporariamente'/> de uma <Frame cmd='' label='coluna customizada'/>.</li>
-                        <li>⬩➤ Essa coluna só existe em memória, ela <Frame cmd='' label='não é parte fixa gravada da tabela'/>, é uma <Frame cmd='' label='conveniência temporária'/>.</li>
+                        <li>⬩➤ É uma <Frame cmd='shine i !u' label='expressão condicional'/> dentro do <Sql word='sql'/>.</li>
+                        <li>⬩➤ Representa as expressões "se/senão" <Frame cmd='' label='usadas para'/> <Frame cmd='shine i !u' label='gerar valores customizados'/> com base em condições montadas na sua estrutura.</li>
+                        <li>⬩➤ Os <Frame cmd='' label='valores gerados nas condições'/>, passam a <Frame cmd='' label='existir temporariamente'/> em uma <Frame cmd='shine i !u' label='coluna customizada'/>.</li>
+                        <li>⬩➤ Essa coluna <Frame cmd='' label='só existe em memória'/>, ela <Frame cmd='' label='não é parte fixa gravada da tabela'/>, é uma <Frame cmd='shine i !u' label='conveniência temporária'/>.</li>
                     </ul>
                 </div>  
 

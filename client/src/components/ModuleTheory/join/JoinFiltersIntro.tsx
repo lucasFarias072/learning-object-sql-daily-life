@@ -15,7 +15,7 @@ export function JoinFiltersIntro() {
 
                 <div id="filters-body-intro-join" className="flex column gap-mid">
                     <h2 className="minor-title">
-                        ✦ Vejamos casos no qual existem filtros implícitos ou explícitos para o <Frame cmd='u' label='join'/>.
+                        ✦ Vejamos casos nos quais existem filtros implícitos ou explícitos para o <Frame cmd='u' label='join'/>.
                     </h2>
                 </div>
 

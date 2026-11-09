@@ -16,18 +16,18 @@ export function SubqueryCaseNotIn() {
                 </div>
                 
                 <div id="case-not-in-body-subquery" className="flex column gap-sm theory-layout">
-                    <p>⬩➤ O <Sql word='in'/> é a <Frame cmd='' label='cláusula'/> que <Frame cmd='shine i !u' label='pede correspondência'/> para a subconsulta formada no escopo dela .</p>
+                    <p>⬩➤ O <Sql word='in'/> é a <Frame cmd='' label='cláusula'/> que <Frame cmd='shine i !u' label='pede correspondência'/> para a subconsulta formada no escopo dela.</p>
                     <p>⬩➤ O <Sql word='in'/> <Frame cmd='shine i !u' label='quer saber o que corresponde'/> da <Frame cmd='ylw i !u' label='subconsulta mais interna'/> para aquilo <Frame cmd='' label='que está'/> do <Frame cmd='cream i !u' label='consulta externa/subconsulta mais externa'/>.</p>
                     <p>⬩➤ <Sql word='not in'/> <Frame cmd='red i !u' label='quer o oposto disso'/>.</p>
                     <p>⬩➤ <Sql word='not in'/> busca as <Frame cmd='red i !u' label='não correspondências'/>, <Frame cmd='' label='assim como'/> o <Sql word='left join'/> <Frame cmd='' label='combinado'/> com <Sql word='where campo is null'/>.</p>
-                    <p>⬩➤ Ou seja, <Sql word='not in'/> <Frame cmd='' label='responde à perguntas de consultas'/> que falem <Frame cmd='red i !u' label='sobre ausência'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/> e <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> obtem os mesmos resultados, pois <Frame cmd='' label='respondem à mesma coisa'/> ➜ <Frame cmd='red i !u' label='não correspondência'/>.</p>
+                    <p>⬩➤ Ou seja, <Sql word='not in'/> <Frame cmd='' label='responde a perguntas de consultas'/> que falem <Frame cmd='red i !u' label='sobre ausência'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/> e <Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> obtêm os mesmos resultados, pois <Frame cmd='' label='respondem à mesma coisa'/> ➜ <Frame cmd='red i !u' label='não correspondência'/>.</p>
                     <Hint/>
                 </div>
                 
                 <div className="frame-example mt-1">
                     <div className="flex row go-left gap-sm subtitles">
-                        <h3 className="shine">Legenda ⬩➤</h3>
+                        <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
                         <Frame cmd='cream p !u' label='consulta externa'/>
                         <Frame cmd='ylw p !u' label='subconsulta mais interna'/>
                         <Frame cmd='red p !u' label='não correspondência'/>

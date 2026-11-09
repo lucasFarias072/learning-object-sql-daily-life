@@ -18,10 +18,12 @@ export function SubqueryCaseEquals() {
                 <div id="case-equals-body-subquery" className="flex column gap-sm theory-layout">
                     <p>⬩➤ <Frame cmd='shine i !u' label='Subconsultas'/> <Frame cmd='' label='usam'/> <Sql word='where'/> + <Sql word='in'/> ou <Sql word='not in'/> como <Frame cmd='' label='comparador de diversos valores'/> ➜ <Frame cmd='' label='retorno de mais de um valor'/>.</p>
                     <p>⬩➤ <Frame cmd='' label='Além destes'/> a <Frame cmd='shine i !u' label='igualdade'/> ➜ <Sql word='='/> <Frame cmd='' label='pressupõe'/> que cada <Frame cmd='' label='subconsulta'/> nessa forma <Frame cmd='' label='retorne no máximo um valor'/>.</p>
-                    <p>⬩➤ <Frame cmd='shine i !u' label='Seu uso'/> está <Frame cmd='' label='mais associado à situações'/> em que:</p>
-                    <p className="pl-2">⬩➤ A <Frame cmd='' label='subconsulta criará a última da cadeia'/> de subconsultas, <Frame cmd='' label='ou seja'/>, ela é a <Frame cmd='shine i !u' label='penúltima subconsulta'/>.</p>
-                    <p className="pl-2">⬩➤ A penúltima subconsulta <Frame cmd='' label='buscará por algo'/> que <Frame cmd='' label='se sabe'/> que o <Frame cmd='' label='retorno é valor único'/>.</p>
-                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> A <Frame cmd='shine i !u' label='igualdade'/> ➜ <Sql word='='/> é <Frame cmd='' label='uma opção'/>, mas o <Sql word='in'/> <Frame cmd='' label='obtem resultados também para 1'/>.</p>
+                    <p>⬩➤ <Frame cmd='shine i !u' label='Seu uso'/> está <Frame cmd='' label='mais associado a situações'/> em que:</p>
+                    <div className="flex column gap-sm frame-indent">
+                        <p className="pl-2">⬩➤ A <Frame cmd='' label='subconsulta criará a última da cadeia'/> de subconsultas, <Frame cmd='' label='ou seja'/>, ela é a <Frame cmd='shine i !u' label='penúltima subconsulta'/>.</p>
+                        <p className="pl-2">⬩➤ A penúltima subconsulta <Frame cmd='' label='buscará por algo'/> que <Frame cmd='' label='se sabe'/> que o <Frame cmd='' label='retorno é valor único'/>.</p>
+                    </div>
+                    <p><Frame cmd='shine i !u' label='⬩➤ Obs.'/> A <Frame cmd='shine i !u' label='igualdade'/> ➜ <Sql word='='/> é <Frame cmd='' label='uma opção'/>, mas o <Sql word='in'/> <Frame cmd='' label='obtém resultados também para 1'/>.</p>
                     <Hint/>
                 </div>
                 

@@ -185,7 +185,7 @@
 .frame-example {
     /* background: var(--modal-layout-v3); */
     background: #D1FAE5;
-    border: purple solid 1px;
+    /* border: #D1FAE5 solid 1px; */
     border-radius: .3rem;
     padding: 1rem;
 }
@@ -196,6 +196,11 @@
     padding: .8rem;
     width: 100%;
     opacity: .9;
+}
+
+.frame-indent {
+    border: rgb(0, 139, 139) solid 1px;
+    padding: .77rem 0;
 }
 
 .tool {

@@ -17,26 +17,34 @@ export function CaseWhenUtility() {
                     <ul className="flex column gap-sm">
                         <li>⬩➤ <Frame cmd='' label='Transformar dados brutos em categorias legíveis'/>, traduzir valor técnico em algo humano.</li>
                         <li>⬩➤ O seu uso <Frame cmd='' label='implica'/> que se quer <Frame cmd='' label='criar algo customizado de dados reais'/> de uma tabela.</li>
-                        <li><Frame cmd='d-cyan i !u' label='⬩➤ Ex.'/> <Frame cmd='shine i !u' label='Cachorros'/> podem ser classificados por porte, simbolizados por <Frame cmd='' label='valores 1, 2, 3'/>.</li>
-                        <li><Frame cmd='d-cyan i !u' label='⬩➤ Ex.'/> Pode-se <Frame cmd='' label='inferir'/> que 1, 2 e 3 <Frame cmd='' label='são os portes'/>, mas <Frame cmd='' label='talvez'/> isso <Frame cmd='red i !u' label='não seja claro'/>.</li>
-                        <li style={{fontWeight: '550'}}><Frame cmd='shine i !u' label='⬩➤ Obs.'/> No <Sql word='sql'/>, textos são trocados por números, por serem dados menores e terem operações menos custosas.</li>
-                        <li style={{fontWeight: '550'}}><Frame cmd='shine i !u' label='⬩➤ Obs.'/> O número substitui o texto, mas isso só é intuitivo para quem fez, não para quem vê os dados.</li>
-                        <li>⬩➤ <Sql word='case when'/> pode <Frame cmd='shine i !u' label='evitar isso'/>, assim como <Frame cmd='red i !u' label='pode evitar junção'/> entre tabelas, que também é <Frame cmd='red i !u' label='custoso'/>.</li>
-                        <li>⬩➤ Se <Frame cmd='' label='duas tabelas se conectam por chave numérica'/>, uma tabela <Frame cmd='' label='"animal"'/> recebe chave de uma tabela <Frame cmd='' label='"porte"'/>.</li>
-                        <li>⬩➤ Se é sabido o que a chave representa textualmente, não será preciso juntá-las.</li>
-                        <li>⬩➤ O <Sql word='case when'/> <Frame cmd='' label='usará o valor do campo da chave'/> e <Frame cmd='' label='atribuir valor textual correspondente'/> em cada condição.</li>
-                        <li>⬩➤ Pela <Frame cmd='' label='chamada'/> do <Sql word='case when'/>, <Frame cmd='' label='cada condição'/> se torna um <Frame cmd='' label='valor da coluna customizada'/>.</li>
-                        <li><Frame cmd='d-cyan i !u' label='⬩➤ Veja o exemplo abaixo'/> cada <Sql word='when'/> ➜ condição ➜ novo valor, o <Sql word='else'/> ➜ condição fechamento ➜ último valor provável.</li>
+                        <li><Frame cmd='d-cyan i !u' label='⬩➤ Por exemplo:'/></li>
+                        <div className="flex column gap-sm frame-indent">
+                            <li className="pl-2">⬩➤ <Frame cmd='shine i !u' label='Cachorros'/> podem <Frame cmd='' label='ser classificados por porte'/>, simbolizados por <Frame cmd='' label='valores 1, 2, 3'/>.</li>
+                            <li className="pl-2">⬩➤ Pode-se <Frame cmd='' label='inferir'/> que 1, 2 e 3 <Frame cmd='' label='são representações dos portes'/>, mas <Frame cmd='' label='talvez'/> isso <Frame cmd='red i !u' label='não seja algo compreensível'/>.</li>
+                        </div>
+                        <li><Frame cmd='d-cyan i !u' label='⬩➤ Por que usar números como representação, em vez de textos?'/></li>
+                        <div className="flex column gap-sm frame-indent">
+                            <li className="pl-2">⬩➤ No <Sql word='sql'/>, textos são trocados por números, por serem dados menores e terem operações menos custosas.</li>
+                            <li className="pl-2">⬩➤ O número substitui o texto, mas isso só é intuitivo para quem planejou isso, não para quem vê os dados.</li>
+                        </div>
+                        <li>⬩➤ <Sql word='case when'/> pode <Frame cmd='shine i !u' label='tornar isso compreensível'/> ➜ sua estrutura permite <Frame cmd='' label='traduzir'/> o <Frame cmd='' label='dado numérico'/> no seu <Frame cmd='' label='texto'/>.</li>
+                        <li><Frame cmd='d-cyan i !u' label='⬩➤ Como?'/></li>
+                        <div className="flex column gap-sm frame-indent">
+                            <li className="pl-2">⬩➤ Para cada <Sql word='when'/> ➜ condição ➜ <Sql word='when'/> ➜ valor, o <Sql word='else'/> ➜ condição fechamento ➜ último valor provável.</li>
+                            <li className="pl-2"><Sql word='when'/> porte = 1 <Sql word='then'/> 'pequeno';</li>
+                            <li className="pl-2"><Sql word='when'/> porte = 2 <Sql word='then'/> 'médio';</li>
+                            <li className="pl-2"><Sql word='else'/> 'grande';</li>
+                        </div>
+                        <li><Frame cmd='shine i !u' label='⬩➤ Obs.'/> ➜ No <Frame cmd='d-cyan i !u' label='exemplo abaixo'/> vemos isso acontecer com <Frame cmd='' label='dados reais'/>.</li>
+                        <li><Frame cmd='shine i !u' label='⬩➤ Obs.'/> ➜ Note que <Sql word='case when'/> <Frame cmd='' label='também'/> possui como <Frame cmd='' label='característica provável'/> ➜ <Frame cmd='shine i !u' label='impedir fazer junção entre as tabelas'/>.</li>
                         <Hint/>
                     </ul>
                 </div>
 
                 <div className="frame-example mt-1">
                     <div className="flex row go-left gap-sm subtitles">
-                        <div className="flex column gap-xsm">
-                            <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
-                            <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 1'/>
-                        </div>
+                        <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
+                        <Frame cmd='d-cyan p !u' label='⬩➤ Ex. 1'/>
                         <Frame cmd='ylw p !u' label='abertura/fechamento = coluna customizada'/>
                         <Frame cmd='blue p !u' label='apelido para o caso'/>
                         <Frame cmd='cream p !u' label='valor textual criado'/>

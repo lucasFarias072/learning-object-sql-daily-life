@@ -21,7 +21,7 @@ export function JoinCaseMinimum() {
                 
                 <div className="frame-example ex-join mt-1">
                     <div className="flex row go-left gap-sm subtitles">
-                        <h3 className="shine">Legenda ⬩➤</h3>
+                        <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
                         <Frame cmd='ylw p !u' label='folha de papel 1'/> 
                         <Frame cmd='d-blue p !u' label='folha de papel 2'/> 
                         <Frame cmd='blue p !u' label='cola'/>

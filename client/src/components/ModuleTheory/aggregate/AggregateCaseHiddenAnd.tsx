@@ -19,7 +19,7 @@ export function AggregateCaseHiddenAnd() {
                 </div>
 
                 <div className="flex row go-left gap-sm subtitles">
-                    <h3 className="shine">Legenda ⬩➤</h3>
+                    <Frame cmd='shine p !u' label='Legenda ⬩➤'/>
                     <Paint label='coluna(s) não agregadas' css='ylw' padding='p-mid' slender={false} />
                     <Paint label='local para colunas não agregadas' css='blue' padding='p-mid' slender={false} />
                     <Paint label='coluna agregada' css='d-blue' padding='p-mid' slender={false} />

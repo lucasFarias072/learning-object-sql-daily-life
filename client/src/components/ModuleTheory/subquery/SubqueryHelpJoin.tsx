@@ -17,9 +17,11 @@ export function SubqueryHelpJoin() {
 
                 <div id="case-join-helper-body-subquery" className="flex column gap-sm theory-layout">
                     <p>⬩➤ Subconsultas podem ser <Frame cmd='shine i !u' label='úteis para reduzir o uso'/> do <Sql word='join'/> ➜ <Frame cmd='shine i !u' label='economizar junções'/>.</p>
-                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Quando uma subconsulta pode ser viável para o JOIN ?'/>.</p>
-                    <p className="pl-2">⬩➤ <Sql word='join'/> <Frame cmd='' label='junta tabelas'/> para <Frame cmd='' label='coletar dados emprestados'/> para <Frame cmd='' label='usá-los para resolver algo'/> <Frame cmd='shine i !u' label='e/ou'/> <Frame cmd='' label='exibir informações'/> no <Sql word='select'/>.</p>
-                    <p className="pl-2">⬩➤ <Frame cmd='' label='uma tabela essencial para a resposta'/> precisar ser <Frame cmd='' label='chamada'/>, mas <Frame cmd='red i !u' label='que não precisa exibir dados'/> dessa tabela no <Sql word='select'/>.</p>
+                    <p><Frame cmd='d-cyan i !u' label='⬩➤ Quando uma subconsulta pode ser viável para o JOIN?'/></p>
+                    <div className="flex column gap-sm frame-indent">
+                        <p className="pl-2">⬩➤ <Sql word='join'/> <Frame cmd='' label='junta tabelas'/> para <Frame cmd='' label='coletar dados emprestados'/> para <Frame cmd='' label='usá-los para resolver algo'/> <Frame cmd='shine i !u' label='e/ou'/> <Frame cmd='' label='exibir informações'/> no <Sql word='select'/>.</p>
+                        <p className="pl-2">⬩➤ <Frame cmd='' label='uma tabela essencial para a resposta'/> precisar ser <Frame cmd='' label='chamada'/>, mas <Frame cmd='red i !u' label='que não precisa exibir dados'/> dessa tabela no <Sql word='select'/>.</p>
+                    </div>
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 1'/> ➜ a consulta pode ser <Frame cmd='' label='resolvida inteira com'/> <Sql word='join'/> ➜ <Frame cmd='red i !u' label='só que a junção poderia ser evitada'/>.</p>
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ Ex. 2'/> ➜ <Frame cmd='' label='precisa da sigla do estado do guia'/> <Frame cmd='shine i !u' label='para resolver a consulta'/>, <Frame cmd='red i !u' label='mas não será mostrado'/> no <Sql word='select'/> ➜ <Frame cmd='red i !u' label='junção pode ser evitada'/>.</p>
                     <Hint/>
