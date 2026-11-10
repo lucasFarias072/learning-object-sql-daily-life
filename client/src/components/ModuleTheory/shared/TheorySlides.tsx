@@ -18,6 +18,9 @@ interface TheorySlidesProps {
 export function TheorySlides({ sections }: TheorySlidesProps) {
     const [sectionIndex, setSectionIndex] = useState(0)
     const [slideIndex, setSlideIndex] = useState(0)
+    const [neutralHighlightsEnabled, setNeutralHighlightsEnabled] = useState(true)
+    const [redHighlightsEnabled, setRedHighlightsEnabled] = useState(true)
+    const [shineHighlightsEnabled, setShineHighlightsEnabled] = useState(true)
 
     const currentSection = sections[sectionIndex]
     const currentSlide = currentSection.slides[slideIndex]
@@ -50,8 +53,39 @@ export function TheorySlides({ sections }: TheorySlidesProps) {
     }
 
     return (
-        <div className="theory-slides flex column">
+        <div className={[
+            "theory-slides flex column",
+            neutralHighlightsEnabled ? "" : "theory-slides-neutral-hidden",
+            redHighlightsEnabled ? "" : "theory-slides-red-hidden",
+            shineHighlightsEnabled ? "" : "theory-slides-shine-hidden",
+        ].filter(Boolean).join(" ")}>
             <ReturnBtn/>
+            <div className="theory-highlight-toolbar">
+                <button
+                    type="button"
+                    className="generic-title mt-tiny"
+                    aria-pressed={neutralHighlightsEnabled}
+                    onClick={() => setNeutralHighlightsEnabled(enabled => !enabled)}
+                >
+                    {neutralHighlightsEnabled ? "🔴 Ocultar blocos marcadores" : "🟢 Mostrar blocos marcadores"}
+                </button>
+                <button
+                    type="button"
+                    className="generic-title mt-tiny"
+                    aria-pressed={redHighlightsEnabled}
+                    onClick={() => setRedHighlightsEnabled(enabled => !enabled)}
+                >
+                    {redHighlightsEnabled ? "🔴 Ocultar blocos de atenção" : "🟢 Mostrar blocos de atenção"}
+                </button>
+                <button
+                    type="button"
+                    className="generic-title mt-tiny"
+                    aria-pressed={shineHighlightsEnabled}
+                    onClick={() => setShineHighlightsEnabled(enabled => !enabled)}
+                >
+                    {shineHighlightsEnabled ? "🔴 Ocultar blocos de detalhe" : "🟢 Mostrar blocos de detalhe"}
+                </button>
+            </div>
             <nav className="theory-topic-nav flex row go-center wrap gap-xsm">
                 {sections.map((section, index) => (
                     <button key={section.id} type="button" className={"theory-topic-btn" + (index === sectionIndex ? " theory-topic-btn-active" : "")} onClick={() => goToSection(index)}>

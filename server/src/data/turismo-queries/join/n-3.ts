@@ -11,14 +11,14 @@ export function joinQueryN3(): QueryScenarioBackend {
         cenario: 'turismo-join-3',
         consultaTipo: 'join',
         id: 3,
-        // Liste os ids de passeio e o nome dos guias que trabalham nos expedientes de apenas 1 turno (os de 1 letra no alfabeto no seu texto) e que trabalharam em passeios que a nota de indicação foi de 4.5 ou mais e que a avaliação do guia tenha superado a de indicação (cláusula 'in' recomendada).
+        // Liste os IDs dos passeios e os nomes dos guias que trabalham em expedientes de apenas 1 turno (representados por uma letra no texto) e que conduziram passeios cuja nota de indicação foi de 4.5 ou mais e cuja avaliação do guia superou a nota de indicação. (Cláusula 'in' recomendada).
         consulta: `
         select passeio_id, nome from pessoa pess
         join guia gui on gui.pessoa_fk = pess.pessoa_id
         join passeio pass on pass.guia_fk = gui.guia_id
         where expediente in ('m-', 't-', 'n-')
         and indicacao_nota >= 4.5
-        and avaliacao_guia > indicacao_nota
+        and avaliacao_guia > indicacao_nota;
         `,
         tabelas: [],
         campos: [],

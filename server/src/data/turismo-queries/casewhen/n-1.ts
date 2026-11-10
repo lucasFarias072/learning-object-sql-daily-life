@@ -15,8 +15,8 @@ export function caseWhenQueryN1(): QueryScenarioBackend {
         consulta: `
         select nome,
         case
-        when eh_estrangeiro = 1 then 'estrangeiro'
-        else 'nativo'
+        when eh_estrangeiro = 1 then 'estrangeira'
+        else 'nativa'
         end as origem_pessoa
         from pessoa;
         `,

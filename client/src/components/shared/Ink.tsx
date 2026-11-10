@@ -7,10 +7,13 @@ interface InkProps {
     css: string
     padding: string
     slender: boolean
+    className?: string
 }
 
-export function Ink({label, css, padding, slender}: InkProps) {
+export function Ink({label, css, padding, slender, className}: InkProps) {
+    const classes = [css, padding, slender ? 'upper' : '', className].filter(Boolean).join(' ')
+
     return <>
-        <span className={slender ? `${css} ${padding} upper` : `${css} ${padding}`}>{label}</span>
+        <span className={classes}>{label}</span>
     </>
 }
