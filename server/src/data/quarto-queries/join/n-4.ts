@@ -13,7 +13,7 @@ export function joinQueryN4(): QueryScenarioBackend {
         id: 4,
         // (Uso de alias recomendado) Liste a descrição do objeto alvo, a descrição do objeto de referência e a descrição da coordenada, cuja relação de proximidade entre os objetos seja 'próximo' ou 'na frente'.
         consulta: `
-        select alvo.descricao_objeto, ref.descricao_objeto,
+        select alvo.descricao_objeto as alvo, ref.descricao_objeto as ref,
         descricao_coord
         from objeto_coordenada objc
         join coordenada cd on cd.coordenada_id = objc.coordenada_fk

@@ -11,7 +11,7 @@ export function caseWhenQueryN1(): QueryScenarioBackend {
         cenario: 'ponto-de-onibus-case-when-1',
         consultaTipo: 'case-when',
         id: 1,
-        // (1) Gere uma única coluna com os rótulos (rapido) (dinamico) (truncado), que baseiam-se nas durações das cores verde em relação à vermelha, dos semáforos. (2) É considerado rápido aquele com mais de 3 segundos de vantagem pro sinal verde, dinâmico é abaixo disso mas ainda positivo, e de zero adiante é truncado. (3) Dê ao case o alias 'fluxo', agrupe pelo alias, ordene com pesos (1, 2, 3) baseados na mesma ordem de apresentação dos rótulos.
+        // Classifique os semáforos em três grupos com base na diferença entre a duração do sinal verde e a do vermelho: (rapido) para diferença acima de 3 segundos, (dinamico) para diferença maior que zero e até 3 segundos, e (truncado) para diferença igual ou menor que zero. Mostre a quantidade de semáforos em cada grupo e nomei-o 'qtd_semaforos'. Dê à classificação o alias 'fluxo', agrupe por esse alias e ordene os grupos na ordem (rapido), (dinamico), (truncado), usando os pesos 1, 2 e 3, respectivamente.
         consulta: `
         select
             case

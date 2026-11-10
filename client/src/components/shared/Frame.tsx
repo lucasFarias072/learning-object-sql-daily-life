@@ -10,6 +10,10 @@ interface FrameProps {
 
 export function Frame({cmd, label}: FrameProps) {
 
+    if (cmd === '') {
+        return <span className="mixed p-sm frame-neutral">{label}</span>
+    }
+
     // Palavra em cacha alta
     if (cmd === 'u') {
         return <>
@@ -126,34 +130,33 @@ export function Frame({cmd, label}: FrameProps) {
             <Ink label={label} css='ppl' padding='p-sm' slender={true}/>
         </>
     } 
-
     // Red
     else if (cmd === 'red i !u') {
         return <>
-            <Ink label={label} css='red' padding='p-sm' slender={false}/>
+            <Ink label={label} css='red' padding='p-sm' slender={false} className='frame-highlight-red'/>
         </>
     } else if (cmd === 'red p !u') {
         return <>
-            <Paint label={label} css='red' padding='p-mid' slender={false}/>
+            <Paint label={label} css='red' padding='p-mid' slender={false} className='frame-highlight-red'/>
         </>
     } else if (cmd === 'red i u') {
         return <>
-            <Ink label={label} css='red' padding='p-sm' slender={true}/>
+            <Ink label={label} css='red' padding='p-sm' slender={true} className='frame-highlight-red'/>
         </>
     } 
 
     // Shine
     else if (cmd === 'shine i !u') {
         return <>
-            <Ink label={label} css='shine' padding='p-sm' slender={false}/>
+            <Ink label={label} css='shine' padding='p-sm' slender={false} className='frame-highlight-shine'/>
         </>
     } else if (cmd === 'shine p !u') {
         return <>
-            <h3 className="shine p-mid">{label}</h3>
+            <h3 className="shine p-mid frame-highlight-shine">{label}</h3>
         </>
     } else if (cmd === 'shine i u') {
         return <>
-            <Ink label={label} css='shine' padding='p-sm' slender={true}/>
+            <Ink label={label} css='shine' padding='p-sm' slender={true} className='frame-highlight-shine'/>
         </>
     } 
     

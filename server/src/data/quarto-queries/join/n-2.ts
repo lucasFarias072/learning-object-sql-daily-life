@@ -11,7 +11,7 @@ export function joinQueryN2(): QueryScenarioBackend {
         cenario: 'quarto-join-2',
         consultaTipo: 'join',
         id: 2,
-        // Liste os ids dos quartos únicos, codinome dos donos dos quartos, para os donos de características 'Organizada' ou 'Otimista' ou que o mês de adesão do quarto tenha ocorrido um mês antes do fim do ano.
+        // Liste os IDs únicos dos quartos e os codinomes de seus donos, considerando os donos com as características 'Organizada' ou 'Otimista' ou cujos quartos tenham mês de adesão um mês antes do fim do ano.
         consulta: `
         select distinct quarto_id, codinome
         from quarto_relatorio qr

@@ -25,10 +25,10 @@ function areArraysTwins(a: unknown[], b: unknown[]): boolean {
   const sa = serializar(a)
   const sb = serializar(b)
 
-  // console.log(">>>>> TESTE: areArrayTwins (OPEN) <<<<<")
-  // console.log(sa)
-  // console.log(sb)
-  // console.log(">>>>> TESTE: areArrayTwins (CLOSE) <<<<<")
+  console.log(">>>>> TESTE: areArrayTwins (OPEN) <<<<<")
+  console.log(sa)
+  console.log(sb)
+  console.log(">>>>> TESTE: areArrayTwins (CLOSE) <<<<<")
 
   return !result ? result : sa.every((val, i) => val === sb[i])
 }
@@ -118,6 +118,7 @@ export function useQueryConsole(chosenQuery: QueryScenarioFrontend | null) {
     const queryShaped = sqlNormalizer(value)
     
     const veredict = sqlQueryGrammar(queryContext, queryShaped)
+    console.log(`veredito = ${veredict}`)
 
     // if (analysis.length != 0) veredict = !analysis.includes(false)
     

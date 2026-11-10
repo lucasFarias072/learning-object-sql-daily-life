@@ -39,6 +39,36 @@
     overflow-x: auto;
 }
 
+.theory-highlight-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0 1rem;
+}
+
+.theory-slides-neutral-hidden .frame-neutral {
+    background: none;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+}
+
+.theory-slides-red-hidden .frame-highlight-red {
+    background: none;
+    border: 0;
+    border-radius: 0;
+    color: inherit;
+    padding: 0;
+}
+
+.theory-slides-shine-hidden .frame-highlight-shine {
+    background: none;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+}
+
 .theory-topic-btn {
     padding: 0.35rem 0.9rem;
     border-radius: 999px;
