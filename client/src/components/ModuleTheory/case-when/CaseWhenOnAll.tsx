@@ -22,7 +22,7 @@ export function CaseWhenOnAll() {
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ Tabelas'/></p>
                     <div className="flex column gap-sm frame-indent">
                         <li className="pl-2">⬩➤ <Frame cmd='d-blue i !u' label='cor'/> ➜ usar os nomes das cores <Frame cmd='ylw i !u' label='dentro do caso'/> para criar valores customizados.</li>
-                        <li className="pl-2">⬩➤ <Frame cmd='ppl i !u' label='algo'/> ➜ gerar grupos pela coluna = <b>descricao_algo</b>.</li>
+                        <li className="pl-2">⬩➤ <Frame cmd='ppl i !u' label='algo'/> ➜ gerar grupos de valores pela coluna = <b>descricao_algo</b>.</li>
                         <li className="pl-2">⬩➤ <Frame cmd='cream i !u' label='cor_algo'/> ➜ todos os registros de: cores, algo.</li>
                     </div>
                     <p><Frame cmd='d-cyan i !u' label='⬩➤ Valores criados'/> ➜ <Frame cmd='' label='primária, extremo e híbrida'/>.</p>
