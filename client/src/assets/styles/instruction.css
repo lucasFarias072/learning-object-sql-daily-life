@@ -1,12 +1,19 @@
 
 
-.indicator {
-    font-size: 1.5rem;
+.indicator,
+.indicator-left {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.8rem;
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1;
 }
 
 .indicator-left {
-    font-size: 1.5rem;
     transform: rotate(180deg);
+    transform-origin: center;
 }
 
 .info {
