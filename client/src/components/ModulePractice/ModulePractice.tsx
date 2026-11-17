@@ -319,6 +319,7 @@ export function ModulePractice() {
                         : <div className='flex row go-center gap-mid'>
                             <h3 style={{color: "darkcyan"}}>⮜⮜⮜</h3>
                             <h3 style={{color: "darkcyan"}}>Veja o tutorial</h3>
+                            <h2 className='tutorial-cpt-sample'>📜</h2>
                         </div>
                     }
                     
@@ -364,7 +365,7 @@ export function ModulePractice() {
                             {/* <p className='title-info-type-b' style={{ fontSize: '2.5rem', padding: '.33rem .66rem' }}>⬆</p> */}
                             {/* <p className='title-info-type-b' style={{ padding: '.33rem .66rem' }}>Selecione algum assunto SQL</p> */}
                             <p className='title-info-type-b-bigger' style={{ padding: '.33rem .66rem' }}>Primeira vez no módulo prático?</p>
-                            <p className='title-info-type-b-bigger'>Veja o tutorial 📜 no canto superior esquerdo da tela</p>
+                            <p className='title-info-type-b-bigger'><span className='indicator-left-up'>⬩➤</span> Veja o tutorial 📜 no canto superior esquerdo da tela</p>
                         </div>
                     </div>
                 </div>
