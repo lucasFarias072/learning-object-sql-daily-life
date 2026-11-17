@@ -211,10 +211,9 @@
 .tool {
     background: #1F2937;
     border-radius: .2rem;
-    color: #D1FAE5;
+    color: white;
     text-shadow: 0 0 .1rem #D1FAE5;
-    padding: .2rem;
-    text-transform: uppercase;
-    font-size: .8rem;
-    letter-spacing: .5px;
+    padding: .4rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
 }

@@ -15,7 +15,7 @@ export function AggregationRepresentation() {
                 <div id="rep-body-aggregate" className="flex column gap-xsm theory-layout">
                     <ul className="flex column gap-sm">
                         <li>⬩➤ Imagine o <Frame cmd='shine i !u' label='processo de dar significado'/>.</li>
-                        <li>⬩➤ Num <Frame cmd='d-blue i !u' label='dicionário'/>, <Frame cmd='' label='procura-se'/> <Frame cmd='ylw i !u' label='uma palavra em uma seção'/> para <Frame cmd='' label='chegar'/> num <Frame cmd='blue i !u' label='significado'/>.</li>
+                        <li>⬩➤ Em um <Frame cmd='d-blue i !u' label='dicionário'/>, <Frame cmd='' label='procura-se'/> <Frame cmd='ylw i !u' label='uma palavra em uma seção'/> para <Frame cmd='' label='chegar'/> num <Frame cmd='blue i !u' label='significado'/>.</li>
                         <li>⬩➤ <Frame cmd='d-blue i !u' label='dicionário'/> ➜ <Frame cmd='' label='tabela'/> no <Sql word='sql'/>.</li>
                         <li>⬩➤ <Frame cmd='ylw i !u' label='seção/palavra'/> ➜ <Frame cmd='' label='coluna de uma tabela = seção'/> no <Sql word='sql'/>, onde <Frame cmd='' label='existem vários valores = palavras'/>.</li>
                         <li>⬩➤ <Frame cmd='blue i !u' label='significado'/> ➜ <Frame cmd='' label='aplicação da função agregadora'/> do <Sql word='sql'/>.</li>

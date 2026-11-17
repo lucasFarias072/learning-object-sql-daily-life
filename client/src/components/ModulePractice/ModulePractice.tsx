@@ -457,13 +457,16 @@ export function ModulePractice() {
                 </div>
                 
                 <div id="query-tools" className={`${chosenQuery ? 'column go-center gap-sm' : 'column go-center gap-sm disabled'}  ${hlQueryTools}`}>
-                    <div className="flex row go-center gap-xsm">
+                    <div className="flex row go-center gap-xsm mb-1">
                         <p className="indicator-left">⬩➤</p>
                         <h1 className="title-sm title-info-type-b">Recursos</h1>
                         <p className="indicator">⬩➤</p>
                     </div>
                     <div className="flex column go-left gap-xsm">
-                        <p id="resource-status">⭐ {statusLabel}</p>
+                        <div className='flex row go-right gap-sm'>
+                            <p id="resource-status" className='tool'>⭐ {statusLabel.split(":")[0]}:</p>
+                            <p id="resource-status" className='tool'>{statusLabel.split(":")[1]}</p>
+                        </div>
                         <div className="row">
                             <div id="p-console-frame" className={`flex row gap-sm resource ${hlPConsoleFrame}`}>
                                 <p id="p-console" className='tool'>{consoleOn ? '🟢 Console de Digitação' : '🔴 Console de Digitação'}</p> 
