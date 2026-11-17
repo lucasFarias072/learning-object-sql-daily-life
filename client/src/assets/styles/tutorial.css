@@ -45,6 +45,14 @@
     animation: tutorial-shake-v2 2s ease-in-out infinite;
 }
 
+.tutorial-cpt-sample {
+    /* background: var(--modal-layout); */
+    border: var(--deep-blue) solid 1px;
+    border-radius: .15rem;
+    box-shadow: 0 0 .25rem #222;
+    padding: .33rem;
+}
+
 #tutorial-indicator {
     cursor: pointer;
     font-size: 2rem;

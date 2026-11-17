@@ -1,7 +1,7 @@
 
 
 .indicator,
-.indicator-left {
+.indicator-left, .indicator-left-up {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -13,6 +13,11 @@
 
 .indicator-left {
     transform: rotate(180deg);
+    transform-origin: center;
+}
+
+.indicator-left-up {
+    transform: rotate(200deg);
     transform-origin: center;
 }
 
